@@ -31,13 +31,13 @@ public class CategoriaController { //CRUD METHODS ------------------------------
     public ResponseEntity<List<CategoriaTable>> getAll() {
         return ResponseEntity.ok(repository.findAll());
     }
-    @GetMapping("/{id}")
-    public Optional<CategoriaTable> getById(@PathVariable Long id) {
-        return repository.findById(id);
+    @GetMapping("/id/{id}")
+    public ResponseEntity<CategoriaTable> getById(@PathVariable Long id) {
+        return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
     }
-    @GetMapping("/{nomeCat}")
-    public ResponseEntity<List<CategoriaTable>> getByNome(@PathVariable String nomeCat) {
-        return ResponseEntity.ok(repository.findAllByNomeCatContainingIgnoreCase(nomeCat)) ;
+    @GetMapping("/nome/{nome}")
+    public ResponseEntity<List<CategoriaTable>> getByNome(@PathVariable String nome) {
+        return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome)) ;
     }
 
     //FIM DOS METODOS GET --------------------------------------------------------\\
