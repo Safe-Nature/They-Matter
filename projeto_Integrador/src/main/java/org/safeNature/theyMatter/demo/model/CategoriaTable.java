@@ -17,7 +17,7 @@ public class CategoriaTable {
 	private Long id;
 	
 	@Column
-	private String nome_cat;
+	private String nomeCat;
 	
 	@Column
 	private String regiao;
@@ -29,11 +29,11 @@ public class CategoriaTable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getNome_cat() {
-		return nome_cat;
+	public String getNomeCat() {
+		return nomeCat;
 	}
-	public void setNome_cat(String nome_cat) {
-		this.nome_cat = nome_cat;
+	public void setNomeCat(String nomeCat) {
+		this.nomeCat = nomeCat;
 	}
 	public String getRegiao() {
 		return regiao;
