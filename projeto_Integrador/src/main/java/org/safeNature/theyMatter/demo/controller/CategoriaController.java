@@ -1,7 +1,6 @@
 package org.safeNature.theyMatter.demo.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.safeNature.theyMatter.demo.model.CategoriaTable;
 import org.safeNature.theyMatter.demo.repository.CategoriaRepository;

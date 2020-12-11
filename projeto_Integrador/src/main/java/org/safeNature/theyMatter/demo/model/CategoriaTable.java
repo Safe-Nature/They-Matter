@@ -52,5 +52,13 @@ public class CategoriaTable {
 	public void setRegiao(String regiao) {
 		this.regiao = regiao;
 	}
+
+	public List<ProdutosTable> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<ProdutosTable> produtos) {
+		this.produtos = produtos;
+	}
 	
 }

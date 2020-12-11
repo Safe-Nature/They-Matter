@@ -2,7 +2,6 @@ package org.safeNature.theyMatter.demo.controller;
 
 import java.util.List;
 
-import org.safeNature.theyMatter.demo.model.CategoriaTable;
 import org.safeNature.theyMatter.demo.model.ProdutosTable;
 import org.safeNature.theyMatter.demo.repository.ProdutosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,10 +39,6 @@ public class ProdutosController {//CRUD METHODS --------------------------------
 	        return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome)) ;
 	    }
 	 
-	 @GetMapping("/tamanho/{tamanho}")
-	    public ResponseEntity<List<ProdutosTable>> getByTamanho(@PathVariable String nome) {
-	        return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome)) ;
-	    }
 
 	 //FIM DOS METODOS GET --------------------------------------------------------\\
 
