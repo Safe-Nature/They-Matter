@@ -2,7 +2,6 @@ package org.safeNature.theyMatter.demo.controller;
 
 import java.util.List;
 
-import org.safeNature.theyMatter.demo.model.ProdutosTable;
 import org.safeNature.theyMatter.demo.model.UsuariosTable;
 import org.safeNature.theyMatter.demo.repository.UsuariosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,7 +60,23 @@ public class UsuariosController {//CRUD METHODS --------------------------------
 			usuariosRepository.save(usuarios);
 			return usuarios;
 	}
-	
+	@PutMapping("put2/{id}")
+	public ResponseEntity<UsuariosTable> put2(@PathVariable Long id, @RequestBody UsuariosTable usuarios) {
+		return usuariosRepository.findById(id)
+		           .map(record -> {
+		        	   if(usuarios.getNome() != null) {
+		        		   record.setNome(usuarios.getNome());
+		        	   }
+		        	   if(usuarios.getEmail() != null) {
+		        		   record.setEmail(usuarios.getEmail());
+		        	   }
+		        	   if(usuarios.getPassword() != null) {
+		        		   record.setPassword(usuarios.getPassword());
+		        	   }
+		               UsuariosTable updated = usuariosRepository.save(record);
+		               return ResponseEntity.ok().body(updated);
+				   }).orElse(ResponseEntity.notFound().build());
+				}
 	// ------------------------------------------------------------------------------\\
 
 	//

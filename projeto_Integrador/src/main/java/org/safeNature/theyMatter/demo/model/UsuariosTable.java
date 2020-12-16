@@ -6,12 +6,11 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
-import com.sun.istack.NotNull;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="usuarios")
@@ -33,10 +32,11 @@ public class UsuariosTable {
 	@Column
 	@NotNull
 	private String password;
+
+	@OneToOne(mappedBy = "usuarios")
+	@JsonIgnoreProperties("usuarios")
+	private LocationTable location;
 	
-	//@OneToMany
-	//@JoinColumn(name = "id_pedidos")
-	//public PedidosTable pedido;
 
 	public Long getId() {
 		return id;
@@ -69,19 +69,14 @@ public class UsuariosTable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
-	
 
-	//public PedidosTable getPedido() {
-	//	return pedido;
-	//}
+	public LocationTable getLocation() {
+		return location;
+	}
 
-	//public void setPedido(PedidosTable pedido) {
-	//	this.pedido = pedido;
-	//}
-
-	
+	public void setLocation(LocationTable location) {
+		this.location = location;
+	}
 	
 	
 }
