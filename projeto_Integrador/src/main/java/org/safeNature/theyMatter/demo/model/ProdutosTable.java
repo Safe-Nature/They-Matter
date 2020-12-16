@@ -39,9 +39,13 @@ public class ProdutosTable {
 	@Column
 	private String imagem;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "id_categoria")
 	public CategoriaTable categoria;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_animais")
+	public AnimaisTable animais;
 
 
 	public ProdutosTable(){
@@ -114,5 +118,18 @@ public class ProdutosTable {
 
 	public void setId(Long id) {
 		this.id = id;
+
 	}
+
+
+	public AnimaisTable getAnimais() {
+		return animais;
+	}
+
+
+	public void setAnimais(AnimaisTable animais) {
+		this.animais = animais;
+	}
+	
+	
 }
