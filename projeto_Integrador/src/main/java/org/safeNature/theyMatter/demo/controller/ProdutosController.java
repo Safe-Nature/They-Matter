@@ -26,14 +26,14 @@ public class ProdutosController {//CRUD METHODS --------------------------------
 
     //METODOS GET --------------------------------------------------------------\\
 
-	@GetMapping("/todas")
-	public ResponseEntity<List<ProdutosTable>> getAll(){
-		return ResponseEntity.ok(produtosRepository.findAll());
-	}
+	@GetMapping("/todos")
+	public ResponseEntity<List<ProdutosTable>>getAll() {
+        return ResponseEntity.ok(produtosRepository.findAll());
+    }
 
 	@GetMapping("/id/{id}")
-	public ResponseEntity<ProdutosTable> getById(@PathVariable Long idProduto) {
-		return produtosRepository.findById(idProduto).map(resp -> ResponseEntity.ok(resp))
+	public ResponseEntity<ProdutosTable> getById(@PathVariable Long id) {
+		return produtosRepository.findById(id).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
 	}
 

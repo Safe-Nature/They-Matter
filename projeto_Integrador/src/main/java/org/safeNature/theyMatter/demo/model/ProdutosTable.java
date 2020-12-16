@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
 @Table(name="produtos")
@@ -39,8 +41,9 @@ public class ProdutosTable {
 	@Column
 	private String imagem;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "id_categoria")
+	@JsonIgnoreProperties("produtos")
 	public CategoriaTable categoria;
 
 
