@@ -8,7 +8,6 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -21,7 +20,6 @@ public class AnimaisTable {
 	private Long id;
 	
 	@Column
-	@NotNull
 	private String nome;
 	
 	@Column
@@ -72,10 +70,4 @@ public class AnimaisTable {
 		this.produtos = produtos;
 	}
 
-
-	
-	
-	
-	
-	
 }

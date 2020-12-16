@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.safeNature.theyMatter.demo.model.AnimaisTable;
 import org.safeNature.theyMatter.demo.repository.AnimaisRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,7 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/animais")
 public class AnimaisController {
-	
+
+
+	@Autowired
 	 public AnimaisRepository animaisRepository; //Injeta o repositorio dentro dessa classe.
 
 	    //METODOS GET --------------------------------------------------------------\\
@@ -49,8 +52,8 @@ public class AnimaisController {
 	    // ----------------------------------------------------------------\\
 
 	    @PostMapping("/post")
-	    public ResponseEntity<AnimaisTable> post(@RequestBody AnimaisTable animais) {
-	        return ResponseEntity.status(HttpStatus.CREATED).body(animaisRepository.save(animais));
+	    public ResponseEntity<AnimaisTable> post(@RequestBody AnimaisTable animaisTable) {
+	        return ResponseEntity.status(HttpStatus.CREATED).body(animaisRepository.save(animaisTable));
 	    }
 	    // -----------------------------------------------------------------------------\\
 
@@ -60,10 +63,10 @@ public class AnimaisController {
 	    // PUT/UPDATE------------------------------------------------------------\\
 
 	    @PutMapping("put/{id}")
-	    public AnimaisTable put(@PathVariable Long id, @RequestBody AnimaisTable animais) {
-	        animais.setId(id);
-	        animaisRepository.save(animais);
-	        return animais;
+	    public AnimaisTable put(@PathVariable Long id, @RequestBody AnimaisTable animaisTable) {
+	        animaisTable.setId(id);
+			animaisRepository.save(animaisTable);
+			return animaisTable;
 	    }
 
 	    // ------------------------------------------------------------------------------\\
