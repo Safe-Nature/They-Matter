@@ -5,6 +5,7 @@ import java.util.List;
 import org.safeNature.theyMatter.demo.model.CategoriaTable;
 import org.safeNature.theyMatter.demo.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,56 +23,62 @@ import org.springframework.web.bind.annotation.PutMapping;
 public class CategoriaController { //CRUD METHODS ----------------------------------------------------------------\\
     
     @Autowired
-    public CategoriaRepository repository; //Injeta o repositorio dentro dessa classe.
+    public CategoriaRepository categoriaRepository; //Injeta o repositorio dentro dessa classe.
 
     //METODOS GET --------------------------------------------------------------\\
 
     @GetMapping("/todas")
     public ResponseEntity<List<CategoriaTable>> getAll() {
-        return ResponseEntity.ok(repository.findAll());
+        return ResponseEntity.ok(categoriaRepository.findAll());
     }
     @GetMapping("/id/{id}")
     public ResponseEntity<CategoriaTable> getById(@PathVariable Long id) {
-        return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
+        return categoriaRepository.findById(id).map(resp -> ResponseEntity.ok(resp))
+                .orElse(ResponseEntity.notFound().build());
     }
+
     @GetMapping("/nome/{nome}")
     public ResponseEntity<List<CategoriaTable>> getByNome(@PathVariable String nome) {
-        return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome)) ;
+        return ResponseEntity.ok(categoriaRepository.findAllByNomeContainingIgnoreCase(nome));
     }
 
-    //FIM DOS METODOS GET --------------------------------------------------------\\
+    // FIM DOS METODOS GET
+    // --------------------------------------------------------\\
 
-                                        //
+    //
 
-    //METODO POST ----------------------------------------------------------------\\
+    // METODO POST
+    // ----------------------------------------------------------------\\
 
     @PostMapping("/post")
-    public CategoriaTable post(@RequestBody CategoriaTable categoria){
-        return repository.save(categoria);
+    public ResponseEntity<CategoriaTable> post(@RequestBody CategoriaTable categoria) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(categoriaRepository.save(categoria));
     }
-    //-----------------------------------------------------------------------------\\
+    // -----------------------------------------------------------------------------\\
 
-                                        //
+    //
 
-    //METODO PUT/UPDATE------------------------------------------------------------\\
+    // METODO
+    // PUT/UPDATE------------------------------------------------------------\\
 
     @PutMapping("put/{id}")
     public CategoriaTable put(@PathVariable Long id, @RequestBody CategoriaTable categoria) {
         categoria.setId(id);
-        repository.save(categoria);
+        categoriaRepository.save(categoria);
         return categoria;
     }
 
-    //------------------------------------------------------------------------------\\
+    // ------------------------------------------------------------------------------\\
 
-                                        //
+    //
 
-    //METODO DELETE -----------------------------------------------------------------\\
+    // METODO DELETE
+    // -----------------------------------------------------------------\\
 
     @DeleteMapping("/delete/{id}")
-    public String deletar(@PathVariable Long id){
-        try{
-            repository.deleteById(id);
+    public String deletar(@PathVariable Long id) {
+        try {
+            categoriaRepository.deleteById(id);
             return "Sucesso";
         } catch(Exception e) {
             return "Erro: "+ e.getMessage();

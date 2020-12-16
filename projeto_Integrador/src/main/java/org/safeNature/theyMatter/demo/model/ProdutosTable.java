@@ -1,15 +1,16 @@
 package org.safeNature.theyMatter.demo.model;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="produtos")
@@ -38,20 +39,16 @@ public class ProdutosTable {
 	@Column
 	private String imagem;
 	
-	@ManyToOne
-	@JsonIgnoreProperties("produtos")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_categoria")
 	public CategoriaTable categoria;
 
+
+	public ProdutosTable(){
+		
+	}
 	//GETTERS E SETTERS 
 	
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getNome() {
 		return nome;
@@ -100,5 +97,22 @@ public class ProdutosTable {
 	public void setImagem(String imagem) {
 		this.imagem = imagem;
 	}
+
 	
+
+	public CategoriaTable getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(CategoriaTable categoria) {
+		this.categoria = categoria;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 }
