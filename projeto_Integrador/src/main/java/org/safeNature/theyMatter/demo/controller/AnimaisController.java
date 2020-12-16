@@ -67,7 +67,9 @@ public class AnimaisController {
 	        animaisTable.setId(id);
 			animaisRepository.save(animaisTable);
 			return animaisTable;
-	    }
+		}
+		
+		
 
 	    // ------------------------------------------------------------------------------\\
 

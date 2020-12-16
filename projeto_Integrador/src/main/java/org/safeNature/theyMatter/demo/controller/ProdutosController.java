@@ -42,13 +42,11 @@ public class ProdutosController {//CRUD METHODS --------------------------------
 		return ResponseEntity.ok(produtosRepository.findAllByNomeContainingIgnoreCase(nome));
 	}
 
-	// FIM DOS METODOS GET
 	// --------------------------------------------------------\\
 
 	//
 
-	// METODO POST
-	// ----------------------------------------------------------------\\
+	//METODO POST ----------------------------------------------------------------\\
 
 	@PostMapping("/post")
 	public ResponseEntity<ProdutosTable> post(@RequestBody ProdutosTable produtos) {
@@ -58,8 +56,7 @@ public class ProdutosController {//CRUD METHODS --------------------------------
 
 	//
 
-	// METODO
-	// PUT/UPDATE------------------------------------------------------------\\
+	//METODO PUT/UPDATE------------------------------------------------------------\\
 
 	@PutMapping("put/{id}")
 	public ProdutosTable put(@PathVariable Long id, @RequestBody ProdutosTable produtos) {
@@ -70,10 +67,9 @@ public class ProdutosController {//CRUD METHODS --------------------------------
 
 	// ------------------------------------------------------------------------------\\
 
-	//
+	// 
 
-	// METODO DELETE
-	// -----------------------------------------------------------------\\
+	//METODO DELETE -----------------------------------------------------------------\\
 
 	@DeleteMapping("/delete/{id}")
 	public String deletar(@PathVariable Long idProduto) {
