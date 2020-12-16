@@ -8,6 +8,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface UsuariosRepository extends JpaRepository<UsuariosTable, Long>{
 
 	public List<UsuariosTable> findAllByNomeContainingIgnoreCase(String nome);
+
+	
+
 	
 }
 
