@@ -19,7 +19,6 @@ public class Security extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-				.anyRequest().authenticated()
 				.antMatchers("/").permitAll()
 
 				//Permissões ENDPOINT usuario; ------------------------------------
@@ -42,7 +41,7 @@ public class Security extends WebSecurityConfigurerAdapter {
 				.antMatchers(HttpMethod.DELETE, "/produtos/delete/{id}").hasRole("ADMIN")
 
 				//--------------------------------------------------------------------------
-
+				.anyRequest().authenticated()
 				.and().formLogin().permitAll()
 				.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 				.and().cors().and().csrf().disable();
