@@ -18,12 +18,35 @@ public class Security extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().authorizeRequests().antMatchers(HttpMethod.GET, "/").permitAll()
-				.antMatchers(HttpMethod.POST, "/cadastrar").permitAll().antMatchers(HttpMethod.GET, "/cadastrar")
-				.hasRole("ADMIN").antMatchers(HttpMethod.POST, "/cadastrar").hasRole("ADMIN")
-				.antMatchers(HttpMethod.GET, "/formTema").permitAll().antMatchers(HttpMethod.POST, "/formTema")
-				.hasRole("ADMIN").anyRequest().authenticated().and().formLogin().permitAll().and().logout()
-				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
+		http.authorizeRequests()
+				.anyRequest().authenticated()
+				.antMatchers("/").permitAll()
+
+				//Permissões ENDPOINT usuario; ------------------------------------
+
+				.antMatchers(HttpMethod.POST,"usuarios/post").permitAll()
+				.antMatchers(HttpMethod.GET,"usuarios/todos").hasRole("ADMIN")
+				.antMatchers(HttpMethod.DELETE,"usuarios/delete/{id}").hasRole("ADMIN")
+
+				//-----------------------------------------------------------------
+
+												//
+
+				//Permissões dos ENDPOINTS da tabela produtos ----------------------------
+
+				.antMatchers(HttpMethod.GET,"/produtos/todos").permitAll()
+				.antMatchers(HttpMethod.GET,"/produtos/id/{id}").permitAll()
+				.antMatchers(HttpMethod.GET,"/produtos/nome/{nome}").permitAll()
+				.antMatchers(HttpMethod.POST, "/produtos/post").hasRole("ADMIN")
+				.antMatchers(HttpMethod.PUT, "/produtos/put/{id}").hasRole("ADMIN")
+				.antMatchers(HttpMethod.DELETE, "/produtos/delete/{id}").hasRole("ADMIN")
+
+				//--------------------------------------------------------------------------
+
+				.and().formLogin().permitAll()
+				.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+				.and().cors().and().csrf().disable();
+
 	}
 
 	@Override

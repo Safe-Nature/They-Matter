@@ -20,11 +20,15 @@ import javax.validation.constraints.NotNull;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "usuarios")
-public class UsuariosTable implements UserDetails, Serializable {
+public class UsuariosTable implements UserDetails {
+
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column
@@ -41,14 +45,13 @@ public class UsuariosTable implements UserDetails, Serializable {
 
 	@Column
 	@NotNull
-	private String password;
+	private String senha;
 
 	@OneToOne(mappedBy = "usuarios")
-	@JsonIgnoreProperties("usuarios")
 	private LocationTable location;
 
 	@ManyToMany
-	@JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "login"),
+	@JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id"),
 	inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "nomeRole"))
 	private List<Roles> roles;
 
@@ -62,7 +65,7 @@ public class UsuariosTable implements UserDetails, Serializable {
 	@Override
 	public String getPassword() 
 	{
-		return this.password;   	
+		return this.senha;   	
 	}
 	@Override
 	public String getUsername() 
@@ -115,13 +118,6 @@ public class UsuariosTable implements UserDetails, Serializable {
 		this.email = email;
 	}
 
-	public String getSenha() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
 
 	public LocationTable getLocation() {
 		return location;
@@ -137,6 +133,14 @@ public class UsuariosTable implements UserDetails, Serializable {
 
 	public void setRoles(List<Roles> roles) {
 		this.roles = roles;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 }

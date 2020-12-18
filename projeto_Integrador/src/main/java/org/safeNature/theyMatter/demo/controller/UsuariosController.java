@@ -70,8 +70,8 @@ public class UsuariosController {//CRUD METHODS --------------------------------
 		        	   if(usuarios.getEmail() != null) {
 		        		   record.setEmail(usuarios.getEmail());
 		        	   }
-		        	   if(usuarios.getPassword() != null) {
-		        		   record.setPassword(usuarios.getPassword());
+		        	   if(usuarios.getSenha() != null) {
+		        		   record.setSenha(usuarios.getSenha());
 		        	   }
 		               UsuariosTable updated = usuariosRepository.save(record);
 		               return ResponseEntity.ok().body(updated);

@@ -13,6 +13,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 public class Roles  implements GrantedAuthority{
 	
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	private String nomeRole;
 	
@@ -34,16 +39,6 @@ public class Roles  implements GrantedAuthority{
 
 	public void setNomeRole(String nomeRole) {
 		this.nomeRole = nomeRole;
-	}
-
-
-	public List<UsuariosTable> getUsuarios() {
-		return usuarios;
-	}
-
-
-	public void setUsuarios(List<UsuariosTable> usuarios) {
-		this.usuarios = usuarios;
 	}
 	
 
