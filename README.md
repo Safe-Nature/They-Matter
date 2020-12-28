@@ -10,8 +10,7 @@
  ##### AUTHORS: 
   * [Leonardo Moraes](https://www.linkedin.com/in/leommagalhaes/)
       <span style="
-        float: right;
-        margin-right: 20%; 
+        float: right; 
     ">![They-matter-logo](Assets/image%20(1).png)</span>
   * [Mariana Oliveira Antunes](https://www.linkedin.com/in/mariana-antunes-oliveira-70259491/)
   * [Bruno Estivalli](http://linkedin.com/in/bruno-estivalli-vicente-61b007202)
