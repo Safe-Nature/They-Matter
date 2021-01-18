@@ -1,0 +1,7 @@
+Cores para os componentes: {
+    #32462b -> verde
+    #172029 -> azul
+    #f2f2f2 -> branco
+
+}
+
