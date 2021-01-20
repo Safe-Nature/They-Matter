@@ -2,7 +2,7 @@ package org.safeNature.theyMatter.demo.controller;
 
 import java.util.List;
 
-import org.safeNature.theyMatter.demo.model.CategoriaTable;
+import org.safeNature.theyMatter.demo.model.Categoria;
 import org.safeNature.theyMatter.demo.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,17 +28,17 @@ public class CategoriaController { //CRUD METHODS ------------------------------
     //METODOS GET --------------------------------------------------------------\\
 
     @GetMapping("/todas")
-    public ResponseEntity<List<CategoriaTable>> getAll() {
+    public ResponseEntity<List<Categoria>> getAll() {
         return ResponseEntity.ok(categoriaRepository.findAll());
     }
     @GetMapping("/id/{id}")
-    public ResponseEntity<CategoriaTable> getById(@PathVariable Long id) {
+    public ResponseEntity<Categoria> getById(@PathVariable Long id) {
         return categoriaRepository.findById(id).map(resp -> ResponseEntity.ok(resp))
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping("/nome/{nome}")
-    public ResponseEntity<List<CategoriaTable>> getByNome(@PathVariable String nome) {
+    public ResponseEntity<List<Categoria>> getByNome(@PathVariable String nome) {
         return ResponseEntity.ok(categoriaRepository.findAllByNomeContainingIgnoreCase(nome));
     }
 
@@ -51,7 +51,7 @@ public class CategoriaController { //CRUD METHODS ------------------------------
     // ----------------------------------------------------------------\\
 
     @PostMapping("/post")
-    public ResponseEntity<CategoriaTable> post(@RequestBody CategoriaTable categoria) {
+    public ResponseEntity<Categoria> post(@RequestBody Categoria categoria) {
         return ResponseEntity.status(HttpStatus.CREATED).body(categoriaRepository.save(categoria));
     }
     // -----------------------------------------------------------------------------\\
@@ -62,7 +62,7 @@ public class CategoriaController { //CRUD METHODS ------------------------------
     // PUT/UPDATE------------------------------------------------------------\\
 
     @PutMapping("put/{id}")
-    public CategoriaTable put(@PathVariable Long id, @RequestBody CategoriaTable categoria) {
+    public Categoria put(@PathVariable Long id, @RequestBody Categoria categoria) {
         categoria.setId(id);
         categoriaRepository.save(categoria);
         return categoria;

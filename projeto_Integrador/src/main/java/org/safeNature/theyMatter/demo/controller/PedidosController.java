@@ -2,7 +2,7 @@ package org.safeNature.theyMatter.demo.controller;
 
 import java.util.List;
 
-import org.safeNature.theyMatter.demo.model.PedidosTable;
+import org.safeNature.theyMatter.demo.model.Pedidos;
 import org.safeNature.theyMatter.demo.repository.PedidosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +20,7 @@ public class PedidosController {
     public PedidosRepository pedidosRepository;
 
     @GetMapping("/all")
-    public ResponseEntity<List<PedidosTable>> get(@RequestBody PedidosTable pedidos) {
+    public ResponseEntity<List<Pedidos>> get(@RequestBody Pedidos pedidos) {
         return ResponseEntity.ok(pedidosRepository.findAll());
     }
 }

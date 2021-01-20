@@ -2,7 +2,7 @@ package org.safeNature.theyMatter.demo.controller;
 
 import java.util.List;
 
-import org.safeNature.theyMatter.demo.model.AnimaisTable;
+import org.safeNature.theyMatter.demo.model.Animais;
 import org.safeNature.theyMatter.demo.repository.AnimaisRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,17 +27,17 @@ public class AnimaisController {
 	    //METODOS GET --------------------------------------------------------------\\
 
 	    @GetMapping("/todos")
-	    public ResponseEntity<List<AnimaisTable>> getAll() {
+	    public ResponseEntity<List<Animais>> getAll() {
 	        return ResponseEntity.ok(animaisRepository.findAll());
 	    }
 	    @GetMapping("/id/{id}")
-	    public ResponseEntity<AnimaisTable> getById(@PathVariable Long id) {
+	    public ResponseEntity<Animais> getById(@PathVariable Long id) {
 	        return animaisRepository.findById(id).map(resp -> ResponseEntity.ok(resp))
 	                .orElse(ResponseEntity.notFound().build());
 	    }
 
 	    @GetMapping("/nome/{nome}")
-	    public ResponseEntity<List<AnimaisTable>> getByNome(@PathVariable String nome) {
+	    public ResponseEntity<List<Animais>> getByNome(@PathVariable String nome) {
 	        return ResponseEntity.ok(animaisRepository.findAllByNomeContainingIgnoreCase(nome));
 	    }
 	    
@@ -52,7 +52,7 @@ public class AnimaisController {
 	    // ----------------------------------------------------------------\\
 
 	    @PostMapping("/post")
-	    public ResponseEntity<AnimaisTable> post(@RequestBody AnimaisTable animaisTable) {
+	    public ResponseEntity<Animais> post(@RequestBody Animais animaisTable) {
 	        return ResponseEntity.status(HttpStatus.CREATED).body(animaisRepository.save(animaisTable));
 	    }
 	    // -----------------------------------------------------------------------------\\
@@ -63,7 +63,7 @@ public class AnimaisController {
 	    // PUT/UPDATE------------------------------------------------------------\\
 
 	    @PutMapping("put/{id}")
-	    public AnimaisTable put(@PathVariable Long id, @RequestBody AnimaisTable animaisTable) {
+	    public Animais put(@PathVariable Long id, @RequestBody Animais animaisTable) {
 	        animaisTable.setId(id);
 			animaisRepository.save(animaisTable);
 			return animaisTable;

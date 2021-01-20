@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="pedidos")
-public class PedidosTable {
+public class Pedidos {
     
     @Id
     @Column
@@ -27,7 +27,7 @@ public class PedidosTable {
 
     @ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_produto")
-	public ProdutosTable produto;
+	public Produtos produto;
 
     public Long getId() {
         return id;

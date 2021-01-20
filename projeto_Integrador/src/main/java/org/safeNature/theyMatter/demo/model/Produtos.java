@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="produtos")
-public class ProdutosTable {
+public class Produtos {
 	
 	@Id
 	@Column
@@ -41,15 +41,15 @@ public class ProdutosTable {
 	@ManyToOne
 	@JoinColumn(name = "id_categoria")
 	@JsonIgnoreProperties("produtos")
-	private CategoriaTable categoria;
+	private Categoria categoria;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_animais")
 	@JsonIgnoreProperties("produtos")
-	private AnimaisTable animais;
+	private Animais animais;
 
 
-	public ProdutosTable(){
+	public Produtos(){
 		
 	}
 	//GETTERS E SETTERS 
@@ -105,11 +105,11 @@ public class ProdutosTable {
 
 	
 
-	public CategoriaTable getCategoria() {
+	public Categoria getCategoria() {
 		return categoria;
 	}
 
-	public void setCategoria(CategoriaTable categoria) {
+	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
 
@@ -122,11 +122,11 @@ public class ProdutosTable {
 
 	}
 
-	public AnimaisTable getAnimais() {
+	public Animais getAnimais() {
 		return animais;
 	}
 
-	public void setAnimais(AnimaisTable animais) {
+	public void setAnimais(Animais animais) {
 		this.animais = animais;
 	}
 	

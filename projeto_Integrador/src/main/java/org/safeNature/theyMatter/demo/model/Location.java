@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="location")
-public class LocationTable {
+public class Location {
 	
 	
 	@Id
@@ -45,7 +45,7 @@ public class LocationTable {
 	@OneToOne
 	@JoinColumn(name = "id_usuarios")
 	@JsonIgnoreProperties("location")
-	private UsuariosTable usuarios;
+	private Usuarios usuarios;
 	
 	
 	//GETTERS AND SETTERS
@@ -89,11 +89,11 @@ public class LocationTable {
 		this.uf = uf;
 	}
 
-	public UsuariosTable getUsuarios() {
+	public Usuarios getUsuarios() {
 		return usuarios;
 	}
 
-	public void setUsuarios(UsuariosTable usuarios) {
+	public void setUsuarios(Usuarios usuarios) {
 		this.usuarios = usuarios;
 	}
 

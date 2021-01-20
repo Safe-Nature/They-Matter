@@ -1,15 +1,15 @@
 package org.safeNature.theyMatter.demo.repository;
 
 import java.util.List;
-import org.safeNature.theyMatter.demo.model.ProdutosTable;
-import org.safeNature.theyMatter.demo.model.UsuariosTable;
+import org.safeNature.theyMatter.demo.model.Produtos;
+import org.safeNature.theyMatter.demo.model.Usuarios;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface ProdutosRepository extends JpaRepository<ProdutosTable, Long> {
+public interface ProdutosRepository extends JpaRepository<Produtos, Long> {
 	
-	public List<ProdutosTable> findAllByNomeContainingIgnoreCase(String nome);
+	public List<Produtos> findAllByNomeContainingIgnoreCase(String nome);
 
-	public void save(UsuariosTable usuario);
+	public void save(Usuarios usuario);
 
 }

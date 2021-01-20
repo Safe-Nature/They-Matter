@@ -2,7 +2,7 @@ package org.safeNature.theyMatter.demo.controller;
 
 import java.util.List;
 
-import org.safeNature.theyMatter.demo.model.ProdutosTable;
+import org.safeNature.theyMatter.demo.model.Produtos;
 import org.safeNature.theyMatter.demo.repository.ProdutosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,18 +27,18 @@ public class ProdutosController {//CRUD METHODS --------------------------------
     //METODOS GET --------------------------------------------------------------\\
 
 	@GetMapping("/todos")
-	public ResponseEntity<List<ProdutosTable>>getAll() {
+	public ResponseEntity<List<Produtos>>getAll() {
         return ResponseEntity.ok(produtosRepository.findAll());
     }
 
 	@GetMapping("/id/{id}")
-	public ResponseEntity<ProdutosTable> getById(@PathVariable Long id) {
+	public ResponseEntity<Produtos> getById(@PathVariable Long id) {
 		return produtosRepository.findById(id).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
 	}
 
 	@GetMapping("/nome/{nome}")
-	public ResponseEntity<List<ProdutosTable>> getByNome(@PathVariable String nome) {
+	public ResponseEntity<List<Produtos>> getByNome(@PathVariable String nome) {
 		return ResponseEntity.ok(produtosRepository.findAllByNomeContainingIgnoreCase(nome));
 	}
 
@@ -49,7 +49,7 @@ public class ProdutosController {//CRUD METHODS --------------------------------
 	//METODO POST ----------------------------------------------------------------\\
 
 	@PostMapping("/post")
-	public ResponseEntity<ProdutosTable> post(@RequestBody ProdutosTable produtos) {
+	public ResponseEntity<Produtos> post(@RequestBody Produtos produtos) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(produtosRepository.save(produtos));
 	}
 	// -----------------------------------------------------------------------------\\
@@ -59,7 +59,7 @@ public class ProdutosController {//CRUD METHODS --------------------------------
 	//METODO PUT/UPDATE------------------------------------------------------------\\
 
 	@PutMapping("put/{id}")
-	public ProdutosTable put(@PathVariable Long id, @RequestBody ProdutosTable produtos) {
+	public Produtos put(@PathVariable Long id, @RequestBody Produtos produtos) {
 		produtos.setId(id);
 		produtosRepository.save(produtos);
 		return produtos;

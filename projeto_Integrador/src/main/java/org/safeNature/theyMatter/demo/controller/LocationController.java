@@ -2,7 +2,7 @@ package org.safeNature.theyMatter.demo.controller;
 
 import java.util.List;
 
-import org.safeNature.theyMatter.demo.model.LocationTable;
+import org.safeNature.theyMatter.demo.model.Location;
 import org.safeNature.theyMatter.demo.repository.LocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,12 +24,12 @@ public class LocationController { //CRUD METHODS -------------------------------
     //METODOS GET --------------------------------------------------------------\\
 
     @GetMapping("/todas")
-    public ResponseEntity<List<LocationTable>> getAll() {
+    public ResponseEntity<List<Location>> getAll() {
         return ResponseEntity.ok(locationRepository.findAll());
     }
     
     @GetMapping("/nome/{nome}")
-    public ResponseEntity<List<LocationTable>> getByNome(@PathVariable String nome) {
+    public ResponseEntity<List<Location>> getByNome(@PathVariable String nome) {
         return ResponseEntity.ok(locationRepository.findAllByNomeContainingIgnoreCase(nome));
     }
 
@@ -39,7 +39,7 @@ public class LocationController { //CRUD METHODS -------------------------------
     // ----------------------------------------------------------------\\
 
     @PostMapping("/post")
-    public ResponseEntity<LocationTable> post(@RequestBody LocationTable location) {
+    public ResponseEntity<Location> post(@RequestBody Location location) {
         return ResponseEntity.status(HttpStatus.CREATED).body(locationRepository.save(location));
     }
     // -----------------------------------------------------------------------------\\

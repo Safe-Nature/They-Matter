@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="categoria")
-public class CategoriaTable {
+public class Categoria {
 	
 
 	@Id
@@ -32,7 +32,7 @@ public class CategoriaTable {
 	
 	@OneToMany(mappedBy = "categoria", fetch= FetchType.LAZY)
 	@JsonIgnoreProperties("categoria")
-	private List<ProdutosTable> produtos;
+	private List<Produtos> produtos;
 
 	//GETTERS E SETTERS
 	
@@ -50,11 +50,11 @@ public class CategoriaTable {
 		this.regiao = regiao;
 	}
 
-	public List<ProdutosTable> getProdutos() {
+	public List<Produtos> getProdutos() {
 		return produtos;
 	}
 
-	public void setProdutos(List<ProdutosTable> produtos) {
+	public void setProdutos(List<Produtos> produtos) {
 		this.produtos = produtos;
 	}
 

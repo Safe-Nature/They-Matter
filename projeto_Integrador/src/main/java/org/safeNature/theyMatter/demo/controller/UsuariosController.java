@@ -2,7 +2,7 @@ package org.safeNature.theyMatter.demo.controller;
 
 import java.util.List;
 
-import org.safeNature.theyMatter.demo.model.UsuariosTable;
+import org.safeNature.theyMatter.demo.model.Usuarios;
 import org.safeNature.theyMatter.demo.repository.UsuariosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,12 +26,12 @@ public class UsuariosController {//CRUD METHODS --------------------------------
 	//METODOS GET --------------------------------------------------------------\\
 	
 	@GetMapping("/todos")
-	public ResponseEntity<List<UsuariosTable>>getAll(){
+	public ResponseEntity<List<Usuarios>>getAll(){
 		return ResponseEntity.ok(usuariosRepository.findAll());
 	}
 	
 	@GetMapping("/id/{id}")
-	public ResponseEntity<UsuariosTable> getById(@PathVariable Long id){
+	public ResponseEntity<Usuarios> getById(@PathVariable Long id){
 		return usuariosRepository.findById(id).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
 	}
@@ -44,7 +44,7 @@ public class UsuariosController {//CRUD METHODS --------------------------------
 	// ----------------------------------------------------------------\\
 
 	@PostMapping("/post")
-		public ResponseEntity<UsuariosTable> post(@RequestBody UsuariosTable usuarios) {
+		public ResponseEntity<Usuarios> post(@RequestBody Usuarios usuarios) {
 			return ResponseEntity.status(HttpStatus.CREATED).body(usuariosRepository.save(usuarios));
 	}
 	// -----------------------------------------------------------------------------\\
@@ -54,14 +54,8 @@ public class UsuariosController {//CRUD METHODS --------------------------------
 	// METODO
 	// PUT/UPDATE------------------------------------------------------------\\
 
-	@PutMapping("put/{id}")
-		public UsuariosTable put(@PathVariable Long id, @RequestBody UsuariosTable usuarios) {
-			usuarios.setId(id);
-			usuariosRepository.save(usuarios);
-			return usuarios;
-	}
-	@PutMapping("put2/{id}")
-	public ResponseEntity<UsuariosTable> put2(@PathVariable Long id, @RequestBody UsuariosTable usuarios) {
+	@PutMapping("update/{id}")
+	public ResponseEntity<Usuarios> put2(@PathVariable Long id, @RequestBody Usuarios usuarios) {
 		return usuariosRepository.findById(id)
 		           .map(record -> {
 		        	   if(usuarios.getNome() != null) {
@@ -73,7 +67,7 @@ public class UsuariosController {//CRUD METHODS --------------------------------
 		        	   if(usuarios.getSenha() != null) {
 		        		   record.setSenha(usuarios.getSenha());
 		        	   }
-		               UsuariosTable updated = usuariosRepository.save(record);
+		               Usuarios updated = usuariosRepository.save(record);
 		               return ResponseEntity.ok().body(updated);
 				   }).orElse(ResponseEntity.notFound().build());
 				}
@@ -93,5 +87,4 @@ public class UsuariosController {//CRUD METHODS --------------------------------
 		            return "Erro: "+ e.getMessage();
 		        }
 	}
-	
 }

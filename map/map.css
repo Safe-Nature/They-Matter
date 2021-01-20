@@ -1,0 +1,43 @@
+:root {
+    --size--small: 500px;
+    --size--big: 600px;
+}
+img{
+    object-fit: contain;
+}
+.mapa{
+    width: var(--size--small);
+    height: var(--size--small);
+}
+.amazonia {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.amazonia:hover {
+     
+    width: var(--size--big);
+    box-shadow: 1rem;
+    transform: scale(1);
+    transition: 0.5s;
+}
+.cerrado{
+    position: absolute;
+    top: 134px;
+    left: 247px;
+}
+.caatinga {
+        position: absolute;
+        top: 144px;
+        left: 527px;
+    }
+.pampa {
+    position: absolute;
+    top: 587px;
+    left: 290px;
+}
+.mAtlantica {
+    position: absolute;
+    top: 190px;
+    left: 323px;
+}

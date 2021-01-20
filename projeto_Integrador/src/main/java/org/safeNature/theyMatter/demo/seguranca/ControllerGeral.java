@@ -12,8 +12,4 @@ public class ControllerGeral {
 	private ProdutosRepository repository;
 	//localhost:8080 <- direciona p a index
 		
-
 	}
-
-
-

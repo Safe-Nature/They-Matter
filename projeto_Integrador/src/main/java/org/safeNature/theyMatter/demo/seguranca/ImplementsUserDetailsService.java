@@ -1,35 +1,67 @@
 package org.safeNature.theyMatter.demo.seguranca;
 
-import java.util.List;
-
-import javax.transaction.Transactional;
-
-import org.safeNature.theyMatter.demo.model.UsuariosTable;
-import org.safeNature.theyMatter.demo.repository.UsuariosRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
+import java.util.Collection;
+import org.safeNature.theyMatter.demo.model.Usuarios;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Repository;
 
-@Repository
-@Transactional
-public class ImplementsUserDetailsService implements UserDetailsService {
-@Autowired
-private UsuariosRepository usuariosRepository;
+public class ImplementsUserDetailsService implements UserDetails {
 
-@Override
-public UserDetails loadUserByUsername(String nome) throws UsernameNotFoundException{
-	List<UsuariosTable> usuario = usuariosRepository.findAllByNomeContainingIgnoreCase(nome);
-	
-	if(usuario == null) {
-		throw new UsernameNotFoundException("Usuario(a) não encontrado(a)!");
+    private static final long serialVersionUID = 1L;
+
+    private String userName;
+    private String password;
+
+    public ImplementsUserDetailsService(Usuarios user) {
+    	this.userName = user.getNome();
+    	this.password = user.getSenha();
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    public String getPassword() {
+        return this.password;
+    }
+
+    @Override
+    public String getUsername() {
+        return null;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	return new User(((UsuariosTable) usuario).getNome(), ((UsuariosTable) usuario).getPassword(), true, true, true, true, ((UsuariosTable) usuario).getAuthorities());
-}
-	
-	
 
-	
+	public String getUserName() {
+		return userName;
+    }
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+
 }

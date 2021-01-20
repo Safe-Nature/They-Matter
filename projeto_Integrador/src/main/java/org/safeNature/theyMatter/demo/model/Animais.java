@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "animais")
-public class AnimaisTable {
+public class Animais {
 
 	@Id
 	@Column
@@ -28,7 +28,7 @@ public class AnimaisTable {
 	
 	@OneToMany(mappedBy = "animais", fetch= FetchType.LAZY)
 	@JsonIgnoreProperties("animais")
-	private List<ProdutosTable> produtos;
+	private List<Produtos> produtos;
 
 
 	public Long getId() {
@@ -61,12 +61,12 @@ public class AnimaisTable {
 	}
 
 
-	public List<ProdutosTable> getProdutos() {
+	public List<Produtos> getProdutos() {
 		return produtos;
 	}
 
 
-	public void setProdutos(List<ProdutosTable> produtos) {
+	public void setProdutos(List<Produtos> produtos) {
 		this.produtos = produtos;
 	}
 

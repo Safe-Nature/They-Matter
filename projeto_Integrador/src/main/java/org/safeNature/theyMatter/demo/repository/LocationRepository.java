@@ -1,13 +1,13 @@
 package org.safeNature.theyMatter.demo.repository;
 import java.util.List;
 
-import org.safeNature.theyMatter.demo.model.LocationTable;
+import org.safeNature.theyMatter.demo.model.Location;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface LocationRepository extends JpaRepository<LocationTable, Long> {
+public interface LocationRepository extends JpaRepository<Location, Long> {
 	
-	public List<LocationTable> findAllByNomeContainingIgnoreCase(String nome);
+	public List<Location> findAllByNomeContainingIgnoreCase(String nome);
 
 		
 }
