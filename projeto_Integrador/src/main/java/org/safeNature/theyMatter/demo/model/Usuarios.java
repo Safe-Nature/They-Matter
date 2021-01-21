@@ -13,6 +13,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "usuarios")
 public class Usuarios {
@@ -38,6 +40,7 @@ public class Usuarios {
 	@NotNull
 	private Instant data =Instant.now();
 
+	@JsonIgnoreProperties
 	@OneToOne(mappedBy = "usuarios")
 	private Location location;
 

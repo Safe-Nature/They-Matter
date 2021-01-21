@@ -4,8 +4,8 @@ import java.nio.charset.Charset;
 import java.util.Optional;
 
 import org.apache.commons.codec.binary.Base64;
+import org.safeNature.theyMatter.demo.dto.userLogin;
 import org.safeNature.theyMatter.demo.model.Usuarios;
-import org.safeNature.theyMatter.demo.model.userLogin;
 import org.safeNature.theyMatter.demo.repository.UsuariosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

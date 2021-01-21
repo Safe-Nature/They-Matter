@@ -1,9 +1,12 @@
 package org.safeNature.theyMatter.demo.controller;
 
 import java.util.List;
+import java.util.Optional;
 
+import org.safeNature.theyMatter.demo.dto.userLogin;
 import org.safeNature.theyMatter.demo.model.Usuarios;
 import org.safeNature.theyMatter.demo.repository.UsuariosRepository;
+import org.safeNature.theyMatter.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,39 +21,47 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/usuario")
-public class UsuariosController {//CRUD METHODS ----------------------------------------------------------------\\
-	
+public class UsuariosController {// CRUD METHODS
+									// ----------------------------------------------------------------\\
+
 	@Autowired
 	public UsuariosRepository usuariosRepository;
-	
-	//METODOS GET --------------------------------------------------------------\\
-	
+
+	@Autowired
+	public UserService userService;
+
+	// METODOS GET --------------------------------------------------------------\\
+
 	@GetMapping("/todos")
-	public ResponseEntity<List<Usuarios>>getAll(){
+	public ResponseEntity<List<Usuarios>> getAll() {
 		return ResponseEntity.ok(usuariosRepository.findAll());
 	}
-	
+
 	@GetMapping("/id/{id}")
-	public ResponseEntity<Usuarios> getById(@PathVariable Long id){
+	public ResponseEntity<Usuarios> getById(@PathVariable Long id) {
 		return usuariosRepository.findById(id).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
 	}
 	// FIM DOS METODOS GET
-		// --------------------------------------------------------\\
+	// --------------------------------------------------------\\
 
-		//
+	//
 
 	// METODO POST
 	// ----------------------------------------------------------------\\
 
-	@PostMapping("/post")
-		public ResponseEntity<Usuarios> post(@RequestBody Usuarios usuarios) {
-			return ResponseEntity.status(HttpStatus.CREATED).body(usuariosRepository.save(usuarios));
-	}
+	@PostMapping("/logar")
+    public ResponseEntity<userLogin> Autentication(@RequestBody Optional<userLogin> user) {
+        return userService.login(user).map(resp -> ResponseEntity.ok(resp))
+        .orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
+    }
+
+    @PostMapping("/cadastrar")
+    public ResponseEntity<Usuarios> Post(@RequestBody Usuarios usuario) {
+        return ResponseEntity.status(HttpStatus.CREATED)
+            .body(userService.userRegister(usuario));
+    }
 	// -----------------------------------------------------------------------------\\
-
-	//
-
 	// METODO
 	// PUT/UPDATE------------------------------------------------------------\\
 

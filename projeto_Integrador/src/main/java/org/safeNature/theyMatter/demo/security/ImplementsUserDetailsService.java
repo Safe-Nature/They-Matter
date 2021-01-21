@@ -1,4 +1,4 @@
-package org.safeNature.theyMatter.demo.seguranca;
+package org.safeNature.theyMatter.demo.security;
 
 import java.util.Collection;
 import org.safeNature.theyMatter.demo.model.Usuarios;
