@@ -1,0 +1,40 @@
+.fad:hover{
+    color:darkgreen;
+}
+
+.sr:hover{
+    color: lightgreen;
+}
+
+.ca:hover{
+    color: green;
+}
+
+.pa:hover{
+    color: red;
+}
+
+.mat:hover{
+    color: gold;
+}
+
+.pam:hover{
+ color: orangered;
+}
+
+.pesquisar{
+    width: 700px;
+    border-radius: 10px 0 0 10px;
+}
+
+.btnpesquisar{
+    margin-left: -1px;
+    height: 38px;
+    border-radius: 0 10px 10px 0;
+}
+
+
+
+.bk{
+    background-color: darkolivegreen;
+}
