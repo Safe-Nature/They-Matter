@@ -1,0 +1,99 @@
+<div class="container-fluid">
+
+  <div class="row d-flex align-items-center ">
+
+    <div class="col-md-6">
+
+      <div class="row d-flex justify-content-center">
+        <span class="border">
+          <div class="col-md-12">
+
+
+            <h1 class="text-center mb-6 p-2 ">Entrar</h1>
+
+            <div class="form-group ml-4 mr-3">
+              <label for="usuario">Usuário</label>
+              <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Seu usuário">
+
+            </div>
+
+            <div class="form-group ml-4 mr-3">
+              <label for="Senha">Senha</label>
+              <input class="form-control" type="password" name="senha" id="senha" placeholder="Sua senha">
+
+            </div>
+            <hr>
+            <p class="text-center">
+              Esqueceu sua senha? <a routerLink= '/cadastrar'>Clique aqui.</a>
+             </p>
+            <div class="d-flex justify-content-center p-1 ml-4 mr-3 ">
+              <button type="submit" class="btn btn-dark btn-outline-success">Entrar</button>
+            </div>
+
+
+          </div>
+
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="container-fluid-right ml-3 p-3 ">
+
+      <div class="row">
+
+        <div class="row d-flex justify-content-center p-5 ">
+          <span class="border">
+            <div class="col-md-12 mr-4 ml-6 p-3">
+              <h1 class="text-center">Cadastro</h1>
+
+              <div class="form-group mr-2 ml-3">
+                <label for="nome">Nome</label>
+                <input class="form-control" type="text" name="name" id="name" placeholder="Seu nome">
+              </div>
+              <div class="form-group mr-2 ml-3">
+                <label for="usuario">Usuário</label>
+                <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Seu usuário">
+              </div>
+              <div class="form-group mr-3 ml-3">
+                <label for="email">E-mail</label>
+                <input class="form-control" type="text" name="email" id="email" placeholder="Seu e-mail">
+              </div>
+              <div class="form-group mr-2 ml-3">
+                <label for="Senha">Senha</label>
+                <input class="form-control" type="password" name="senha" id="senha" placeholder="Sua senha">
+              </div>
+              <div class="form-group mr-2 ml-3">
+                <label for="confirmSenha">Confirmar Senha</label>
+                <input class="form-control" type="password" name="confirmSenha" id="confirmSenha"
+                  placeholder="Confirme sua senha">
+              </div>
+              <div class="form-group mr-2 ml-3">
+                <label for="confirmSenha">Compartilhar Dados</label>
+                <select class="form-control" name="tipo" id="tipo">
+                  <option>Gostaria de receber e-mails?</option>
+                  <option value="sim">Sim</option>
+                  <option value="não">Não</option>
+
+                </select>
+              </div>
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn-dark mr-4 btn-outline-danger" routerLink='/entrar'>Cancelar</button>
+                <button type="submit" class="btn-dark btn-outline-success">Cadastrar</button>
+
+              </div>
+
+
+
+            </div>
+          </span>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
