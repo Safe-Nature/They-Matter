@@ -1,8 +1,8 @@
 package org.safeNature.theyMatter.demo.dto;
 
-import org.safeNature.theyMatter.demo.model.Usuarios;
-
 public class userLogin {
+
+    private Long id;
      
     private String nome;
 
@@ -42,6 +42,22 @@ public class userLogin {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
 

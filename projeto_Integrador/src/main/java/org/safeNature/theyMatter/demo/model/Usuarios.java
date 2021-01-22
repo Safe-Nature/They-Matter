@@ -84,4 +84,12 @@ public class Usuarios {
 		this.senha = senha;
 	}
 
+	public Instant getData() {
+		return data;
+	}
+
+	public void setData(Instant data) {
+		this.data = data;
+	}
+
 }
