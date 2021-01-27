@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginCadastroComponent } from './login-cadastro/login-cadastro.component';
 
 import { MainPageComponent } from './main-page/main-page.component'; 
 import { NavbarComponent } from './navbar/navbar.component';
@@ -14,7 +15,9 @@ import { FooterComponent } from './footer/footer.component';
     AppComponent,
     MainPageComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    LoginCadastroComponent
+    
   ],
   imports: [
     BrowserModule,
