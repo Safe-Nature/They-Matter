@@ -28,6 +28,5 @@ export class LoginCadastroComponent implements OnInit {
   }
   cadastro(usuario: Usuario): Observable<Usuario>{
     return this.http.post<Usuario>(this.userEndPoint + '/cadastrar', usuario)
-
   }
 }
