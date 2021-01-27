@@ -16,6 +16,8 @@
   * [Diego Joaquim da Silva](https://www.linkedin.com/in/diego-silva-061527156/)
   * [Patricia Machado](https://www.linkedin.com/in/patricia-machado-0ba0111ba/)
   * [Erick Alan](https://www.linkedin.com/in/erick-alan-7bb92b1b4/)
+  
+  
   <span style="
         float: right">![They-matter-logo](Assets/image%20(1).png)</span>
    
