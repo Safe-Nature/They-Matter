@@ -1,11 +1,31 @@
+/* tamanho da barra de calcular frete*/
 .tm{
     padding-inline: 20px;
     width: 30%;
     height: 28px;
 }
+/* borda do botao do frete*/
 .br{
-    border-radius: 25px;
+    border-radius: 38px;
 }
+/* tamanho da barra de total*/
 .tmt{
     width: 38%;
+}
+.botao{
+
+    transition: 0.2s;
+    top:-4px;
+    box-shadow:0 6px 4px #999;
+    color: white;
+    background: #00463F;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 16px;
+    
+}
+.botao:hover{
+    background-color: white;
+    color: black
+    
 }
