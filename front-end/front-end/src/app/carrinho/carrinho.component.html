@@ -1,0 +1,89 @@
+<div class="container-fluid">
+    <div class="row ">
+        <div class="col-md-12 mt-5">
+            <!--Titulo-->
+            <h2>Meu carrinho</h2>
+            <hr>
+            <!--/Titulo-->
+            <div class="row ">
+                <!-- coluna de produto-->
+                <div class="col-md-5">
+                    <p>Produto</p>
+                </div>
+                <!-- /coluna de produto-->
+
+                <!-- coluna de Quantidade-->
+                <div class="col-md-3">
+                    <p>Qtd.</p>
+                    <form action="#">
+                        <input type="number" min="1">
+                    </form>
+                </div>
+                <!-- /coluna de Quantidade-->
+
+                <!-- coluna de valor-->
+                <div class="col-md-3">
+                    <p>Valor</p>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">R$</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Quantia">
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- /coluna de valor-->
+            </div>
+
+            <!--coluna de total-->
+            <div class="row d-flex justify-content-end mt-5 mb-5">
+                <div class="col-md-4">
+                    <p>Total</p>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">R$</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Quantia">
+                        <div class="input-group-append tmt">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/coluna de total-->
+        </div>
+
+
+    </div>
+    <hr>
+    <div class="row ">
+        <!--coluna do calculo-->
+        <div class="col-md-12 mb-5 d-flex">
+            <p class="mt-1">Calcule frete e prazo</p>
+            <div class="input-group d-flex tm">
+                <input type="text" class="form-control" placeholder="ex.:00000-000" aria-label="Recipient's username"
+                    aria-describedby="button-addon2">
+                <div class="input-group-append ">
+                    <button class="br btn btn-outline-light bg-primary " type="button"
+                        id="button-addon2">Calcular</button>
+                </div>
+            </div>
+            <div class="d-flex align-items-center ">
+                <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank">Não sei meu cep</a>
+            </div>
+        </div>
+        <!--/coluna do calculo-->
+
+    </div>
+    <!--coluna do botao-->
+    <div class="row mt-5 mb-5">
+        <div class="col-md-12 d-flex justify-content-end">
+
+            <a href="#"><button class="botao">Continuar</button></a>
+        </div>
+    </div>
+    <!--/coluna do calculo-->
+
+</div>

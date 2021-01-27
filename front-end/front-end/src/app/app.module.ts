@@ -4,10 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginCadastroComponent } from './login-cadastro/login-cadastro.component';
-
 import { MainPageComponent } from './main-page/main-page.component'; 
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { CarrinhoComponent } from './carrinho/carrinho.component';
 
 
 @NgModule({
@@ -16,7 +16,8 @@ import { FooterComponent } from './footer/footer.component';
     MainPageComponent,
     NavbarComponent,
     FooterComponent,
-    LoginCadastroComponent
+    LoginCadastroComponent,
+    CarrinhoComponent
 
   ],
   imports: [
