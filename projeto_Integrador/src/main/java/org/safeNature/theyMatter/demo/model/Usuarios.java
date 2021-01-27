@@ -34,10 +34,7 @@ public class Usuarios {
 	@NotNull
 	private String senha;
 
-	@Column
-	@NotNull
-	private Instant data =Instant.now();
-
+	
 	@OneToOne(mappedBy = "usuarios")
 	private Location location;
 

@@ -1,8 +1,9 @@
 import { Usuario } from './../models/Usuario';
-import { UserLogin } from './../models/UserLogin';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+
+import { ConsumoService } from './../service/consumo.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login-cadastro',
@@ -11,22 +12,47 @@ import { Observable } from 'rxjs';
 })
 export class LoginCadastroComponent implements OnInit {
 
-  public userEndPoint = 'http://localhost:8081/usuarios'
+  usuario: Usuario = new Usuario
+  confirmarSenha: string
+  Dadosliberados: string
+
+  public userEndPoint = 'http://localhost:8081/usuario'
 
   constructor(
-
-    private http: HttpClient
-
+    private consumoService: ConsumoService,
+    private router: Router
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    window.scroll(0, 0)
   }
 
-  login(userLogin: UserLogin): Observable<UserLogin>{
-    return this.http.post<UserLogin>(this.userEndPoint + '/logar', userLogin)
+  login() {
 
   }
-  cadastro(usuario: Usuario): Observable<Usuario>{
-    return this.http.post<Usuario>(this.userEndPoint + '/cadastrar', usuario)
+  cadastrar() {
+    this.usuario = this.usuario
+    if (this.usuario.senha != this.confirmarSenha) {
+      alert('A senhas estão divergentes.')
+    }
+    else {
+      this.consumoService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
+        this.usuario = resp
+        this.router.navigate(['/inicio'])
+        alert('Seu cadastro foi efetudado com sucesso!')
+      })
+
+    }
+
   }
+
+  confirmSenha(event: any) {
+    this.confirmarSenha = event.target.value
+  }
+
+  LiberaDados(event: any) {
+    this.Dadosliberados = event.target.value
+  }
+
+
 }

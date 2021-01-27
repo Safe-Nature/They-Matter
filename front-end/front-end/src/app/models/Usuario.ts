@@ -1,8 +1,8 @@
 export class Usuario {
-    id: number
-    nome: string
-    email: string
-    senha: string
-    location: Location
-    date: Date
+    public id: number
+    public nome: string
+    public email: string
+    public senha: string
+    public location: Location
+    
 }

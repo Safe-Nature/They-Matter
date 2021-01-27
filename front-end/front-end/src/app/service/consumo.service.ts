@@ -9,7 +9,6 @@ import { Usuario } from '../models/Usuario';
 })
 export class ConsumoService {
 
-  public userEndPoint = 'http://localhost:8081/usuarios'
 
   constructor(
 
@@ -17,10 +16,10 @@ export class ConsumoService {
   ) { }
 
   login(userLogin: UserLogin): Observable<UserLogin>{
-    return this.http.post<UserLogin>(this.userEndPoint + '/logar', userLogin)
+    return this.http.post<UserLogin>("http://localhost:8081/usuario/logar", userLogin)
 
   }
-  cadastro(usuario: Usuario): Observable<Usuario>{
-    return this.http.post<Usuario>(this.userEndPoint + '/cadastrar', usuario)
+  cadastrar(usuario: Usuario): Observable<Usuario>{
+    return this.http.post<Usuario>("http://localhost:8081/usuario/cadastrar", usuario)
   }
 }

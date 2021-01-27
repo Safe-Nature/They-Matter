@@ -39,11 +39,12 @@ public class Security extends WebSecurityConfigurerAdapter {
 
 				//Permissões ENDPOINT usuario; ------------------------------------
 
-				.antMatchers(HttpMethod.POST,"usuarios/post").permitAll()
-				.antMatchers(HttpMethod.GET,"usuarios/todos").hasRole("ADMIN")
-				.antMatchers(HttpMethod.DELETE,"usuarios/delete/{id}").hasRole("ADMIN")
-				.antMatchers(HttpMethod.DELETE,"usuarios/delete/{id}").hasRole("USER")
-				.antMatchers(HttpMethod.PUT, "usuarios/{id}").hasRole("USER")
+				.antMatchers(HttpMethod.POST,"usuario/logar").permitAll()
+				.antMatchers(HttpMethod.POST,"usuario/cadastrar").permitAll()
+				.antMatchers(HttpMethod.GET,"usuario/todos").hasRole("ADMIN")
+				.antMatchers(HttpMethod.DELETE,"usuario/delete/{id}").hasRole("ADMIN")
+				.antMatchers(HttpMethod.DELETE,"usuario/delete/{id}").hasRole("USER")
+				.antMatchers(HttpMethod.PUT, "usuario/{id}").hasRole("USER")
 				//-----------------------------------------------------------------
 			
 				//Permissões dos ENDPOINTS da tabela produtos ----------------------------
@@ -60,7 +61,6 @@ public class Security extends WebSecurityConfigurerAdapter {
 				
           	  	.and().httpBasic()
            	 	.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            	.and().cors()
             	.and().csrf().disable();
 
 	}
