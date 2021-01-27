@@ -6,7 +6,7 @@
 
 #### <span style="color:gray">DESCRIPTION: **TheyMatter**</span> <span style="color: black"> API de e-commerce desenvolvida para o projeto integrador generation </span>
 
- ##### VERSION: 0.0.26(BETA)
+ ##### VERSION: 0.3.0(BETA)
  ##### AUTHORS: 
   * [Leonardo Moraes](https://www.linkedin.com/in/leommagalhaes/)
       
