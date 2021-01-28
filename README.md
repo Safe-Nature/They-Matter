@@ -9,8 +9,7 @@
  ##### VERSION: 0.3.0(BETA)
  ##### AUTHORS: 
   * [Leonardo Moraes](https://www.linkedin.com/in/leommagalhaes/)
-      
-  * [Mariana Oliveira Antunes](https://www.linkedin.com/in/mariana-antunes-oliveira-70259491/)
+  * [Mariana de Cassia Antunes Oliveira](https://www.linkedin.com/in/mariana-antunes-oliveira-70259491/)
   * [Bruno Estivalli](http://linkedin.com/in/bruno-estivalli-vicente-61b007202)
   * [Guilherme Fidelis](https://www.linkedin.com/in/guifidelis/)
   * [Diego Joaquim da Silva](https://www.linkedin.com/in/diego-silva-061527156/)
