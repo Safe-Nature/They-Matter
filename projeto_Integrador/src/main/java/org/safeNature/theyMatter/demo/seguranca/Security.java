@@ -60,7 +60,8 @@ public class Security extends WebSecurityConfigurerAdapter {
 
 				
           	  	.and().httpBasic()
-           	 	.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+				.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+				.and().cors()
             	.and().csrf().disable();
 
 	}
