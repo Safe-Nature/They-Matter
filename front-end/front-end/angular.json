@@ -132,10 +132,6 @@
   },
   "defaultProject": "front-end",
   "cli": {
-<<<<<<< HEAD
     "analytics": "19dce5a7-cfe4-4253-ae37-160320011b98"
-=======
-    "analytics": "4d15f5f7-6e00-47b1-b8d3-a92e0446d460"
->>>>>>> origin/carrinho
   }
 }
