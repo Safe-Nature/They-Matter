@@ -13,6 +13,8 @@ import { FooterComponent } from './footer/footer.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { SobreComponent } from './sobre/sobre.component';
+import { ProfileComponent } from './profile/profile.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { SobreComponent } from './sobre/sobre.component';
     LoginCadastroComponent,
     CarrinhoComponent,
     ProdutosComponent,
-    SobreComponent
+    SobreComponent,
+    ProfileComponent
+
   ],
   imports: [
     BrowserModule,
