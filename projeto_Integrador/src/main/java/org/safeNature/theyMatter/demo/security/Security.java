@@ -1,4 +1,4 @@
-package org.safeNature.theyMatter.demo.seguranca;
+package org.safeNature.theyMatter.demo.security;
 
 import org.safeNature.theyMatter.demo.model.Usuarios;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,7 +58,7 @@ public class Security extends WebSecurityConfigurerAdapter {
 
 				//--------------------------------------------------------------------------
 
-				
+				.anyRequest().permitAll()
           	  	.and().httpBasic()
 				.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 				.and().cors()
