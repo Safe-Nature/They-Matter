@@ -8,17 +8,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 var Usuario_1 = require("./../models/Usuario");
 var core_1 = require("@angular/core");
+var UserLogin_1 = require("../models/UserLogin");
 var LoginCadastroComponent = /** @class */ (function () {
     function LoginCadastroComponent(consumoService, router) {
         this.consumoService = consumoService;
         this.router = router;
         this.usuario = new Usuario_1.Usuario;
-        this.userEndPoint = 'http://localhost:8081/usuario';
+        this.userLogin = new UserLogin_1.UserLogin();
     }
     LoginCadastroComponent.prototype.ngOnInit = function () {
         window.scroll(0, 0);
     };
     LoginCadastroComponent.prototype.login = function () {
+        var _this = this;
+        this.consumoService.login(this.userLogin).subscribe(function (resp) {
+            _this.userLogin = resp;
+            _this.router.navigate(['/inicio']);
+        }, function (erro) {
+            if (erro.status == 500) {
+                alert('Usuario ou senha estão incorretos');
+            }
+        });
     };
     LoginCadastroComponent.prototype.cadastrar = function () {
         var _this = this;

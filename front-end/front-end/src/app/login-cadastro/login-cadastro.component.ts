@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { ConsumoService } from './../service/consumo.service';
 import { Router } from '@angular/router';
+import { UserLogin } from '../models/UserLogin';
+
 
 
 @Component({
@@ -15,21 +17,32 @@ export class LoginCadastroComponent implements OnInit {
   usuario: Usuario = new Usuario
   confirmarSenha: string
   Dadosliberados: string
+  userLogin : UserLogin = new UserLogin()
 
-  public userEndPoint = 'http://localhost:8081/usuario'
 
   constructor(
     private consumoService: ConsumoService,
     private router: Router
+
+
   ) { }
 
   ngOnInit() {
     window.scroll(0, 0)
   }
+  login(){
+    this.consumoService.login(this.userLogin).subscribe((resp : UserLogin)=>{
+      this.userLogin= resp
+      this.router.navigate(['/inicio'])
 
-  login() {
+    },erro =>{
+      if(erro.status ==500){
+        alert('Usuario ou senha estão incorretos')
+      }
+    }
+    )
+    }
 
-  }
   cadastrar() {
     this.usuario = this.usuario
     if (this.usuario.senha != this.confirmarSenha) {
@@ -53,6 +66,8 @@ export class LoginCadastroComponent implements OnInit {
   LiberaDados(event: any) {
     this.Dadosliberados = event.target.value
   }
+
+
 
 
 }
