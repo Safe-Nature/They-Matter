@@ -9,9 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 
-=======
 import { ProdutosComponent } from './produtos/produtos.component';
->>>>>>> origin/cards-produtos
 
 @NgModule({
   declarations: [
