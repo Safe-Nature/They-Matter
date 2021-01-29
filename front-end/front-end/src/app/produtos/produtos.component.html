@@ -3,17 +3,17 @@
   <div class="col-md-10">
 <!-- Cards 4 Produtos -->
 <div id="#" class="container mt-5">
-
-  <div class="card-deck">
+  
+  <div *ngFor="let produtos of produtos"  class="card-deck">
     <div class="card">
-      <img class="card-img-top" src="https://i.imgur.com/BSfSplP.jpg">
+      <img class="card-img-top" src="{{produtos.imagem}}">
       <div class="card-body">
-        <h4 class="card-title">Camiseta- They Matter</h4>
-        <h6 class="card-title">R$60,00</h6>
+        <h4 class="card-title">{{produtos.nome}}</h4>
+        <h6 class="card-title">R${{produtos.preco}}</h6>
         <p class="text-secondary">em 10X R$6,00</p>
         <hr>
-        <p class="card-text">Camiseta Super Cotton-Masculina</p>
-        <a href="#" class="btn btn-verde d-flex justify-content-center">Comprar</a>
+        <p class="card-text">{{produtos.descricao}}</p>
+        <a routerLink='/carrinho' class="btn btn-verde d-flex justify-content-center">Comprar</a>
       </div>
     </div>
 
@@ -26,7 +26,7 @@
         <p class="text-secondary">em 10X R$5,50</p>
         <hr>
         <p class="card-text">Camiseta Super Cotton- Feminina</p>
-        <a href="#" class="btn btn-verde d-flex justify-content-center">Comprar</a>
+        <a routerLink='/carrinho' class="btn btn-verde d-flex justify-content-center">Comprar</a>
       </div>
     </div>
 
@@ -40,7 +40,7 @@
 
         <hr>
         <p class="card-text">Sacola Reciclável- Logotipo Branca</p>
-        <a href="#" class="btn btn-verde d-flex justify-content-center">Comprar</a>
+        <a routerLink='/carrinho' class="btn btn-verde d-flex justify-content-center">Comprar</a>
       </div>
     </div>
 
@@ -52,14 +52,14 @@
         <p class="text-secondary">em 5X R$7,00</p>
         <hr>
         <p class="card-text">Caneca Eco Sustentável- Cor Preta</p>
-        <a href="#" class="btn btn-verde d-flex justify-content-center">Comprar</a>
+        <a routerLink='/carrinho' class="btn btn-verde d-flex justify-content-center">Comprar</a>
       </div>
     </div>
   </div>
 </div>
 
 <!-- Cards 4 Produtos -->
-<div id="#" class="container mt-5">
+<div id="#" class="container mt-5 mb-5">
 
   <div class="card-deck">
     <div class="card">
@@ -70,7 +70,7 @@
         <p class="text-secondary">em 5X R$7,00</p>
         <hr>
         <p class="card-text">Caneca Eco Sustentável- Cor Branca</p>
-        <a href="#" class="btn btn-verde d-flex justify-content-center">Comprar</a>
+        <a routerLink='/carrinho' class="btn btn-verde d-flex justify-content-center">Comprar</a>
       </div>
     </div>
 
@@ -83,13 +83,13 @@
         <p class="text-secondary">em 5X R$8,00</p>
         <hr>
         <p class="card-text">2 Canudos de Inox + Escova + Bag Higiênica</p>
-        <a href="#" class="btn btn-verde d-flex justify-content-center">Comprar</a>
+        <a routerLink='/carrinho' class="btn btn-verde d-flex justify-content-center">Comprar</a>
       </div>
     </div>
 
 
     <div class="card">
-      <img class="card-img-top" src="">
+      <img class="card-img-top" src="https://i.imgur.com/QrnjuqC.jpg">
       <div class="card-body">
         <h4 class="card-title">Sacola Ecológica- They Matter</h4>
         <h6 class="card-title">R$40,00</h6>
@@ -97,19 +97,19 @@
 
         <hr>
         <p class="card-text">Sacola Reciclável- Logotipo Branca</p>
-        <a href="#" class="btn btn-success d-flex justify-content-center">Comprar</a>
+        <a routerLink='/carrinho' class="btn btn-verde d-flex justify-content-center">Comprar</a>
       </div>
     </div>
 
     <div class="card">
-      <img class="card-img-top" src="">
+      <img class="card-img-top" src="https://i.imgur.com/QrnjuqC.jpg">
       <div class="card-body">
         <h4 class="card-title">Caneca- They Matter</h4>
         <h6 class="card-title">R$35,00</h6>
         <p class="text-secondary">em 5X R$7,50</p>
         <hr>
         <p class="card-text">Caneca Eco Sustentável- Cor Preta</p>
-        <a href="#" class="btn btn-success d-flex justify-content-center">Comprar</a>
+        <a routerLink='/carrinho' class="btn btn-verde d-flex justify-content-center">Comprar</a>
       </div>
     </div>
   </div>
