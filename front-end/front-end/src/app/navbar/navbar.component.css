@@ -1,5 +1,3 @@
-
-
 .fad:hover{
     color:darkgreen;
 }
@@ -34,17 +32,12 @@
     height: 38px;
     border-radius: 0 10px 10px 0;
 }
-
-
-
 .bk{
     background-color: #00463F;
 }
-
 .botao:active{
     border:solid black 2px;
 }
-
 .botao{
     font-size: 16pt;
 }
