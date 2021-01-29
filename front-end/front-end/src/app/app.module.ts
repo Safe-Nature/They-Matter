@@ -11,7 +11,8 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
-
+import { ProdutosComponent } from './produtos/produtos.component';
+import { SobreComponent } from './sobre/sobre.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +21,9 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
     NavbarComponent,
     FooterComponent,
     LoginCadastroComponent,
-    CarrinhoComponent
-
+    CarrinhoComponent,
+    ProdutosComponent,
+    SobreComponent
   ],
   imports: [
     BrowserModule,
