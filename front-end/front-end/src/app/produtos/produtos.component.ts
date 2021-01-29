@@ -10,7 +10,7 @@ import { ProdutosService } from '../service/produtos.service';
 })
 export class ProdutosComponent implements OnInit {
 
-  produtos: Produtos
+  produtos: Produtos[]
 
   constructor(
     private produtosService: ProdutosService 
@@ -20,10 +20,7 @@ export class ProdutosComponent implements OnInit {
 
   ngOnInit(){
 
-    this.produtosService.getAllProdutos().subscribe((resp: Produtos)=>{
-        this.produtos = resp
-
-    })
+    this.produtosService.getAllProdutos().subscribe(resp => this.produtos = resp)
   }
 
 }
