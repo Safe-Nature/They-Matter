@@ -1,40 +1,51 @@
 <div class="jumbotron jumbotron-fluid bg-light">
     <div class="container">
+        <h1>Olá, @nome</h1>
     </div>
 </div>
 
 <!--Componentes | Comportamento JavaScript-->
-<div class="container">
+<div class="container ">
     <div class="row">
-        <div class="col-3 mt-9 bt">
-            <div class="list-group" id="list-tab" role="tablist">
+        <div class="col-md-3">
+            <div class="list-group md-10" id="list-tab" role="tablist">
                 <a class="list-group-item list-group-item-white btn-outline-success list-group-item-action active"
-                    id="list-dados-list" data-toggle="list" href="#list-dados" role="tab" aria-controls="dados">Dados
-                    Pessoais</a>
+                    id="list-dados-list" data-toggle="list" href="#list-dados" role="tab" aria-controls="dados">
+                    <img src="https://i.imgur.com/ggocf0v.png" class="rounded float-left mr-4">Sua Conta</a>
                 <a class="list-group-item list-group-item-white btn-outline-success list-group-item-action"
                     id="list-endereco-list" data-toggle="list" href="#list-endereco" role="tab"
-                    aria-controls="endereco">Endereços</a>
+                    aria-controls="endereco">
+                    <img src="https://i.imgur.com/J36eFO9.png" class="rounded float-left mr-4">Endereços</a>
                 <a class="list-group-item list-group-item-white btn-outline-success list-group-item-action"
-                    id="list-pedidos-list" data-toggle="list" href="#list-pedidos" role="tab"
-                    aria-controls="pedidos">Pedidos</a>
+                    id="list-pedidos-list" data-toggle="list" href="#list-pedidos" role="tab" aria-controls="pedidos">
+                    <img src="https://i.imgur.com/ZeF5x3N.png" class="rounded float-left mr-4">Pedidos</a>
                 <a class="list-group-item list-group-item-white btn-outline-success list-group-item-action"
-                    id="list-desejos-list" data-toggle="list" href="#list-desejos" role="tab"
-                    aria-controls="desejos">Lista de desejos</a>
+                    id="list-desejos-list" data-toggle="list" href="#list-desejos" role="tab" aria-controls="desejos">
+                    <img src="https://i.imgur.com/gTEZL6u.png" class="rounded float-left mr-4">Lista de desejos</a>
                 <a class="list-group-item list-group-item-white btn-outline-success list-group-item-action"
-                    id="list-trocas-list" data-toggle="list" href="#list-trocas" role="tab"
-                    aria-controls="trocas">Trocas</a>
+                    id="list-trocas-list" data-toggle="list" href="#list-trocas" role="tab" aria-controls="trocas">
+                    <img src="https://i.imgur.com/KN2qR0T.png" class="rounded float-left mr-4">Trocas</a>
             </div>
         </div>
+   
         <!--DADOS PESSOAIS-->
-        <div class="col-8">
+        <div class="container">
+            <div class="row">
+
+            </div>
+        </div>
+        
+        <div class="col-md-8 ml-5 ">
             <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="list-dados" role="tabpanel"
+                <div class="tab-pane fade show active " id="list-dados" role="tabpanel"
                     aria-labelledby="list-dados-list">
-                    <form>
-                        <div class="form-group">
+                    <!--Esconder-->
+                    <form class="mb-5">
+                        <div class="form-group ">
                             <label for="formGroupExampleInput">Nome</label>
                             <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nome">
                         </div>
+
                         <div class="form-group">
                             <label for="email">Endereço de email</label>
                             <input type="email" class="form-control" id="email" placeholder="exemplo@exemplo.com">
@@ -47,14 +58,10 @@
                             <label for="formGroupExampleInput2">Senha</label>
                             <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="*********">
                         </div>
-                        <div class="form-group">
-                            <label for="formGroupExampleInput2">Telefone</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput2"
-                                placeholder="(00)0000-0000">
-                        </div>
                     </form>
                 </div>
                 <!--/DADOS PESSOAIS-->
+
                 <!--ENDEREÇO-->
                 <div class="tab-pane fade" id="list-endereco" role="tabpanel" aria-labelledby="list-endereco-list">
                     <form>
@@ -108,7 +115,89 @@
                 </div>
                 <!--/ENDEREÇO-->
                 <!--PEDIDOS-->
+
+
                 <div class="tab-pane fade" id="list-pedidos" role="tabpanel" aria-labelledby="list-pedidos-list">
+                    <form class="mb-5">
+                        <div class="form-group">
+                            <!--Titulo-->
+                            <h2>Meu carrinho</h2>
+                            <hr>
+                        </div>
+
+                        <!--/Titulo-->
+                        <div class="row ">
+                            <!-- coluna de produto-->
+                            <div class="col-md-5">
+                                <p>Produto</p>
+                            </div>
+                            <!-- /coluna de produto-->
+
+                            <!-- coluna de Quantidade-->
+                            <div class="col-md-3 ">
+                                <p>Qtd.</p>
+                                <form action="#">
+                                    <input class="tmt" type="number" min="1">
+                                </form>
+                            </div>
+                            <!-- /coluna de Quantidade-->
+
+                            <!-- coluna de valor-->
+                            <div class="col-md-4">
+                                <p>Valor</p>
+                                <div class="input-group mb-3 mr-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">R$</span>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Quantia">
+                                    <div class="input-group-append ">
+                                        <span class="input-group-text">.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /coluna de valor-->
+                        </div>
+
+                        <!--coluna de total-->
+                        <div class="row d-flex justify-content-end mt-5 mb-5">
+                            <div class="col-md-4">
+                                <p>Total</p>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">R$</span>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Quantia">
+                                    <div class="input-group-append ">
+                                        <span class="input-group-text">.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!--/coluna de total-->
+                        <div>
+                            <div class="row ">
+                                <div class="col-md-12 d-flex justify-content-end">
+                                    <h6>Deseja Continuar comprando?</h6>
+                                </div>
+
+                            </div>
+
+                            <!--coluna do botao-->
+                            <div class="row mt-3 mb-4">
+                                <div class="col-md-12 d-flex justify-content-end ">
+
+                                    <button class="btn btn-success mr-4" routerLink='/produtos'>Sim</button>
+                                    <button class="btn btn-danger">Não</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--/coluna do calculo-->
+
+                    </form>
+
                 </div>
                 <!--/PEDIDOS-->
                 <!--PAGAMENTOS-->
@@ -134,6 +223,7 @@
                 <!--/SAIR-->
             </div>
         </div>
+
+        <!--/Componentes Comportamento JavaScript -->
     </div>
 </div>
-<!--/Componentes Comportamento JavaScript -->
