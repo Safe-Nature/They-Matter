@@ -1,10 +1,12 @@
-package org.safeNature.theyMatter.demo.model;
+package org.safeNature.theyMatter.demo.dto;
 
-public class userLogin {
-     
+public class UserLogin {
+
+    private Long id;
+
     private String nome;
 
-    private String usuario;
+    private String email;
 
     private String senha;
 
@@ -16,14 +18,6 @@ public class userLogin {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
     }
 
     public String getSenha() {
@@ -42,4 +36,19 @@ public class userLogin {
         this.token = token;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

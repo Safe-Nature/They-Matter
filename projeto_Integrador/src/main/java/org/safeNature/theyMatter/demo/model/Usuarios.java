@@ -13,6 +13,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "usuarios")
 public class Usuarios {
@@ -34,7 +36,7 @@ public class Usuarios {
 	@NotNull
 	private String senha;
 
-	
+	@JsonIgnoreProperties
 	@OneToOne(mappedBy = "usuarios")
 	private Location location;
 
@@ -42,8 +44,8 @@ public class Usuarios {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public Long setId(Long id) {
+		return this.id = id;
 	}
 
 	public String getNome() {

@@ -1,4 +1,4 @@
-package org.safeNature.theyMatter.demo.seguranca;
+package org.safeNature.theyMatter.demo.security;
 
 import org.safeNature.theyMatter.demo.repository.ProdutosRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { ConsumoService } from './../service/consumo.service';
 import { Router } from '@angular/router';
+import { UserLogin } from '../models/UserLogin';
+import { environment } from 'src/environments/environment.prod';
+
 
 
 @Component({
@@ -15,21 +18,46 @@ export class LoginCadastroComponent implements OnInit {
   usuario: Usuario = new Usuario
   confirmarSenha: string
   Dadosliberados: string
+  userLogin : UserLogin = new UserLogin()
 
-  public userEndPoint = 'http://localhost:8081/usuario'
 
   constructor(
     private consumoService: ConsumoService,
     private router: Router
+
+
   ) { }
 
   ngOnInit() {
     window.scroll(0, 0)
   }
+  login(){
+    this.consumoService.login(this.userLogin).subscribe((resp : UserLogin)=>{
+      this.userLogin= resp
+     environment.token = this.userLogin.token
+     environment.nome = this.userLogin.nome
+     environment.id = this.userLogin.id
+     environment.email = this.userLogin.email
 
-  login() {
+     //console.log(environment.token)
 
-  }
+     //console.log(environment.nome)
+
+     //console.log(environment.id)
+
+     //console.log(environment.email)
+
+
+      this.router.navigate(['/inicio'])
+
+    },erro =>{
+      if(erro.status ==500){
+        alert('E-mail ou senha estão incorretos')
+      }
+    }
+    )
+    }
+
   cadastrar() {
     this.usuario = this.usuario
     if (this.usuario.senha != this.confirmarSenha) {
@@ -53,6 +81,8 @@ export class LoginCadastroComponent implements OnInit {
   LiberaDados(event: any) {
     this.Dadosliberados = event.target.value
   }
+
+
 
 
 }
