@@ -1,229 +1,211 @@
-<div class="jumbotron jumbotron-fluid bg-light">
+<div class="jumbotron jumbotron-fluid bg-white">
     <div class="container">
         <h1>Olá, @nome</h1>
     </div>
 </div>
-
-<!--Componentes | Comportamento JavaScript-->
-<div class="container ">
-    <div class="row">
-        <div class="col-md-3">
-            <div class="list-group md-10" id="list-tab" role="tablist">
-                <a class="list-group-item list-group-item-white btn-outline-success list-group-item-action active"
-                    id="list-dados-list" data-toggle="list" href="#list-dados" role="tab" aria-controls="dados">
-                    <img src="https://i.imgur.com/ggocf0v.png" class="rounded float-left mr-4">Sua Conta</a>
-                <a class="list-group-item list-group-item-white btn-outline-success list-group-item-action"
-                    id="list-endereco-list" data-toggle="list" href="#list-endereco" role="tab"
-                    aria-controls="endereco">
-                    <img src="https://i.imgur.com/J36eFO9.png" class="rounded float-left mr-4">Endereços</a>
-                <a class="list-group-item list-group-item-white btn-outline-success list-group-item-action"
-                    id="list-pedidos-list" data-toggle="list" href="#list-pedidos" role="tab" aria-controls="pedidos">
-                    <img src="https://i.imgur.com/ZeF5x3N.png" class="rounded float-left mr-4">Pedidos</a>
-                <a class="list-group-item list-group-item-white btn-outline-success list-group-item-action"
-                    id="list-desejos-list" data-toggle="list" href="#list-desejos" role="tab" aria-controls="desejos">
-                    <img src="https://i.imgur.com/gTEZL6u.png" class="rounded float-left mr-4">Lista de desejos</a>
-                <a class="list-group-item list-group-item-white btn-outline-success list-group-item-action"
-                    id="list-trocas-list" data-toggle="list" href="#list-trocas" role="tab" aria-controls="trocas">
-                    <img src="https://i.imgur.com/KN2qR0T.png" class="rounded float-left mr-4">Trocas</a>
+<div class="container">
+    <nav>
+        <div class="nav nav-tabs justify-content-center border-0" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active border-0 text-dark" id="nav-conta-tab" data-toggle="tab"
+                href="#nav-conta" role="tab" aria-controls="nav-conta" aria-selected="true">
+                <img src="https://i.imgur.com/ggocf0v.png" class="rounded float-left mr-4">Conta</a>
+            <a class="nav-item nav-link border-0 text-dark" id="nav-endereco-tab" data-toggle="tab" href="#nav-endereco"
+                role="tab" aria-controls="nav-endereco" aria-selected="false">
+                <img src="https://i.imgur.com/J36eFO9.png" class="rounded float-left mr-4">Endereço</a>
+            <a class="nav-item nav-link border-0 text-dark" id="nav-pedidos-tab" data-toggle="tab" href="#nav-pedidos"
+                role="tab" aria-controls="nav-pedidos" aria-selected="false">
+                <img src="https://i.imgur.com/ZeF5x3N.png" class="rounded float-left mr-4">Pedidos</a>
+            <a class="nav-item nav-link border-0 text-dark" id="nav-desejos-tab" data-toggle="tab" href="#nav-desejos"
+                role="tab" aria-controls="nav-desejos" aria-selected="false">
+                <img src="https://i.imgur.com/gTEZL6u.png" class="rounded float-left mr-4">Lista de Desejos</a>
+            <a class="nav-item nav-link border-0 text-dark" id="nav-trocas-tab" data-toggle="tab" href="#nav-trocas"
+                role="tab" aria-controls="nav-trocas" aria-selected="false">
+                <img src="https://i.imgur.com/KN2qR0T.png" class="rounded float-left mr-4">Trocas</a>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active border-0" id="nav-conta" role="tabpanel" aria-labelledby="nav-conta-tab">
+            <!--CONTA-->
+            <div class="card mb-6">
+                <div class="card text-center border-0">
+                    <div class="card-header border-0">
+                        DADOS PESSOAIS
+                    </div>
+                    <div class="card-body ">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputName">Nome</label>
+                                    <input type="text" class="form-control" id="inputName" placeholder="">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputUser">Usuario</label>
+                                    <input type="text" class="form-control" id="inputUser" placeholder="">
+                                </div>
+                            </div>
+                        </form>
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4">Email</label>
+                                    <input type="email" class="form-control" id="inputEmail4" placeholder="">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputPassword4">Senha</label>
+                                    <input type="password" class="form-control" id="inputPassword4" placeholder="">
+                                    <small id="passwordHelpInline" class="text-muted">
+                                        Deve ter entre 8 e 20 caracteres.
+                                    </small>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <button class="btn btn-light mr-1 justify-content-end" data-toggle="modal"
+                            data-target="#editar">Editar<img src="https://i.imgur.com/uzxrsVV.png"
+                                class="rounded float-left">
+                        </button>
+                        <button class="btn btn-light mr-1" data-toggle="modal" data-target="#apagar">Excluir<img
+                                src="https://i.imgur.com/riXjkz5.png" class="rounded float-left">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--/CONTA-->
+        </div>
+        <!--ENDEREÇO-->
+        <div class="tab-pane fade border-0" id="nav-endereco" role="tabpanel" aria-labelledby="nav-endereco-tab">
+            <div class="card">
+                <div class="card text-center">
+                    <div class="card-header border-0">
+                        ENDEREÇO
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="inputAddress"> </label>
+                                <input type="text" class="form-control" id="inputAddress"
+                                    placeholder="Rua dos Bobos, nº 0">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputCity">Cidade</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputEstado">Estado</label>
+                                    <select id="inputEstado" class="form-control">
+                                        <option selected>Escolher...</option>
+                                        <option>Acre</option>
+                                        <option>Alagoas</option>
+                                        <option>Amapa</option>
+                                        <option>Amazonas</option>
+                                        <option>Bahia</option>
+                                        <option>Ceará</option>
+                                        <option>Distrito Federal</option>
+                                        <option>Espirito Santo</option>
+                                        <option>Goias</option>
+                                        <option>Maranão</option>
+                                        <option>Mato Grosso</option>
+                                        <option>Mato Grosso do Sul</option>
+                                        <option>Minas Gerais</option>
+                                        <option>Pará</option>
+                                        <option>Paraíba</option>
+                                        <option>Paraná</option>
+                                        <option>Pernambuco</option>
+                                        <option>Piauí</option>
+                                        <option>Rio de Janeiro</option>
+                                        <option>Rio Grande do Norte</option>
+                                        <option>Rio Grande do Sul</option>
+                                        <option>Rondônia</option>
+                                        <option>Santa Catarina</option>
+                                        <option>São Paulo</option>
+                                        <option>Sergipe</option>
+                                        <option>Tocantins</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label for="inputCEP">CEP</label>
+                                    <input type="text" class="form-control" id="inputCEP">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <button class="btn btn-light mr-1 justify-content-end" data-toggle="modal"
+                            data-target="#editar">Editar<img src="https://i.imgur.com/uzxrsVV.png"
+                                class="rounded float-left">
+                        </button>
+                        <button class="btn btn-light mr-1" data-toggle="modal" data-target="#apagar">Excluir<img
+                                src="https://i.imgur.com/riXjkz5.png" class="rounded float-left">
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-   
-        <!--DADOS PESSOAIS-->
-        <div class="container">
+        <!--/ENDEREÇO-->
+        <!--PEDIDOS-->
+        <div class="tab-pane fade" id="nav-pedidos" role="tabpanel" aria-labelledby="nav-pedidos-tab">
             <div class="row">
+                <!--Titulo-->
+                <h2 class="text-center">Meu carrinho</h2>
+
+
+                <!--/Titulo-->
+
+                <table class="table table-hover bg-light">
+                    <thead>
+                        <tr>
+                            <th scope="col">Produto</th>
+                            <th scope="col">Quantidade</th>
+                            <th scope="col" class="text-right">Preço</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th></th>
+                            <td></td>
+                            <td class=" d-flex justify-content-end">
+                                <button class="btn btn-danger">Apagar</button>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <div class="d-flex justify-content-end">
+                    <button class=" botao ">Continuar</button>
+                </div>
+                <!--/coluna de total-->
+                <!--
+                                <div>
+                                    <div class="row ">
+                                        <div class="col-md-12 d-flex justify-content-end">
+                                            <h6>Deseja Continuar comprando?</h6>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3 mb-4">
+                                        <div class="col-md-12 d-flex justify-content-end ">
+                                            <button class="btn btn-success mr-4" routerLink='/produtos'>Sim</button>
+                                            <button class="btn btn-danger">Não</button>
+                                        </div>
+                                    </div>
+                                </div>-->
 
             </div>
+
         </div>
-        
-        <div class="col-md-8 ml-5 ">
-            <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active " id="list-dados" role="tabpanel"
-                    aria-labelledby="list-dados-list">
-                    <!--Esconder-->
-                    <form class="mb-5">
-                        <div class="form-group ">
-                            <label for="formGroupExampleInput">Nome</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nome">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Endereço de email</label>
-                            <input type="email" class="form-control" id="email" placeholder="exemplo@exemplo.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="formGroupExampleInput2">Usuario</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="usuario">
-                        </div>
-                        <div class="form-group">
-                            <label for="formGroupExampleInput2">Senha</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="*********">
-                        </div>
-                    </form>
-                </div>
-                <!--/DADOS PESSOAIS-->
-
-                <!--ENDEREÇO-->
-                <div class="tab-pane fade" id="list-endereco" role="tabpanel" aria-labelledby="list-endereco-list">
-                    <form>
-                        <div class="form-group">
-                            <label for="inputAddress">Endereço</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="Rua dos Bobos, nº 0">
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputCity">Cidade</label>
-                                <input type="text" class="form-control" id="inputCity">
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="inputEstado">Estado</label>
-                                <select id="inputEstado" class="form-control">
-                                    <option selected>Escolher...</option>
-                                    <option>Acre</option>
-                                    <option>Alagoas</option>
-                                    <option>Amapa</option>
-                                    <option>Amazonas</option>
-                                    <option>Bahia</option>
-                                    <option>Ceará</option>
-                                    <option>Distrito Federal</option>
-                                    <option>Espirito Santo</option>
-                                    <option>Goias</option>
-                                    <option>Maranão</option>
-                                    <option>Mato Grosso</option>
-                                    <option>Mato Grosso do Sul</option>
-                                    <option>Minas Gerais</option>
-                                    <option>Pará</option>
-                                    <option>Paraíba</option>
-                                    <option>Paraná</option>
-                                    <option>Pernambuco</option>
-                                    <option>Piauí</option>
-                                    <option>Rio de Janeiro</option>
-                                    <option>Rio Grande do Norte</option>
-                                    <option>Rio Grande do Sul</option>
-                                    <option>Rondônia</option>
-                                    <option>Santa Catarina</option>
-                                    <option>São Paulo</option>
-                                    <option>Sergipe</option>
-                                    <option>Tocantins</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-2">
-                                <label for="inputCEP">CEP</label>
-                                <input type="text" class="form-control" id="inputCEP">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <!--/ENDEREÇO-->
-                <!--PEDIDOS-->
-
-
-                <div class="tab-pane fade" id="list-pedidos" role="tabpanel" aria-labelledby="list-pedidos-list">
-                    <form class="mb-5">
-                        <div class="form-group">
-                            <!--Titulo-->
-                            <h2>Meu carrinho</h2>
-                            <hr>
-                        </div>
-
-                        <!--/Titulo-->
-                        <div class="row ">
-                            <!-- coluna de produto-->
-                            <div class="col-md-5">
-                                <p>Produto</p>
-                            </div>
-                            <!-- /coluna de produto-->
-
-                            <!-- coluna de Quantidade-->
-                            <div class="col-md-3 ">
-                                <p>Qtd.</p>
-                                <form action="#">
-                                    <input class="tmt" type="number" min="1">
-                                </form>
-                            </div>
-                            <!-- /coluna de Quantidade-->
-
-                            <!-- coluna de valor-->
-                            <div class="col-md-4">
-                                <p>Valor</p>
-                                <div class="input-group mb-3 mr-4">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">R$</span>
-                                    </div>
-                                    <input type="text" class="form-control" aria-label="Quantia">
-                                    <div class="input-group-append ">
-                                        <span class="input-group-text">.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /coluna de valor-->
-                        </div>
-
-                        <!--coluna de total-->
-                        <div class="row d-flex justify-content-end mt-5 mb-5">
-                            <div class="col-md-4">
-                                <p>Total</p>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">R$</span>
-                                    </div>
-                                    <input type="text" class="form-control" aria-label="Quantia">
-                                    <div class="input-group-append ">
-                                        <span class="input-group-text">.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <!--/coluna de total-->
-                        <div>
-                            <div class="row ">
-                                <div class="col-md-12 d-flex justify-content-end">
-                                    <h6>Deseja Continuar comprando?</h6>
-                                </div>
-
-                            </div>
-
-                            <!--coluna do botao-->
-                            <div class="row mt-3 mb-4">
-                                <div class="col-md-12 d-flex justify-content-end ">
-
-                                    <button class="btn btn-success mr-4" routerLink='/produtos'>Sim</button>
-                                    <button class="btn btn-danger">Não</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--/coluna do calculo-->
-
-                    </form>
-
-                </div>
-                <!--/PEDIDOS-->
-                <!--PAGAMENTOS-->
-                <div class="tab-pane fade" id="list-pagamentos" role="tabpanel" aria-labelledby="list-pagamentos-list">
-                </div>
-                <!--PAGAMENTOS-->
-                <!--CUPONS-->
-                <div class="tab-pane fade" id="list-cupons" role="tabpanel" aria-labelledby="list-cupons-list">
-                </div>
-                <!--/CUPONS-->
-                <!--DESEJOS-->
-                <div class="tab-pane fade" id="list-desejos" role="tabpanel" aria-labelledby="list-desejos-list">
-                </div>
-                <!--/DESEJOS-->
-                <!--TROCAS-->
-                <div class="tab-pane fade" id="list-trocas" role="tabpanel" aria-labelledby="list-trocas-list">
-                </div>
-                <!--/TROCAS-->
-                <!--SAIR-->
-                <div class="tab-pane fade" id="list-sair" role="tabpanel" aria-labelledby="list-sair-list">
-                    <!--VOLTAR PARA PAGINA INICIAL-->
-                </div>
-                <!--/SAIR-->
-            </div>
-        </div>
-
-        <!--/Componentes Comportamento JavaScript -->
     </div>
+    <!--/PEDIDOS-->
+    <div class="tab-pane fade" id="nav-desejos" role="tabpanel" aria-labelledby="nav-desejos-tab">DDDDDDD
+    </div>
+    <div class="tab-pane fade" id="nav-trocas" role="tabpanel" aria-labelledby="nav-trocas-tab">EEEEEE
+    </div>
+</div>
+
+<!--JUBUTROM-->
+
+<div class="jumbotron jumbotron-fluid bg-white">
 </div>

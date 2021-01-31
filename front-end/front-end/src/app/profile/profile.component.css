@@ -2,16 +2,12 @@
     width: 30px;
     height: 30px;
 }
-.rounded:hover {
-    transform: scale(1.1);
-    border-left: 0px;
-    border-color: rgb(0, 0, 0);
-} 
-
-.form-group {
-    font-size: large;
-
+.nav-item :hover {
+    color: #000000;
+    text-decoration: none;
 }
+
+
 
 
 
@@ -45,5 +41,8 @@
     background-color: white;
     color: black
     
+}
+.fs-16{
+    font-size: 50px;
 }
 
