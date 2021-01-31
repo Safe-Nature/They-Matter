@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ConsumoService } from './../service/consumo.service';
 import { Router } from '@angular/router';
 import { UserLogin } from '../models/UserLogin';
+import { environment } from 'src/environments/environment.prod';
 
 
 
@@ -33,11 +34,25 @@ export class LoginCadastroComponent implements OnInit {
   login(){
     this.consumoService.login(this.userLogin).subscribe((resp : UserLogin)=>{
       this.userLogin= resp
+     environment.token = this.userLogin.token
+     environment.nome = this.userLogin.nome
+     environment.id = this.userLogin.id
+     environment.email = this.userLogin.email
+
+     //console.log(environment.token)
+
+     //console.log(environment.nome)
+
+     //console.log(environment.id)
+
+     //console.log(environment.email)
+
+
       this.router.navigate(['/inicio'])
 
     },erro =>{
       if(erro.status ==500){
-        alert('Usuario ou senha estão incorretos')
+        alert('E-mail ou senha estão incorretos')
       }
     }
     )

@@ -9,6 +9,7 @@ exports.__esModule = true;
 var Usuario_1 = require("./../models/Usuario");
 var core_1 = require("@angular/core");
 var UserLogin_1 = require("../models/UserLogin");
+var environment_prod_1 = require("src/environments/environment.prod");
 var LoginCadastroComponent = /** @class */ (function () {
     function LoginCadastroComponent(consumoService, router) {
         this.consumoService = consumoService;
@@ -23,10 +24,18 @@ var LoginCadastroComponent = /** @class */ (function () {
         var _this = this;
         this.consumoService.login(this.userLogin).subscribe(function (resp) {
             _this.userLogin = resp;
+            environment_prod_1.environment.token = _this.userLogin.token;
+            environment_prod_1.environment.nome = _this.userLogin.nome;
+            environment_prod_1.environment.id = _this.userLogin.id;
+            environment_prod_1.environment.email = _this.userLogin.email;
+            //console.log(environment.token)
+            //console.log(environment.nome)
+            //console.log(environment.id)
+            //console.log(environment.email)
             _this.router.navigate(['/inicio']);
         }, function (erro) {
             if (erro.status == 500) {
-                alert('Usuario ou senha estão incorretos');
+                alert('E-mail ou senha estão incorretos');
             }
         });
     };
