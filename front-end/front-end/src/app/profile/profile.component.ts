@@ -1,5 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { environment } from './../../environments/environment.prod';
+import { UserLogin } from './../models/UserLogin';
+import { ConsumoService } from './../service/usuario.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-profile',
@@ -8,11 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  userLogin : UserLogin
+
   constructor(
-    
+    private consumoService: ConsumoService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() { 
+    this.consumoService.getUser(environment.id).subscribe(resp => this.userLogin = resp)
   }
 
 }

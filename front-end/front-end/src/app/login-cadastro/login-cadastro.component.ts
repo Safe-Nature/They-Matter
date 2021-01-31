@@ -1,7 +1,7 @@
 import { Usuario } from './../models/Usuario';
 import { Component, OnInit } from '@angular/core';
 
-import { ConsumoService } from './../service/consumo.service';
+import { ConsumoService } from '../service/usuario.service';
 import { Router } from '@angular/router';
 import { UserLogin } from '../models/UserLogin';
 import { environment } from 'src/environments/environment.prod';
@@ -39,16 +39,15 @@ export class LoginCadastroComponent implements OnInit {
      environment.id = this.userLogin.id
      environment.email = this.userLogin.email
 
-     //console.log(environment.token)
+     console.log(environment.token)
 
-     //console.log(environment.nome)
+     console.log(environment.nome)
 
-     //console.log(environment.id)
+     console.log(environment.id)
 
-     //console.log(environment.email)
+     console.log(environment.email)
 
-
-      this.router.navigate(['/inicio'])
+      this.router.navigate(['/profile'])
 
     },erro =>{
       if(erro.status ==500){
