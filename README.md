@@ -1,8 +1,8 @@
 
 <body style="color:blue">
 
-# They Matter
-<img align="right" src="https://i.imgur.com/6ehWEnp.png" width="200" height="200">
+# They Matter <img align="right" src="https://i.imgur.com/6ehWEnp.png" width="200" height="200">
+
 <span style="color: black">An e-commerce API developed for Generation Brasil Integrator Project.</span>
 
 
