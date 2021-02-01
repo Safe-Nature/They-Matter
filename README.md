@@ -2,10 +2,14 @@
 <body style="color:blue">
 
 # They Matter 
+<span style="color: black">
+  
 <img align="right" src="https://i.imgur.com/6ehWEnp.png" width="200" height="200">  
-<span style="color: black">An e-commerce API developed for Generation Brasil Integrator Project.</span>
+  <p>API developed for Generation Brasil Integrator Project.</p>
+<p>They Matter, an ecommerce that aims to assist species preservation institutes that have low visibility by the population, because by prioritizing only the conservation of charismatic species, also known as "flag species", there is a risk of distorting priorities, in which they are favored over species at greater risk and not so popular. Thus we believe that not only more resources are destined to the environment, but that people understand that all species have their role in nature and are important for the maintenance of our ecosystem.</p>
+</span>
 
-<br><br><br><br><br><br><br>
+
 
 ## Version:
 
@@ -18,13 +22,13 @@
 To install They_Matter, follow these steps:
 
 ```
-<npm install bootstrap@latest --save>
+Run <npm install bootstrap@latest --save> to install Bootstrap latest version
 ```
 ```
-<npm install jquery@latest --save>
+Run <npm install jquery@latest --save> to install JQuery latest version
 ```
 ```
-<npm install popper.js --save>
+Run <npm install popper.js --save> to install Popper.js
 ```
 
 ## Using:
@@ -32,10 +36,13 @@ To install They_Matter, follow these steps:
 To using They_Matter, follow these steps:
 
 ```
-<npm -i>
+Run <npm -i> to install the dependencies.
 ```
 ```
-<ng serve>
+Run <ng serve> to start server.
+```
+```
+Open <http://http://localhost:4200/> to view the frontend.
 ```
 
 ## Contributors
