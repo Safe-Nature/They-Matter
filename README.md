@@ -22,6 +22,10 @@
 To install They_Matter, follow these steps:
 
 ```
+Make sure angular CLI is installed globally <ng v>
+If not install it <npm install -g @angular/cli>
+```
+```
 Run <npm install bootstrap@latest --save> to install Bootstrap latest version
 ```
 ```
