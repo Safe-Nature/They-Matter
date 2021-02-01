@@ -8,7 +8,7 @@
           <div class="card-body">
             <h4 class="card-title">{{produto.nome}}</h4>
             <h6 class="card-title">R${{produto.preco}}</h6>
-            <p class="text-secondary">em 10X R$6,00</p>
+            <p class="text-secondary">em {{produto.parcelamento}} sem juros.</p>
             <hr>
             <p class="card-text">{{produto.descricao}}</p>
             <a routerLink='/carrinho' class="btn btn-verde d-flex justify-content-center">Comprar</a>

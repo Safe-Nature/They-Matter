@@ -27,6 +27,9 @@ public class Produtos {
 	private double preco;
 	
 	@Column
+	private String parcelamento;
+
+	@Column
 	private int estoque;
 	
 	@Column
