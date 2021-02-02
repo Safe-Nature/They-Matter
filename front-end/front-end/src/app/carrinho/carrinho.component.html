@@ -13,20 +13,24 @@
                             <th scope="col">Produto</th>
                             <th scope="col">Descrição</th>
                             <th scope="col">Valor</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr *ngFor="let produto of listaProdutos">
-                            <th scope="row"><img class="img-fluid" src="{{produto.imagem}}"></th>
-                            <td>{{produto.nome}}</td>
-                            <td>{{produto.preco}}</td>
+                            <th scope="row" ><img class=" tm1" src="{{produto.imagem}}"></th>
+                            <td class="align-middle">{{produto.nome}}</td>
+                            <td class="align-middle">{{produto.preco}}</td>
+                            <td class="align-middle"><button class="btn btn-danger" style="float:right"  >Remover</button></td>
                         </tr>  
                         </tbody>
                     </table>
+                    
                 <!-- /coluna de produto-->
             </div>
+            <hr>
             <!--coluna de total-->
-            <div class="row d-flex justify-content-end mt-5 mb-5">
+            <div class="row d-flex justify-content-end mt-2 mb-5">
                 <div class="col-md-4">
                     <p>Total</p>
                     <div class="input-group mb-3">
