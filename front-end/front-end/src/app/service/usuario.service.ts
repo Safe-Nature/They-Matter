@@ -33,7 +33,7 @@ export class ConsumoService {
     if(environment.token !=''){
       ok=true
     }
-
+    console.log(environment.nome)
     return ok
   }
 }

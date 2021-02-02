@@ -1,12 +1,12 @@
 <div class="jumbotron jumbotron-fluid bg-white">
     <div class="container">
-        <h1>Olá, @nome</h1>
+        <h1>Olá, {{userLogin.nome}}</h1>
     </div>
 </div>
 <div class="container">
     <nav>
         <div class="nav nav-tabs justify-content-center border-0" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active border-0 text-dark" id="nav-conta-tab" data-toggle="tab"
+            <a class=" nav-item nav-link active border-0 text-dark " id="nav-conta-tab" data-toggle="tab"
                 href="#nav-conta" role="tab" aria-controls="nav-conta" aria-selected="true">
                 <img src="https://i.imgur.com/ggocf0v.png" class="rounded float-left mr-4">Conta</a>
             <a class="nav-item nav-link border-0 text-dark" id="nav-endereco-tab" data-toggle="tab" href="#nav-endereco"
@@ -35,30 +35,17 @@
                         <form>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="inputName">{{userLogin.nome}}</label>
-                                    <input type="text" class="form-control" id="inputName" placeholder="">
+                                    <label for="inputName">Usuário</label>
+                                    <p type="text" class="form-control" id="inputName" placeholder="" >{{userLogin.nome}}</p>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="inputUser">{{userLogin.email}}</label>
-                                    <input type="text" class="form-control" id="inputUser" placeholder="">
+                                    <label for="inputUser">Email</label>
+                                    <p type="text" class="form-control" id="inputUser" placeholder="">{{userLogin.email}}</p>
                                 </div>
                             </div>
+                           
                         </form>
-                        <form>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputEmail4">Email</label>
-                                    <input type="email" class="form-control" id="inputEmail4" placeholder="">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputPassword4">Senha</label>
-                                    <input type="password" class="form-control" id="inputPassword4" placeholder="">
-                                    <small id="passwordHelpInline" class="text-muted">
-                                        Deve ter entre 8 e 20 caracteres.
-                                    </small>
-                                </div>
-                            </div>
-                        </form>
+                        
                     </div>
                     <div class="card-footer text-muted">
                         <button class="btn btn-light mr-1 justify-content-end" data-toggle="modal"
@@ -199,9 +186,9 @@
         </div>
     </div>
     <!--/PEDIDOS-->
-    <div class="tab-pane fade" id="nav-desejos" role="tabpanel" aria-labelledby="nav-desejos-tab">DDDDDDD
+    <div class="tab-pane fade" id="nav-desejos" role="tabpanel" aria-labelledby="nav-desejos-tab">
     </div>
-    <div class="tab-pane fade" id="nav-trocas" role="tabpanel" aria-labelledby="nav-trocas-tab">EEEEEE
+    <div class="tab-pane fade" id="nav-trocas" role="tabpanel" aria-labelledby="nav-trocas-tab">
     </div>
 </div>
 

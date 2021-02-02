@@ -22,14 +22,13 @@ export class CategoriasPageComponent implements OnInit {
     private router: Router,
     private direction: ActivatedRoute,
     private produtoService: ProdutosService
-  ) { }
+  ) {  }
 
   ngOnInit() {
     let id = this.direction.snapshot.params['id']
     this.loadByNomeCat(id)  
     
   }
-
 
   loadByNomeCat(id: number) {
     this.produtoService.getCategoriaById(id).subscribe(resp => this.categoria = resp)
