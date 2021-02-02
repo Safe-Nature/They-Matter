@@ -4,6 +4,7 @@ import { ProdutosService } from './../service/produtos.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-categorias-page',
@@ -17,6 +18,8 @@ export class CategoriasPageComponent implements OnInit {
   produto: Produtos = new Produtos()
 
   listaProdutos: Produtos[]
+
+  
   
   constructor(
     private router: Router,
@@ -28,9 +31,25 @@ export class CategoriasPageComponent implements OnInit {
     let id = this.direction.snapshot.params['id']
     this.loadByNomeCat(id)  
     
+    
   }
 
   loadByNomeCat(id: number) {
     this.produtoService.getCategoriaById(id).subscribe(resp => this.categoria = resp)
   }
+  comprar(id: number) {
+
+    if(environment.token == null) {
+      alert('Precisa Estar Logado para comprar')
+    }
+    this.produtoService.getByIdProdutos(id).subscribe((resp: Produtos) => {
+      this.produto = resp
+      console.log(this.produto)
+      this.listaProdutos.push(resp)
+    })
+    console.log(this.listaProdutos)
+    localStorage.setItem('listaProdutos', JSON.stringify(this.listaProdutos))
+    return this.listaProdutos
+  }
+ 
 }

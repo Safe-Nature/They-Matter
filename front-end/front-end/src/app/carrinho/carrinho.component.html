@@ -21,7 +21,7 @@
                             <th scope="row" ><img class=" tm1" src="{{produto.imagem}}"></th>
                             <td class="align-middle">{{produto.nome}}</td>
                             <td class="align-middle">{{produto.preco}}</td>
-                            <td class="align-middle"><button class="btn btn-danger" style="float:right"  >Remover</button></td>
+                            <td class="align-middle"><button (click)="removeProduto(listaProdutos.indexOf(produto))" class="btn btn-danger mr-3" style="float:right"  >Remover</button></td>
                         </tr>  
                         </tbody>
                     </table>
@@ -32,15 +32,12 @@
             <!--coluna de total-->
             <div class="row d-flex justify-content-end mt-2 mb-5">
                 <div class="col-md-4">
-                    <p>Total</p>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text">R$</span>
+                            <a class="input-group-text">R$ {{total}}</a>
                         </div>
-                        <input type="text" class="form-control" aria-label="Quantia">
-                        <div class="input-group-append tmt">
-                            <span class="input-group-text">.00</span>
-                        </div>
+                        
+                        
                     </div>
                 </div>
             </div>

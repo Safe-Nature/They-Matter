@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ProdutosComponent } from './../produtos/produtos.component';
 import { tap, map } from 'rxjs/operators';
 import { environment } from './../../environments/environment.prod';
@@ -15,20 +16,38 @@ import { Component, OnInit } from '@angular/core';
 export class CarrinhoComponent implements OnInit {
 
   listaProdutos: Produtos[] = []
+
+  total: number
   
   constructor(
     private produtosService: ProdutosService,
+    private router: Router
   ) { }
 
   ngOnInit() {
     this.getListaProdutos()
+    this.total = this.precoTotal()
+   
   }
 
   getListaProdutos() {
     this.listaProdutos = JSON.parse(localStorage.getItem('listaProdutos')  || '{}');
   }
-  //removeProduto(x) {
-   // console.log(this.listaProdutos)
-   // this.listaProdutos.slice(x, 1)
-  //}
+  removeProduto(x: number) {
+
+    this.getListaProdutos()
+    let index = this.listaProdutos.map( function (e) { return e.id}).indexOf(x)
+    console.log( this.listaProdutos.map( function (e) { return e.id}).indexOf(x))
+    this.listaProdutos.splice(index, 1)
+    console.log(this.listaProdutos)
+    localStorage.setItem('listaProdutos', JSON.stringify(this.listaProdutos))
+    window.location.reload()
+  }
+  precoTotal() {
+    var pTotal = 0
+    for(let preco of this.listaProdutos) {
+    pTotal = pTotal + preco.preco
+    }
+    return pTotal;
+  }
 }
