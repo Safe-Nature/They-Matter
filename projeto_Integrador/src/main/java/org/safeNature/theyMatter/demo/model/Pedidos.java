@@ -25,6 +25,10 @@ public class Pedidos {
     @NotNull
     private boolean status;
 
+    @Column
+    @NotNull
+    private Double total;
+
     @ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_produto")
 	public Produtos produto;
@@ -43,6 +47,22 @@ public class Pedidos {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
+    }
+
+    public Produtos getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produtos produto) {
+        this.produto = produto;
     }
    
 }
