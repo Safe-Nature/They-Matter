@@ -11,7 +11,7 @@
             <p class="text-secondary">em {{produto.parcelamento}} sem juros.</p>
             <hr>
             <p class="card-text">{{produto.descricao}}</p>
-            <a routerLink='/carrinho' class="btn btn-verde d-flex justify-content-center">Comprar</a>
+            <a (click)="comprar(produto.id)" class="btn btn-verde d-flex justify-content-center">Comprar</a>
           </div>
         </div>
      

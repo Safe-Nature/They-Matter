@@ -8,7 +8,13 @@
             <div class="row ">
                 <!-- coluna de produto-->
                 <div class="col-md-5">
-                    <p>Produto</p>
+                    <div *ngFor="let produto of listaProdutos" class="card m-1 col-3">
+                        <img class="card-img-top" src="{{produto.imagem}}">
+                        <div class="card-body">
+                          <h4 class="card-title">{{produto.nome}}</h4>
+                          <h6 class="card-title">R${{produto.preco}}</h6>
+                        </div>
+                      </div>
                 </div>
                 <!-- /coluna de produto-->
 

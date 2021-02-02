@@ -3,5 +3,6 @@ export const environment = {
   token:'',
   nome:'',
   id:0,
-  email:''
+  email:'',
+  idCarrinho: 0
 };
