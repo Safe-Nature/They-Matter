@@ -1,3 +1,4 @@
+import { Categoria } from './Categoria';
 export class Produtos {
     public id: number
     public nome: string
@@ -7,4 +8,5 @@ export class Produtos {
     public descricao: string
     public tamanho: string
     public imagem: string 
+    public categoria: Categoria
   }

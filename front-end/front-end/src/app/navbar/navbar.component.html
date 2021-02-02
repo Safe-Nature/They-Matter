@@ -95,16 +95,10 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item fad" routerLink='/produtos'>Todos</a>
+          <div *ngFor="let categorias of categoria">
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item sr" href="#">Serrado</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item ca" href="#">Caatinga</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item pa" href="#">Pantanal</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item mat" href="#">Mata Atlântica</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item pam" href="#">Pampa</a>
+            <a class="dropdown-item sr" routerLink="/categoria/{{categorias.id}}">{{categorias.nome}}</a>
+          </div>
         </div>
       </li>
       <div class="row">

@@ -1,0 +1,19 @@
+<div class="row mt-5 d-flex flex-wrap justify-content-center ">
+
+    <div class="col-md-12 d-flex justify-content-center flex-wrap h-100 m-4">
+      <!-- Cards 4 Produtos -->
+       
+          <div *ngFor="let produtos of categoria.produtos" class="card m-1 col-3">
+            <img class="card-img-top" src="{{produtos.imagem}}">
+            <div class="card-body">
+              <h4 class="card-title">{{produtos.nome}}</h4>
+              <h6 class="card-title">R${{produtos.preco}}</h6>
+              <p class="text-secondary">em {{produtos.parcelamento}} sem juros.</p>
+              <hr>
+              <a routerLink='/carrinho' class="btn btn-verde d-flex justify-content-center">Comprar</a>
+            </div>
+          </div>
+       
+      <!-- Cards 4 Produtos -->
+    </div>
+  </div>
