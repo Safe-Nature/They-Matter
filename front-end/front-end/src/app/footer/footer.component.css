@@ -13,3 +13,13 @@
 .icones{
     font-size: 36pt;
 }
+
+.ajusteFooter{
+    padding-left: 3rem;
+}
+
+@media (max-width: 1000px){
+.ajusteFooter{
+    padding-left: 1rem;
+}
+}
