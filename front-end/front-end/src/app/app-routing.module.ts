@@ -1,3 +1,4 @@
+import { CategoriasPageComponent } from './categorias-page/categorias-page.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -15,7 +16,9 @@ const routes: Routes = [
   {path:"carrinho", component: CarrinhoComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'produtos', component: ProdutosComponent},
-  {path: 'sobre', component: SobreComponent}
+  {path: 'sobre', component: SobreComponent},
+  {path: 'categoria/:id', component: CategoriasPageComponent}
+
 ];
 
 @NgModule({

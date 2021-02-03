@@ -1,0 +1,21 @@
+<div class="container-fluid mt-5">
+  <h2 class="ml-5">{{categoria.nome}}</h2>
+  <hr>
+  <div class="row mt-5 d-flex flex-wrap text-center justify-content-center ">
+    <br>
+    <div class="col-md-12 d-flex justify-content-center mb-5 flex-wrap">
+      <!-- Cards 4 Produtos -->
+      <div *ngFor="let produto of categoria.produtos" class="card m-1 col-3">
+        <img class="card-img-top" src="{{produto.imagem}}">
+        <div class="card-body">
+          <h4 class="card-title">{{produto.nome}}</h4>
+          <h6 class="card-title">R${{produto.preco}}</h6>
+          <p class="text-secondary">em {{produto.parcelamento}} sem juros.</p>
+          <hr>
+          <p class="card-text">{{produto.descricao}}</p>
+          <a (click)="comprar(produto.id)" class="btn btn-verde d-flex justify-content-center">Comprar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

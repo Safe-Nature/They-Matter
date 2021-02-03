@@ -3,8 +3,8 @@ package org.safeNature.theyMatter.demo.controller;
 import java.util.List;
 import java.util.Optional;
 
+import org.safeNature.theyMatter.demo.dto.UserLogin;
 import org.safeNature.theyMatter.demo.model.Usuarios;
-import org.safeNature.theyMatter.demo.model.userLogin;
 import org.safeNature.theyMatter.demo.repository.UsuariosRepository;
 import org.safeNature.theyMatter.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
 @RestController
 @RequestMapping("/usuario")
 public class UsuariosController {// CRUD METHODS
@@ -45,22 +45,22 @@ public class UsuariosController {// CRUD METHODS
 				.orElse(ResponseEntity.notFound().build());
 	}
 	// FIM DOS METODOS GET
-	// --------------------------------------------------------\\
 
 	// METODO POST
 	// ----------------------------------------------------------------\\
 
 	@PostMapping("/logar")
-	public ResponseEntity<userLogin> Autentication(@RequestBody Optional<userLogin> user) {
-        return usuarioService.login(user).map(resp -> ResponseEntity.ok(resp))
+	public ResponseEntity<UserLogin> Autentication(@RequestBody Optional<UserLogin> user) {
+        return usuarioService.Logar(user).map(resp -> ResponseEntity.ok(resp))
         .orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 	}
 	
 	@PostMapping("/cadastrar")
-    public ResponseEntity<Usuarios> Post(@RequestBody Usuarios usuario) {
+    public ResponseEntity<Usuarios> Cadastrar(@RequestBody Usuarios usuario) {
         return ResponseEntity.status(HttpStatus.CREATED)
-            .body(usuarioService.userRegister(usuario));
-    }
+			.body(usuarioService.CadastrarUsuario(usuario));
+			
+	}
 	// -----------------------------------------------------------------------------\\
 	// METODO
 	// PUT/UPDATE------------------------------------------------------------\\

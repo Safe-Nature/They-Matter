@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 var core_1 = require("@angular/core");
+var environment_prod_1 = require("src/environments/environment.prod");
 var ConsumoService = /** @class */ (function () {
     function ConsumoService(http) {
         this.http = http;
@@ -16,6 +17,13 @@ var ConsumoService = /** @class */ (function () {
     };
     ConsumoService.prototype.cadastrar = function (usuario) {
         return this.http.post("http://localhost:8081/usuario/cadastrar", usuario);
+    };
+    ConsumoService.prototype.logado = function () {
+        var ok = false;
+        if (environment_prod_1.environment.token != '') {
+            ok = true;
+        }
+        return ok;
     };
     ConsumoService = __decorate([
         core_1.Injectable({

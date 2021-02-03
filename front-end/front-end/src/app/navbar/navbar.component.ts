@@ -1,4 +1,8 @@
+import { Categoria } from './../models/Categoria';
+import { ProdutosService } from './../service/produtos.service';
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment.prod';
+import { UserLogin } from './../models/UserLogin';
 
 @Component({
   selector: 'app-navbar',
@@ -6,12 +10,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  nome = environment.nome
+  UserLogin: UserLogin;
 
-  constructor() { }
+  categoria: Categoria[];
 
-  ngOnInit(): void {
+
+
+  constructor(private produtosService: ProdutosService) { }
+
+  ngOnInit() {
+    this.produtosService.getCategoria().subscribe(resp => this.categoria = resp)
+
+
+
   }
 
- 
-  
+
+
 }

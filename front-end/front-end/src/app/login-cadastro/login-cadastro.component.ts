@@ -1,8 +1,12 @@
 import { Usuario } from './../models/Usuario';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
-import { ConsumoService } from './../service/consumo.service';
+import { ConsumoService } from '../service/usuario.service';
 import { Router } from '@angular/router';
+import { UserLogin } from '../models/UserLogin';
+import { environment } from 'src/environments/environment.prod';
+import { invalid } from '@angular/compiler/src/render3/view/util';
+
 
 
 @Component({
@@ -15,8 +19,11 @@ export class LoginCadastroComponent implements OnInit {
   usuario: Usuario = new Usuario
   confirmarSenha: string
   Dadosliberados: string
+  userLogin: UserLogin = new UserLogin()
 
-  public userEndPoint = 'http://localhost:8081/usuario'
+  nome = window.document.getElementById('nome')
+
+  @ViewChild("invalid-user") element: ElementRef
 
   constructor(
     private consumoService: ConsumoService,
@@ -26,10 +33,40 @@ export class LoginCadastroComponent implements OnInit {
   ngOnInit() {
     window.scroll(0, 0)
   }
-
   login() {
+    this.consumoService.login(this.userLogin).subscribe((resp: UserLogin) => {
+      this.userLogin = resp
+      environment.token = this.userLogin.token
+      environment.nome = this.userLogin.nome
+      environment.id = this.userLogin.id
+      environment.email = this.userLogin.email
 
+      console.log(environment.token)
+
+      console.log(environment.nome)
+
+      console.log(environment.id)
+
+      console.log(environment.email)
+
+
+
+      if (environment.token == null) {
+
+        alert('Usuario inválido')
+
+      } else {
+        this.router.navigate(['/profile'])
+      }
+
+    }, erro => {
+      if (erro.status == 500) {
+        alert('E-mail ou senha estão incorretos')
+      }
+    }
+    )
   }
+
   cadastrar() {
     this.usuario = this.usuario
     if (this.usuario.senha != this.confirmarSenha) {
@@ -55,4 +92,12 @@ export class LoginCadastroComponent implements OnInit {
   }
 
 
-}
+  validaNome({}){
+
+    }
+
+  }
+
+
+
+

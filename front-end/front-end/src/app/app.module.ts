@@ -14,6 +14,7 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { ProfileComponent } from './profile/profile.component';
+import { CategoriasPageComponent } from './categorias-page/categorias-page.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ProfileComponent } from './profile/profile.component';
     CarrinhoComponent,
     ProdutosComponent,
     SobreComponent,
-    ProfileComponent
+    ProfileComponent,
+    CategoriasPageComponent
 
   ],
   imports: [
