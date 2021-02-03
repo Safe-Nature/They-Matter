@@ -31,12 +31,13 @@ export class CategoriasPageComponent implements OnInit {
     let id = this.direction.snapshot.params['id']
     this.loadByNomeCat(id)  
     
-    
   }
 
   loadByNomeCat(id: number) {
     this.produtoService.getCategoriaById(id).subscribe(resp => this.categoria = resp)
+    console.log(this.categoria.produtos)
   }
+
   comprar(id: number) {
 
     if(environment.token == null) {
@@ -44,7 +45,6 @@ export class CategoriasPageComponent implements OnInit {
     }
     this.produtoService.getByIdProdutos(id).subscribe((resp: Produtos) => {
       this.produto = resp
-      console.log(this.produto)
       this.listaProdutos.push(resp)
     })
     console.log(this.listaProdutos)

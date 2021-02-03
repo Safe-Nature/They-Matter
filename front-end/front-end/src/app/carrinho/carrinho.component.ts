@@ -31,7 +31,6 @@ export class CarrinhoComponent implements OnInit {
     this.total = this.precoTotal()
     this.realizarPedido()
   }
-
   getListaProdutos() {
     this.listaProdutos = JSON.parse(localStorage.getItem('listaProdutos')  || '{}');
   }
@@ -44,7 +43,6 @@ export class CarrinhoComponent implements OnInit {
     console.log(this.listaProdutos)
     localStorage.setItem('listaProdutos', JSON.stringify(this.listaProdutos))
     window.location.reload()
-
   }
   precoTotal() {
     var pTotal = 0

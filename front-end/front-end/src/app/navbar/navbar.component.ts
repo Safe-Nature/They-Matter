@@ -15,14 +15,9 @@ export class NavbarComponent implements OnInit {
 
   categoria: Categoria[];
 
-  
-  
-
   constructor(private produtosService: ProdutosService) { }
 
   ngOnInit() {
     this.produtosService.getCategoria().subscribe(resp => this.categoria = resp)
   }
-
-
 }
