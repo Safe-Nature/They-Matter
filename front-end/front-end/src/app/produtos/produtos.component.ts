@@ -15,15 +15,13 @@ export class ProdutosComponent implements OnInit {
   produtos: Produtos[]
   produto: Produtos = new Produtos
   listaProdutos: Produtos[] = []
+  
   constructor(
-    private produtosService: ProdutosService 
-   
+    private produtosService: ProdutosService ,
   ) { }
 
   ngOnInit(){
-
     this.produtosService.getAllProdutos().subscribe(resp => this.produtos = resp)
-    
   }
 
   comprar(id: number) {
@@ -36,8 +34,6 @@ export class ProdutosComponent implements OnInit {
       console.log(this.produto)
       this.listaProdutos.push(resp)
     })
-    console.log(this.listaProdutos)
     localStorage.setItem('listaProdutos', JSON.stringify(this.listaProdutos))
-    return this.listaProdutos
-  }
+  }  
 }

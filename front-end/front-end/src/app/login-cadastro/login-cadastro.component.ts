@@ -28,9 +28,6 @@ export class LoginCadastroComponent implements OnInit {
   constructor(
     private consumoService: ConsumoService,
     private router: Router
-
-
-
   ) { }
 
   ngOnInit() {

@@ -10,11 +10,10 @@ import { UserLogin } from './../models/UserLogin';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  nome=environment.nome
+  nome = environment.nome
   UserLogin: UserLogin;
 
   categoria: Categoria[];
-
 
 
 
@@ -25,11 +24,8 @@ export class NavbarComponent implements OnInit {
 
 
 
-    }
-
-
-
   }
 
 
 
+}
