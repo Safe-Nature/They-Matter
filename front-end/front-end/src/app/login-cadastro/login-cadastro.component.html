@@ -14,14 +14,14 @@
 
             <div class="form-group ml-4 mr-3  trans">
               <label for="nome">Nome</label>
-              <input [(ngModel)]="userLogin.nome" class="form-control" type="text" name="nome" id="#nome" placeholder="Digite seu Nome">
+              <input [(ngModel)]="userLogin.nome" class="form-control" type="text" name="nome" id="#nome" placeholder="Usuario" tabindex="1" required  minlength="6" maxlength="25">
 
 
             </div>
 
             <div class="form-group ml-4 mr-3">
               <label for="Senha">Senha</label>
-              <input [(ngModel)]="userLogin.senha"class="form-control " type="password" name="senha" id="#senha" placeholder="Sua senha">
+              <input [(ngModel)]="userLogin.senha"class="form-control " type="password" name="senha" id="#senha" placeholder="Sua senha" required minlength="6" maxlength="10">
             </div>
             <br>
             <p id='#invalid-user' class=""></p>
@@ -47,22 +47,22 @@
             <div class="form-group mr-2 ml-3">
               <label for="nome">Nome</label>
               <input [(ngModel)]='usuario.nome' class="form-control" type="text" name="name" id="name"
-                placeholder="Seu nome">
+                placeholder="Usuario" tabindex="4" required minlength="6" maxlength="25">
             </div>
             <div class="form-group mr-3 ml-3">
               <label for="email">E-mail</label>
-              <input [(ngModel)]="usuario.email" class="form-control" type="text" name="email" id="email"
-                placeholder="Seu e-mail">
+              <input [(ngModel)]="usuario.email" class="form-control" type="email" name="email" id="email"
+                placeholder=" email@theymatter.com" tabindex="5" required>
             </div>
             <div class="form-group mr-2 ml-3">
               <label for="Senha">Senha</label>
               <input (input)='confirmSenha($event)' class="form-control" type="password" name="senha" id="senha"
-                placeholder="Sua senha">
+                placeholder="Sua senha" required minlength="6" maxlength="10">
             </div>
             <div class="form-group mr-2 ml-3">
               <label for="confirmSenha">Confirmar Senha</label>
               <input [(ngModel)]="usuario.senha" class="form-control" type="password" name="confirmSenha"
-                id="confirmSenha" placeholder="Confirme sua senha">
+                id="confirmSenha" placeholder="Confirme sua senha" required minlength="6" maxlength="10">
             </div>
             <div class="form-group mr-2 ml-3">
               <label for="confirmSenha">Compartilhar Dados</label>

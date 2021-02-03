@@ -21,6 +21,8 @@ export class LoginCadastroComponent implements OnInit {
   Dadosliberados: string
   userLogin: UserLogin = new UserLogin()
 
+  nome = window.document.getElementById('nome')
+
   @ViewChild("invalid-user") element: ElementRef
 
   constructor(
@@ -93,6 +95,12 @@ export class LoginCadastroComponent implements OnInit {
   }
 
 
+  validaNome({}){
+
+    }
+
+  }
 
 
-}
+
+

@@ -16,6 +16,7 @@ var LoginCadastroComponent = /** @class */ (function () {
         this.router = router;
         this.usuario = new Usuario_1.Usuario;
         this.userLogin = new UserLogin_1.UserLogin();
+        this.nome = window.document.getElementById('nome');
     }
     LoginCadastroComponent.prototype.ngOnInit = function () {
         window.scroll(0, 0);
@@ -28,11 +29,16 @@ var LoginCadastroComponent = /** @class */ (function () {
             environment_prod_1.environment.nome = _this.userLogin.nome;
             environment_prod_1.environment.id = _this.userLogin.id;
             environment_prod_1.environment.email = _this.userLogin.email;
-            //console.log(environment.token)
-            //console.log(environment.nome)
-            //console.log(environment.id)
-            //console.log(environment.email)
-            _this.router.navigate(['/inicio']);
+            console.log(environment_prod_1.environment.token);
+            console.log(environment_prod_1.environment.nome);
+            console.log(environment_prod_1.environment.id);
+            console.log(environment_prod_1.environment.email);
+            if (environment_prod_1.environment.token == null) {
+                alert('Usuario inválido');
+            }
+            else {
+                _this.router.navigate(['/profile']);
+            }
         }, function (erro) {
             if (erro.status == 500) {
                 alert('E-mail ou senha estão incorretos');
@@ -59,6 +65,11 @@ var LoginCadastroComponent = /** @class */ (function () {
     LoginCadastroComponent.prototype.LiberaDados = function (event) {
         this.Dadosliberados = event.target.value;
     };
+    LoginCadastroComponent.prototype.validaNome = function (_a) {
+    };
+    __decorate([
+        core_1.ViewChild("invalid-user")
+    ], LoginCadastroComponent.prototype, "element");
     LoginCadastroComponent = __decorate([
         core_1.Component({
             selector: 'app-login-cadastro',
