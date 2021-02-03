@@ -1,7 +1,11 @@
+import { Usuario } from './Usuario';
+import { Produtos } from "./Produtos"
 
 
 export class Pedidos{
-    private id: number
-    private status: boolean
-   // private produto: Produtos
+    public id: number
+    public status: boolean
+    public total: number
+    public usuario: Usuario
+    public produto: Produtos[]
 }

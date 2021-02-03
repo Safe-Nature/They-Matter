@@ -132,5 +132,13 @@ public class Produtos {
 	public void setAnimais(Animais animais) {
 		this.animais = animais;
 	}
+
+	public String getParcelamento() {
+		return parcelamento;
+	}
+
+	public void setParcelamento(String parcelamento) {
+		this.parcelamento = parcelamento;
+	}	
 	
 }

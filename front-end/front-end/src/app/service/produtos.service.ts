@@ -15,11 +15,9 @@ export class ProdutosService {
   getAllProdutos(){
     return this.http.get<Produtos>('http://localhost:8081/produtos/todos').pipe(tap(console.log))  
   }
-
   getByIdProdutos(id: number): Observable <Produtos>{
     return this.http.get<Produtos>(`http://localhost:8081/produtos/id/${id}`)
   }
-
   postProdutos(produtos: Produtos): Observable<Produtos>{
     return this.http.post<Produtos>('http://localhost:8081/produtos', produtos)
   }

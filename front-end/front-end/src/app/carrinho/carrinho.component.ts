@@ -1,11 +1,10 @@
-import { Router } from '@angular/router';
-import { ProdutosComponent } from './../produtos/produtos.component';
-import { tap, map } from 'rxjs/operators';
 import { environment } from './../../environments/environment.prod';
+import { PedidosService } from './../service/pedidos.service';
+import { Router } from '@angular/router';
 import { Produtos } from './../models/Produtos';
-import { Carrinho } from './../models/Carrinho';
 import { ProdutosService } from './../service/produtos.service';
 import { Component, OnInit } from '@angular/core';
+import { Pedidos } from '../models/Pedidos';
 
 
 @Component({
@@ -17,17 +16,20 @@ export class CarrinhoComponent implements OnInit {
 
   listaProdutos: Produtos[] = []
 
+  pedido: Pedidos = new Pedidos
+
   total: number
   
   constructor(
     private produtosService: ProdutosService,
-    private router: Router
+    private router: Router,
+    private pedidosService: PedidosService
   ) { }
 
   ngOnInit() {
     this.getListaProdutos()
     this.total = this.precoTotal()
-   
+    this.realizarPedido()
   }
 
   getListaProdutos() {
@@ -42,6 +44,7 @@ export class CarrinhoComponent implements OnInit {
     console.log(this.listaProdutos)
     localStorage.setItem('listaProdutos', JSON.stringify(this.listaProdutos))
     window.location.reload()
+
   }
   precoTotal() {
     var pTotal = 0
@@ -49,5 +52,17 @@ export class CarrinhoComponent implements OnInit {
     pTotal = pTotal + preco.preco
     }
     return pTotal;
+  }
+  realizarPedido() {
+    this.pedido.produto = this.listaProdutos
+    this.pedido.total = this.total
+    this.pedido.status = true
+    this.pedido.usuario.id = environment.id
+    //necessario injetar o usuario
+  }
+  finalizarPedido() {
+    this.pedidosService.postPedido(this.pedido).subscribe((resp: Pedidos) => {
+      this.pedido = resp
+    })
   }
 }
