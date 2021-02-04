@@ -56,11 +56,9 @@ export class CarrinhoComponent implements OnInit {
     this.pedido.total = this.total
     this.pedido.status = true
     this.pedido.usuario.id = environment.id
-    //necessario injetar o usuario
-  }
-  finalizarPedido() {
+
     this.pedidosService.postPedido(this.pedido).subscribe((resp: Pedidos) => {
       this.pedido = resp
-    })
+  })
   }
 }
