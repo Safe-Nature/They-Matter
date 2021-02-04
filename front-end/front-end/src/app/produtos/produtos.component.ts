@@ -33,7 +33,7 @@ export class ProdutosComponent implements OnInit {
       this.produto = resp
       console.log(this.produto)
       this.listaProdutos.push(resp)
-    })
-    localStorage.setItem('listaProdutos', JSON.stringify(this.listaProdutos))
+      localStorage.setItem('listaProdutos', JSON.stringify(this.listaProdutos))
+    }) 
   }  
 }

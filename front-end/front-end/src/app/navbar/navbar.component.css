@@ -1,7 +1,9 @@
 .fad:hover{
     color:darkgreen;
 }
-
+.fa-shopping-cart {
+    font-size: 24pt;
+}
 .sr:hover{
     color: lightgreen;
 }
@@ -31,6 +33,7 @@
     margin-left: -1px;
     height: 38px;
     border-radius: 0 10px 10px 0;
+    width: 10%;
 }
 .bk{
     background-color: #00463F;

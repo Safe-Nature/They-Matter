@@ -29,7 +29,7 @@ export class CarrinhoComponent implements OnInit {
   ngOnInit() {
     this.getListaProdutos()
     this.total = this.precoTotal()
-    this.realizarPedido()
+    
   }
   getListaProdutos() {
     this.listaProdutos = JSON.parse(localStorage.getItem('listaProdutos')  || '{}');
@@ -42,7 +42,7 @@ export class CarrinhoComponent implements OnInit {
     this.listaProdutos.splice(index, 1)
     console.log(this.listaProdutos)
     localStorage.setItem('listaProdutos', JSON.stringify(this.listaProdutos))
-    window.location.reload()
+    this.ngOnInit()
   }
   precoTotal() {
     var pTotal = 0
