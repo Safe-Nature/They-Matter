@@ -4,6 +4,7 @@ import { ConsumoService } from './../service/usuario.service';
 import { Component, OnInit } from '@angular/core';
 
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -11,15 +12,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  id = environment.id
   userLogin : UserLogin
 
   constructor(
-    private consumoService: ConsumoService
+    private consumoService: ConsumoService,
+    
   ) { }
 
   ngOnInit() { 
     this.consumoService.getUser(environment.id).subscribe(resp => this.userLogin = resp)
+
+   
   }
+
+ 
 
 }
 

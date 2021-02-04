@@ -23,7 +23,7 @@ export class ConsumoService {
   cadastrar(usuario: Usuario): Observable<Usuario>{
     return this.http.post<Usuario>("http://localhost:8081/usuario/cadastrar", usuario)
   }
-  getUser(id: number){
+ getUser(id: number){
     return this.http.get<UserLogin>(`http://localhost:8081/usuario/id/${id}`)
   }
 
@@ -35,5 +35,10 @@ export class ConsumoService {
     }
     console.log(environment.nome)
     return ok
+  }
+
+  //teste do profile
+  getByIdUser(id: number): Observable<Usuario>{
+    return this.http.get<Usuario>(`http://localhost:8081/usuario/id/${id}`,)
   }
 }
