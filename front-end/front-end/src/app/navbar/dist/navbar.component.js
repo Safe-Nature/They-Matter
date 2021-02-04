@@ -9,10 +9,13 @@ exports.__esModule = true;
 var core_1 = require("@angular/core");
 var environment_prod_1 = require("src/environments/environment.prod");
 var NavbarComponent = /** @class */ (function () {
-    function NavbarComponent() {
+    function NavbarComponent(produtosService) {
+        this.produtosService = produtosService;
         this.nome = environment_prod_1.environment.nome;
     }
     NavbarComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.produtosService.getCategoria().subscribe(function (resp) { return _this.categoria = resp; });
     };
     NavbarComponent = __decorate([
         core_1.Component({

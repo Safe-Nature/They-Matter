@@ -27,6 +27,9 @@ public class Produtos {
 	private double preco;
 	
 	@Column
+	private String parcelamento;
+
+	@Column
 	private int estoque;
 	
 	@Column
@@ -129,5 +132,13 @@ public class Produtos {
 	public void setAnimais(Animais animais) {
 		this.animais = animais;
 	}
+
+	public String getParcelamento() {
+		return parcelamento;
+	}
+
+	public void setParcelamento(String parcelamento) {
+		this.parcelamento = parcelamento;
+	}	
 	
 }

@@ -1,11 +1,11 @@
 <div class="container-fluid mt-5">
-  <h2 class="ml-5" style="font-family: 'Roboto Slab', serif; font-size: 24pt;">Produtos</h2>
+  <h2 class="ml-5" style="font-family: 'Roboto Slab', serif; font-size: 24pt;">{{categoria.nome}}</h2>
   <hr>
   <div class="row mt-5 d-flex flex-wrap text-center justify-content-center ">
     <br>
     <div class="col-md-12 d-flex justify-content-center mb-5 flex-wrap">
       <!-- Cards 4 Produtos -->
-      <div *ngFor="let produto of produtos" class="card m-1 col-3">
+      <div *ngFor="let produto of categoria.produtos" class="card m-1 col-3">
         <img class="card-img-top" src="{{produto.imagem}}">
         <div class="card-body">
           <h4 class="card-title">{{produto.nome}}</h4>

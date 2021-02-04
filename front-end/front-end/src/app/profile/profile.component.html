@@ -1,0 +1,198 @@
+<div class="jumbotron jumbotron-fluid bg-white">
+    <div class="container">
+        <h1>Olá, {{userLogin.nome}}</h1>
+    </div>
+</div>
+<div class="container">
+    <nav>
+        <div class="nav nav-tabs justify-content-center border-0" id="nav-tab" role="tablist">
+            <a class=" nav-item nav-link active border-0 text-dark " id="nav-conta-tab" data-toggle="tab"
+                href="#nav-conta" role="tab" aria-controls="nav-conta" aria-selected="true">
+                <img src="https://i.imgur.com/ggocf0v.png" class="rounded float-left mr-4">Conta</a>
+            <a class="nav-item nav-link border-0 text-dark" id="nav-endereco-tab" data-toggle="tab" href="#nav-endereco"
+                role="tab" aria-controls="nav-endereco" aria-selected="false">
+                <img src="https://i.imgur.com/J36eFO9.png" class="rounded float-left mr-4">Endereço</a>
+            <a class="nav-item nav-link border-0 text-dark" id="nav-pedidos-tab" data-toggle="tab" href="#nav-pedidos"
+                role="tab" aria-controls="nav-pedidos" aria-selected="false">
+                <img src="https://i.imgur.com/ZeF5x3N.png" class="rounded float-left mr-4">Pedidos</a>
+            <a class="nav-item nav-link border-0 text-dark" id="nav-desejos-tab" data-toggle="tab" href="#nav-desejos"
+                role="tab" aria-controls="nav-desejos" aria-selected="false">
+                <img src="https://i.imgur.com/gTEZL6u.png" class="rounded float-left mr-4">Lista de Desejos</a>
+            <a class="nav-item nav-link border-0 text-dark" id="nav-trocas-tab" data-toggle="tab" href="#nav-trocas"
+                role="tab" aria-controls="nav-trocas" aria-selected="false">
+                <img src="https://i.imgur.com/KN2qR0T.png" class="rounded float-left mr-4">Trocas</a>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active border-0" id="nav-conta" role="tabpanel" aria-labelledby="nav-conta-tab">
+            <!--CONTA-->
+            <div class="card mb-6">
+                <div class="card text-center border-0">
+                    <div class="card-header border-0">
+                        DADOS PESSOAIS
+                    </div>
+                    <div class="card-body ">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputName">Usuário</label>
+                                    <p type="text" class="form-control" id="inputName" placeholder="" >{{userLogin.nome}}</p>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputUser">Email</label>
+                                    <p type="text" class="form-control" id="inputUser" placeholder="">{{userLogin.email}}</p>
+                                </div>
+                            </div>
+                           
+                        </form>
+                        
+                    </div>
+                    <div class="card-footer text-muted">
+                        <button class="btn btn-light mr-1 justify-content-end" data-toggle="modal"
+                            data-target="#editar">Editar<img src="https://i.imgur.com/uzxrsVV.png"
+                                class="rounded float-left">
+                        </button>
+                        <button class="btn btn-light mr-1" data-toggle="modal" data-target="#apagar">Excluir<img
+                                src="https://i.imgur.com/riXjkz5.png" class="rounded float-left">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--/CONTA-->
+        </div>
+        <!--ENDEREÇO-->
+        <div class="tab-pane fade border-0" id="nav-endereco" role="tabpanel" aria-labelledby="nav-endereco-tab">
+            <div class="card">
+                <div class="card text-center">
+                    <div class="card-header border-0">
+                        ENDEREÇO
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="inputAddress"> </label>
+                                <input type="text" class="form-control" id="inputAddress"
+                                    placeholder="Rua dos Bobos, nº 0">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputCity">Cidade</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputEstado">Estado</label>
+                                    <select id="inputEstado" class="form-control">
+                                        <option selected>Escolher...</option>
+                                        <option>Acre</option>
+                                        <option>Alagoas</option>
+                                        <option>Amapa</option>
+                                        <option>Amazonas</option>
+                                        <option>Bahia</option>
+                                        <option>Ceará</option>
+                                        <option>Distrito Federal</option>
+                                        <option>Espirito Santo</option>
+                                        <option>Goias</option>
+                                        <option>Maranão</option>
+                                        <option>Mato Grosso</option>
+                                        <option>Mato Grosso do Sul</option>
+                                        <option>Minas Gerais</option>
+                                        <option>Pará</option>
+                                        <option>Paraíba</option>
+                                        <option>Paraná</option>
+                                        <option>Pernambuco</option>
+                                        <option>Piauí</option>
+                                        <option>Rio de Janeiro</option>
+                                        <option>Rio Grande do Norte</option>
+                                        <option>Rio Grande do Sul</option>
+                                        <option>Rondônia</option>
+                                        <option>Santa Catarina</option>
+                                        <option>São Paulo</option>
+                                        <option>Sergipe</option>
+                                        <option>Tocantins</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label for="inputCEP">CEP</label>
+                                    <input type="text" class="form-control" id="inputCEP">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <button class="btn btn-light mr-1 justify-content-end" data-toggle="modal"
+                            data-target="#editar">Editar<img src="https://i.imgur.com/uzxrsVV.png"
+                                class="rounded float-left">
+                        </button>
+                        <button class="btn btn-light mr-1" data-toggle="modal" data-target="#apagar">Excluir<img
+                                src="https://i.imgur.com/riXjkz5.png" class="rounded float-left">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ENDEREÇO-->
+        <!--PEDIDOS-->
+        <div class="tab-pane fade" id="nav-pedidos" role="tabpanel" aria-labelledby="nav-pedidos-tab">
+            <div class="row">
+                <!--Titulo-->
+                <h2 class="text-center">Meu carrinho</h2>
+
+
+                <!--/Titulo-->
+
+                <table class="table table-hover bg-light">
+                    <thead>
+                        <tr>
+                            <th scope="col">Produto</th>
+                            <th scope="col">Quantidade</th>
+                            <th scope="col" class="text-right">Preço</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th></th>
+                            <td></td>
+                            <td class=" d-flex justify-content-end">
+                                <button class="btn btn-danger">Apagar</button>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <div class="d-flex justify-content-end">
+                    <button class=" botao ">Continuar</button>
+                </div>
+                <!--/coluna de total-->
+                <!--
+                                <div>
+                                    <div class="row ">
+                                        <div class="col-md-12 d-flex justify-content-end">
+                                            <h6>Deseja Continuar comprando?</h6>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3 mb-4">
+                                        <div class="col-md-12 d-flex justify-content-end ">
+                                            <button class="btn btn-success mr-4" routerLink='/produtos'>Sim</button>
+                                            <button class="btn btn-danger">Não</button>
+                                        </div>
+                                    </div>
+                                </div>-->
+
+            </div>
+
+        </div>
+    </div>
+    <!--/PEDIDOS-->
+    <div class="tab-pane fade" id="nav-desejos" role="tabpanel" aria-labelledby="nav-desejos-tab">
+    </div>
+    <div class="tab-pane fade" id="nav-trocas" role="tabpanel" aria-labelledby="nav-trocas-tab">
+    </div>
+</div>
+
+<!--JUBUTROM-->
+
+<div class="jumbotron jumbotron-fluid bg-white">
+</div>

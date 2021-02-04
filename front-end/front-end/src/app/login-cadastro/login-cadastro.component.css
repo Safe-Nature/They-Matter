@@ -32,6 +32,19 @@
   color: #aaa;
 }
 
+.form-control:invalid:focus{
+  border-color:red;
+
+}
+.form-control:valid:focus{
+border-color:green
+}
+
+.from-control:focus{
+  box-shadow:none;
+  border-color:var(--font-hover-color);
+  outline:none;
+}
 
    .form-group{
      margin-bottom: 1.5em;

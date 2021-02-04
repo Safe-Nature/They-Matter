@@ -42,7 +42,6 @@ public class Security extends WebSecurityConfigurerAdapter {
 				.antMatchers(HttpMethod.POST,"usuario/logar").permitAll()
 				.antMatchers(HttpMethod.POST,"usuario/cadastrar").permitAll()
 				.antMatchers(HttpMethod.GET,"usuario/todos").hasRole("ADMIN")
-				.antMatchers(HttpMethod.DELETE,"usuario/delete/{id}").hasRole("ADMIN")
 				.antMatchers(HttpMethod.DELETE,"usuario/delete/{id}").hasRole("USER")
 				.antMatchers(HttpMethod.PUT, "usuario/{id}").hasRole("USER")
 				//-----------------------------------------------------------------
@@ -52,10 +51,7 @@ public class Security extends WebSecurityConfigurerAdapter {
 				.antMatchers(HttpMethod.GET,"/produtos/todos").permitAll()
 				.antMatchers(HttpMethod.GET,"/produtos/id/{id}").permitAll()
 				.antMatchers(HttpMethod.GET,"/produtos/nome/{nome}").permitAll()
-				.antMatchers(HttpMethod.POST, "/produtos/post").hasRole("ADMIN")
-				.antMatchers(HttpMethod.PUT, "/produtos/put/{id}").hasRole("ADMIN")
-				.antMatchers(HttpMethod.DELETE, "/produtos/delete/{id}").hasRole("ADMIN")
-
+				.antMatchers(HttpMethod.GET,"/categorias/{nome}").permitAll()
 				//--------------------------------------------------------------------------
 
 				.anyRequest().permitAll()
