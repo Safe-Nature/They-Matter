@@ -18,6 +18,12 @@ export class ProdutosService {
   getByIdProdutos(id: number): Observable <Produtos>{
     return this.http.get<Produtos>(`http://localhost:8081/produtos/id/${id}`)
   }
+
+  getByNomeProdutos(nome: string): Observable <Produtos[]>{
+    return this.http.get<Produtos[]>(`http://localhost:8081/produtos/nome/${nome}`)
+  }
+
+
   postProdutos(produtos: Produtos): Observable<Produtos>{
     return this.http.post<Produtos>('http://localhost:8081/produtos', produtos)
   }
