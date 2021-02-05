@@ -5,6 +5,10 @@
     border: solid lightgrey 1px;
     color: black;
 }
+.categoria-box {
+    display: flex;
+    flex-direction: column;
+}
 .categoria:hover {
     color: lightgray;
 }
@@ -27,4 +31,17 @@
 }
 .categoria:hover {
     background-color: #00463F;
+}
+@media only screen and (max-width: 800px) {
+    .categoria-box {
+        
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .card {
+        flex-direction: row;
+    }
+    .card-row {
+        flex-direction: row;
+    }
 }

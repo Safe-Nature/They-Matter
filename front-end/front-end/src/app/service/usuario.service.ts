@@ -26,9 +26,9 @@ export class ConsumoService {
   getUser(id: number){
     return this.http.get<UserLogin>(`http://localhost:8081/usuario/id/${id}`)
   }
-  //getById(id: number){
-   // return this.http.get<Usuario>(`http://localhost:8081/usuario/id/${id}`)
- // }
+  getById(id: number){
+   return this.http.get<Usuarios>(`http://localhost:8081/usuario/id/${id}`)
+ }
 
   logado(){
     let ok : boolean = false

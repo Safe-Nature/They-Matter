@@ -30,7 +30,7 @@
               <a class="dropdown-item fad" routerLink='/produtos'>Todos</a>
               <div *ngFor="let categorias of categoria">
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item sr" routerLink="/categoria/{{categorias.id}}">{{categorias.nome}}</a>
+                <a class="dropdown-item sr" routerLink="/categoria/{{categorias.id}}" target="_blank">{{categorias.nome}}</a>
               </div>
             </div>
           </div>
@@ -48,7 +48,7 @@
       <div class="col-md-3 d-flex justify-content-around p-4 align-content-center ">
         <a></a>
         <a class="nav-link text-light" routerLink="/carrinho" ><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-        <a routerLink="/login-cadastro" class="nav-link text-light align-mi">Entre, ou cadastre-se</a>
+        <a routerLink="/login-cadastro" class="nav-link text-light align-mi"   #EntreCadast   >Entre, ou cadastre-se</a>
       </div>
     </div>
   </div>

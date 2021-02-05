@@ -15,7 +15,7 @@ import { Pedidos } from '../models/Pedidos';
 export class ProfileComponent implements OnInit {
 
   userLogin : UserLogin = new UserLogin();
-  usuarios: Usuarios = new Usuarios();
+  
   pedidos: Pedidos[];
   constructor(
     private consumoService: ConsumoService,
@@ -27,9 +27,5 @@ export class ProfileComponent implements OnInit {
       console.log(resp)
       this.userLogin = resp;
     })
-    
-   
   }
-
 }
-
