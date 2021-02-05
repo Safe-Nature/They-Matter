@@ -65,7 +65,8 @@ var LoginCadastroComponent = /** @class */ (function () {
     LoginCadastroComponent.prototype.LiberaDados = function (event) {
         this.Dadosliberados = event.target.value;
     };
-    LoginCadastroComponent.prototype.validaNome = function (_a) {
+    LoginCadastroComponent.prototype.confirmEmail = function (event) {
+        this.confirmEmail = event.target.value;
     };
     __decorate([
         core_1.ViewChild("invalid-user")

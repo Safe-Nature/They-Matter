@@ -80,5 +80,15 @@ border-color:green
 
    }
 
+  .d {
+  
+  transform: rotate(90deg);
+  width: 100px;
+}
+
+.verticalLine {
+  border-left: green;
+}
+
 
 

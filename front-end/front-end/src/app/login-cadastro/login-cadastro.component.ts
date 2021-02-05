@@ -91,12 +91,17 @@ export class LoginCadastroComponent implements OnInit {
     this.Dadosliberados = event.target.value
   }
 
+  confirmEmail(event: any){
+    this.confirmEmail=event.target.value
+  }
 
-  validaNome({}){
 
-    }
+
+
 
   }
+
+
 
 
 
