@@ -22,8 +22,8 @@ public class PedidosController {
     @Autowired
     public PedidosRepository pedidosRepository;
 
-    @GetMapping("/all")
-    public ResponseEntity<List<Pedidos>> get(@RequestBody Pedidos pedidos) {
+    @GetMapping("/todos")
+	public ResponseEntity<List<Pedidos>>getAll() {
         return ResponseEntity.ok(pedidosRepository.findAll());
     }
 
