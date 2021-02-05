@@ -1,7 +1,10 @@
+import { Usuarios } from '../models/Usuarios';
+import { PedidosService } from './../service/pedidos.service';
 import { environment } from './../../environments/environment.prod';
 import { UserLogin } from './../models/UserLogin';
 import { ConsumoService } from './../service/usuario.service';
 import { Component, OnInit } from '@angular/core';
+import { Pedidos } from '../models/Pedidos';
 
 
 @Component({
@@ -11,14 +14,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  userLogin : UserLogin
-
+  userLogin : UserLogin = new UserLogin();
+  usuarios: Usuarios = new Usuarios();
+  pedidos: Pedidos[];
   constructor(
-    private consumoService: ConsumoService
+    private consumoService: ConsumoService,
+    private pedidosService: PedidosService
   ) { }
 
   ngOnInit() { 
-    this.consumoService.getUser(environment.id).subscribe(resp => this.userLogin = resp)
+    this.consumoService.getUser(environment.id).subscribe((resp: UserLogin) =>{
+      console.log(resp)
+      this.userLogin = resp;
+    })
+    
+   
   }
 
 }

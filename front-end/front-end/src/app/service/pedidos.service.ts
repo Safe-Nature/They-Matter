@@ -12,8 +12,8 @@ export class PedidosService {
     private http: HttpClient
   ) {}
 
-  getPedidos(): Observable<Pedidos> {
-    return this.http.get<Pedidos>('http://localhost:8081/pedido/all')
+  getPedidos(): Observable<Pedidos[]> {
+    return this.http.get<Pedidos[]>('http://localhost:8081/pedido/all')
   }
   postPedido(pedido: Pedidos): Observable<Pedidos> {
     return this.http.post<Pedidos>('http://localhost:8081/pedido/add', pedido)

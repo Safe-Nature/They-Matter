@@ -1,12 +1,12 @@
-import { Usuario } from './Usuario';
+import { Usuarios } from './Usuarios';
 import { Produtos } from "./Produtos"
 
 
 export class Pedidos{
     public id: number
-    public status: boolean
+    public status: string
     public total: number
-    public usuario: Usuario
+    public usuarios: Usuarios
     public produto: Produtos[]
     
 }

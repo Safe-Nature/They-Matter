@@ -1,6 +1,6 @@
-import { Usuario } from './../models/Usuario';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
+import { Usuarios } from '../models/Usuarios';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ConsumoService } from '../service/usuario.service';
 import { Router } from '@angular/router';
 import { UserLogin } from '../models/UserLogin';
@@ -16,7 +16,7 @@ import { invalid } from '@angular/compiler/src/render3/view/util';
 })
 export class LoginCadastroComponent implements OnInit {
 
-  usuario: Usuario = new Usuario
+  usuarios: Usuarios = new Usuarios()
   confirmarSenha: string
   Dadosliberados: string
   userLogin: UserLogin = new UserLogin()
@@ -68,13 +68,13 @@ export class LoginCadastroComponent implements OnInit {
   }
 
   cadastrar() {
-    this.usuario = this.usuario
-    if (this.usuario.senha != this.confirmarSenha) {
+    this.usuarios = this.usuarios
+    if (this.usuarios.senha != this.confirmarSenha) {
       alert('A senhas estão divergentes.')
     }
     else {
-      this.consumoService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
-        this.usuario = resp
+      this.consumoService.cadastrar(this.usuarios).subscribe((resp: Usuarios) => {
+        this.usuarios = resp
         this.router.navigate(['/inicio'])
         alert('Seu cadastro foi efetudado com sucesso!')
       })

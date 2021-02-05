@@ -1,4 +1,4 @@
-import { Usuario } from './../models/Usuario';
+import { Usuarios } from './../models/Usuarios';
 import { environment } from './../../environments/environment.prod';
 import { PedidosService } from './../service/pedidos.service';
 import { Router } from '@angular/router';
@@ -19,7 +19,7 @@ export class CarrinhoComponent implements OnInit {
 
   pedido: Pedidos = new Pedidos()
 
-  usuario: Usuario = new Usuario()
+  usuario: Usuarios = new Usuarios()
 
   total: number
   
@@ -57,9 +57,9 @@ export class CarrinhoComponent implements OnInit {
   realizarPedido() {
     this.pedido.produto = this.listaProdutos
     this.pedido.total = this.total
-    this.pedido.status = true
+    this.pedido.status = "Aprovada"
     this.usuario.id = environment.id
-    this.pedido.usuario = this.usuario
+    this.pedido.usuarios = this.usuario
     console.log(this.pedido)
 
     this.pedidosService.postPedido(this.pedido).subscribe((resp: Pedidos) => {
