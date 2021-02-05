@@ -6,7 +6,7 @@
 }
 .banner-img {
     width: 100%;
-    height: 200px;
+    min-height: 10em;
 }
 .categoria {
     width: 150px;
@@ -17,6 +17,10 @@
 }
 .categoria:hover {
     color: lightgray;
+}
+.btn-verde{
+    color:white;
+    background-color:#00463F;
 }
 .ctg-img {
     width: 80px;
