@@ -1,0 +1,66 @@
+.form-control{
+   box-shadow: none;
+   border-radius: 0;
+   border-color: #28a745;
+   border-style:none none solid none;
+   width: 100%;
+   font-size:1.25em;
+   transition: all .6s;
+   }
+
+   .form-control:focus{
+     box-shadow:none;
+     border-color: var(--font-hover-color);
+     outline:none;
+   }
+.form-control::placeholder{
+  color: #aaa;
+}
+
+.form-control:invalid:focus{
+  border-color:red;
+
+}
+.form-control:valid:focus{
+border-color:green
+}
+
+.from-control:focus{
+  box-shadow:none;
+  border-color:var(--font-hover-color);
+  outline:none;
+}
+
+   .form-group{
+     margin-bottom: 1.5em;
+     transition: all .3s;
+   }
+
+   .form-label{
+     font-size:  .75em;
+     color: var(--font-color);
+     display:block;
+     opacity: 0;
+     transition: all .3s;
+     transform: translateX(-50px);
+   }
+   .form-group:focus-within{
+     transform: scale(1.1, 1.1);
+   }
+
+   .btn{
+     background: 0 0 #fff;
+     border:1px solid #aaa;
+     border-radius: 3px;
+     color: var(--font-color);
+     font-size:lem;
+     padding: 10 50 px;
+     text-transform: uppercase;
+
+
+   }
+
+   .focused > .form-label {
+    opacity: 1;
+
+   }

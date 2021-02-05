@@ -7,6 +7,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { LoginCadastroComponent } from './login-cadastro/login-cadastro.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { EditDadosComponent } from './profile/edit-dados/edit-dados.component';
+import { DeleteDadosComponent } from './profile/delete-dados/delete-dados.component';
 
 const routes: Routes = [
 
@@ -17,7 +19,9 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent},
   {path: 'produtos', component: ProdutosComponent},
   {path: 'sobre', component: SobreComponent},
-  {path: 'categoria/:id', component: CategoriasPageComponent}
+  {path: 'categoria/:id', component: CategoriasPageComponent},
+  {path: 'edit-dados/:id', component: EditDadosComponent},
+  {path: 'delete-dados/:id', component: DeleteDadosComponent}
 
 ];
 

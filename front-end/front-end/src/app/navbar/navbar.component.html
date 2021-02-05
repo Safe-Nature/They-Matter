@@ -1,5 +1,5 @@
 <div class="container-fluid bk">
-  <div class="navbar navbar-expand-md justify-content-center navbar-light">
+  <div class="row navbar-expand-md justify-content-center ">
     <a class="navbar-brand" routerLink="/inicio">
       <img src="../../assets/padrao/logo_img.png" alt="Icone" width="65px" height="65px"
         class="img-fluid rounded-circle">
@@ -16,7 +16,7 @@
     </button>
 
   </div>
-  <div class="navbar-expand-md navbar-light align-items-center bk">
+  <div class="row navbar-expand-md align-items-center bk">
     <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
       <div class="col-md-3 d-flex align-content-center">
         <a class="nav-link text-light p-3" routerLink="/produtos">Produtos</a>
@@ -30,7 +30,7 @@
               <a class="dropdown-item fad" routerLink='/produtos'>Todos</a>
               <div *ngFor="let categorias of categoria">
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item sr" routerLink="/categoria/{{categorias.id}}" target="_blank">{{categorias.nome}}</a>
+                <a class="dropdown-item sr" routerLink="/categoria/{{categorias.id}}" target="_self">{{categorias.nome}}</a>
               </div>
             </div>
           </div>

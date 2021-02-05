@@ -16,6 +16,12 @@
     color:white;
     background-color:#00463F;
 }
+.btn-verde:hover {
+    box-shadow: 0 0 10px gray;
+}
+.btn-verde:active {
+    background-color: white;
+}
 .ctg-img {
     width: 80px;
     height: 80px;
@@ -31,6 +37,10 @@
 }
 .categoria:hover {
     background-color: #00463F;
+}
+.header-style{
+    background-color: #00463f;
+    color: whitesmoke;
 }
 @media only screen and (max-width: 800px) {
     .categoria-box {

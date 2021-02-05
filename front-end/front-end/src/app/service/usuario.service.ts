@@ -39,4 +39,12 @@ export class ConsumoService {
     console.log(environment.nome)
     return ok
   }
+
+  //teste do profile
+  getByIdUser(id: number): Observable<Usuarios>{
+    return this.http.get<Usuarios>(`http://localhost:8081/usuario/id/${id}`)
+  }
+  deleteUsuario(id: number){
+    return this.http.delete(`http://localhost:8081/usuario/delete/${id}`)
+  }
 }

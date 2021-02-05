@@ -15,6 +15,7 @@ import { Pedidos } from '../models/Pedidos';
 export class ProfileComponent implements OnInit {
 
   userLogin : UserLogin = new UserLogin();
+  id = environment.id
   
   pedidos: Pedidos[];
   constructor(
@@ -27,5 +28,10 @@ export class ProfileComponent implements OnInit {
       console.log(resp)
       this.userLogin = resp;
     })
+  }
+
+  showProduto() {
+
+    
   }
 }
