@@ -60,6 +60,7 @@ export class CarrinhoComponent implements OnInit {
     this.pedido.status = true
     this.usuario.id = environment.id
     this.pedido.usuario = this.usuario
+    console.log(this.pedido)
 
     this.pedidosService.postPedido(this.pedido).subscribe((resp: Pedidos) => {
       this.pedido = resp

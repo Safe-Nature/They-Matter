@@ -8,4 +8,5 @@ export class Pedidos{
     public total: number
     public usuario: Usuario
     public produto: Produtos[]
+    
 }
