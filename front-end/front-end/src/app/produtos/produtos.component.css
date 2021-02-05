@@ -1,4 +1,30 @@
+.categoria {
+    width: 150px;
+    height: 150px;
+    transition: 0.2s;
+    border: solid lightgrey 1px;
+    color: black;
+}
+.categoria:hover {
+    color: lightgray;
+}
 .btn-verde{
     color:white;
     background-color:#00463F;
+}
+.ctg-img {
+    width: 80px;
+    height: 80px;
+    transition: 0.2s;
+}.img-front {
+    display: none;
+}
+.categoria:hover .img-back {
+    display: none;
+}
+.categoria:hover .img-front {
+    display: block;
+}
+.categoria:hover {
+    background-color: #00463F;
 }
