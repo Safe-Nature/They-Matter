@@ -54,7 +54,8 @@
                             data-toggle="modal" data-target="#editar">Editar<img src="https://i.imgur.com/uzxrsVV.png"
                                 class="rounded float-left">
                         </button>
-                        <button class="btn btn-light mr-1" data-toggle="modal" data-target="#apagar">Excluir<img
+                        <button [routerLink]="['/delete-dados',id]" class="btn btn-light mr-1" data-toggle="modal" 
+                            data-target="#apagar">Excluir<img
                                 src="https://i.imgur.com/riXjkz5.png" class="rounded float-left">
                         </button>
 

@@ -23,7 +23,7 @@ export class ConsumoService {
   cadastrar(usuario: Usuario): Observable<Usuario>{
     return this.http.post<Usuario>("http://localhost:8081/usuario/cadastrar", usuario)
   }
- getUser(id: number){
+  getUser(id: number){
     return this.http.get<UserLogin>(`http://localhost:8081/usuario/id/${id}`)
   }
 
@@ -39,6 +39,9 @@ export class ConsumoService {
 
   //teste do profile
   getByIdUser(id: number): Observable<Usuario>{
-    return this.http.get<Usuario>(`http://localhost:8081/usuario/id/${id}`,)
+    return this.http.get<Usuario>(`http://localhost:8081/usuario/id/${id}`)
+  }
+  deleteUsuario(id: number){
+    return this.http.delete(`http://localhost:8081/usuario/delete/${id}`)
   }
 }

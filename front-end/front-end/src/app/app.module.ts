@@ -16,6 +16,7 @@ import { SobreComponent } from './sobre/sobre.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CategoriasPageComponent } from './categorias-page/categorias-page.component';
 import { EditDadosComponent } from './profile/edit-dados/edit-dados.component';
+import { DeleteDadosComponent } from './profile/delete-dados/delete-dados.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { EditDadosComponent } from './profile/edit-dados/edit-dados.component';
     SobreComponent,
     ProfileComponent,
     CategoriasPageComponent,
-    EditDadosComponent
+    EditDadosComponent,
+    DeleteDadosComponent
 
   ],
   imports: [

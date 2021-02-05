@@ -38,14 +38,12 @@ export class EditDadosComponent implements OnInit {
     else {
       this.consumoService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
         this.usuario = resp
-        this.router.navigate(['/inicio'])
         alert('cadastro atualizado com sucesso, faça o login novamente')
         environment.token = ''
         environment.nome = ''
         environment.email = ''
         environment.id = 0
         this.router.navigate(['/login-cadastro'])
-
       })
 
     }
