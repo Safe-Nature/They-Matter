@@ -14,10 +14,10 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>projeto_Integrador</name>
 	<description>API de E-Commerce para o Projeto Integrador Generation</description>
-
 	<properties>
 		<java.version>8</java.version>
 	</properties>
+	
 
 	<dependencies>
 
