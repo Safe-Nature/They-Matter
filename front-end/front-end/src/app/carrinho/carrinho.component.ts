@@ -55,15 +55,24 @@ export class CarrinhoComponent implements OnInit {
     return pTotal;
   }
   realizarPedido() {
-    this.pedido.produto = this.listaProdutos
-    this.pedido.total = this.total
-    this.pedido.status = "Aprovada"
-    this.usuario.id = environment.id
-    this.pedido.usuarios = this.usuario
-    console.log(this.pedido)
 
-    this.pedidosService.postPedido(this.pedido).subscribe((resp: Pedidos) => {
-      this.pedido = resp
-    })
+    if(environment.token != '') {
+      this.pedido.produto = this.listaProdutos
+      this.pedido.total = this.total
+      this.pedido.status = "Aprovada"
+      this.usuario.id = environment.id
+      this.pedido.usuarios = this.usuario
+      console.log(this.pedido)
+  
+      this.pedidosService.postPedido(this.pedido).subscribe((resp: Pedidos) => {
+        this.pedido = resp
+      })
+  
+      alert("Pedido realizado!! Obrigado por comprar conosco!")
+      localStorage.removeItem('listaProdutos')
+      this.ngOnInit()
+    } else {
+      alert("Você precisa entrar para realizar seu pedido.")
+    }
   }
 }

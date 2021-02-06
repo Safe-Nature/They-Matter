@@ -45,6 +45,6 @@ export class ConsumoService {
     return this.http.get<Usuarios>(`http://localhost:8081/usuario/id/${id}`)
   }
   deleteUsuario(id: number){
-    return this.http.delete(`http://localhost:8081/usuario/delete/${id}`)
+    return this.http.delete(`http://localhost:8081/delete/${id}`)
   }
 }

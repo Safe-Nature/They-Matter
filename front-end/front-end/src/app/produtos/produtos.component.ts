@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Produtos } from '../models/Produtos';
 import { ProdutosService } from '../service/produtos.service';
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-produtos',
@@ -26,14 +25,17 @@ export class ProdutosComponent implements OnInit {
 
   comprar(id: number) {
 
-    if(environment.token == null) {
-      alert('Precisa Estar Logado para comprar')
+    if(environment.token == '') {
+      alert('Entre com sua conta para comprar')
+    } else {
+      this.produtosService.getByIdProdutos(id).subscribe((resp: Produtos) => {
+        this.produto = resp
+        console.log(this.produto)
+        this.listaProdutos.push(resp)
+        localStorage.setItem('listaProdutos', JSON.stringify(this.listaProdutos))
+      }) 
+      alert('Produto Adicionado ao carrinho')
     }
-    this.produtosService.getByIdProdutos(id).subscribe((resp: Produtos) => {
-      this.produto = resp
-      console.log(this.produto)
-      this.listaProdutos.push(resp)
-      localStorage.setItem('listaProdutos', JSON.stringify(this.listaProdutos))
-    }) 
+   
   }  
 }

@@ -17,6 +17,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { CategoriasPageComponent } from './categorias-page/categorias-page.component';
 import { EditDadosComponent } from './profile/edit-dados/edit-dados.component';
 import { DeleteDadosComponent } from './profile/delete-dados/delete-dados.component';
+import { PopoverComponent } from './service/popover/popover.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { DeleteDadosComponent } from './profile/delete-dados/delete-dados.compon
     ProfileComponent,
     CategoriasPageComponent,
     EditDadosComponent,
-    DeleteDadosComponent
+    DeleteDadosComponent,
+    PopoverComponent
 
   ],
   imports: [
