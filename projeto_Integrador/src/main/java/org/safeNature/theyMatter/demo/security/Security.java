@@ -36,7 +36,7 @@ public class Security extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 				.antMatchers("/").permitAll()
-
+				.antMatchers("/**").permitAll() 
 				//Permissões ENDPOINT usuario; ------------------------------------
 
 				.antMatchers(HttpMethod.POST,"usuario/logar").permitAll()

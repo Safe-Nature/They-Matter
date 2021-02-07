@@ -13,27 +13,27 @@ export class ProdutosService {
   constructor(private http:HttpClient) { }
 
   getAllProdutos(){
-    return this.http.get<Produtos>('http://localhost:8081/produtos/todos').pipe(tap(console.log))  
+    return this.http.get<Produtos>('https://theymatter.com.br/produtos/todos').pipe(tap(console.log))  
   }
   getByIdProdutos(id: number): Observable <Produtos>{
-    return this.http.get<Produtos>(`http://localhost:8081/produtos/id/${id}`)
+    return this.http.get<Produtos>(`https://theymatter.com.br/produtos/id/${id}`)
   }
 
   getByNomeProdutos(nome: string): Observable <Produtos[]>{
-    return this.http.get<Produtos[]>(`http://localhost:8081/produtos/nome/${nome}`)
+    return this.http.get<Produtos[]>(`https://theymatter.com.br/produtos/nome/${nome}`)
   }
 
 
   postProdutos(produtos: Produtos): Observable<Produtos>{
-    return this.http.post<Produtos>('http://localhost:8081/produtos', produtos)
+    return this.http.post<Produtos>('https://theymatter.com.br/produtos', produtos)
   }
   getCategoria() {
-    return this.http.get<Categoria>('http://localhost:8081/categorias/todas').pipe(tap(console.log))
+    return this.http.get<Categoria>('https://theymatter.com.br/categorias/todas').pipe(tap(console.log))
   }
   getCategoriaByNome(nome: string): Observable<Categoria> {
-    return this.http.get<Categoria>(`http://localhost:8081/categorias/${nome}`)
+    return this.http.get<Categoria>(`https://theymatter.com.br/categorias/${nome}`)
   }
   getCategoriaById(id : number): Observable<Categoria> {
-    return this.http.get<Categoria>(`http://localhost:8081/categorias/id/${id}`)
+    return this.http.get<Categoria>(`https://theymatter.com.br/categorias/id/${id}`)
   }
 }

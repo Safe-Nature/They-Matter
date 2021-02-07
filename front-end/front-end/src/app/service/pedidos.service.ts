@@ -13,9 +13,9 @@ export class PedidosService {
   ) {}
 
   getPedidos(): Observable<Pedidos[]> {
-    return this.http.get<Pedidos[]>('http://localhost:8081/pedido/all')
+    return this.http.get<Pedidos[]>('https://theymatter.com.br/pedido/all')
   }
   postPedido(pedido: Pedidos): Observable<Pedidos> {
-    return this.http.post<Pedidos>('http://localhost:8081/pedido/add', pedido)
+    return this.http.post<Pedidos>('https://theymatter.com.br/pedido/add', pedido)
   }
 }
