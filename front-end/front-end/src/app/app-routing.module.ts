@@ -9,6 +9,7 @@ import { LoginCadastroComponent } from './login-cadastro/login-cadastro.componen
 import { MainPageComponent } from './main-page/main-page.component';
 import { EditDadosComponent } from './profile/edit-dados/edit-dados.component';
 import { DeleteDadosComponent } from './profile/delete-dados/delete-dados.component';
+import { PesquisaComponent } from './pesquisa/pesquisa.component';
 
 const routes: Routes = [
 
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'sobre', component: SobreComponent},
   {path: 'categoria/:id', component: CategoriasPageComponent},
   {path: 'edit-dados/:id', component: EditDadosComponent},
-  {path: 'delete-dados/:id', component: DeleteDadosComponent}
+  {path: 'delete-dados/:id', component: DeleteDadosComponent},
+  {path: 'pesquisa/:busca', component: PesquisaComponent}
 
 ];
 
