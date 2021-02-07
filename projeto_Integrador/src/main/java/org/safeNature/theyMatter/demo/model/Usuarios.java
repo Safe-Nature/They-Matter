@@ -1,14 +1,17 @@
 package org.safeNature.theyMatter.demo.model;
 
 import java.time.Instant;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -24,7 +27,7 @@ public class Usuarios {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column
+	@Column(name="usuarios_id")
 	@NotNull
 	private String nome;
 
@@ -36,12 +39,13 @@ public class Usuarios {
 	@NotNull
 	private String senha;
 
-	@Column
-	@NotNull
-	private Instant data =Instant.now();
+	@OneToMany(mappedBy = "usuarios",cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("usuarios")
+	private List<Pedidos> pedido;
 
-	@JsonIgnoreProperties
-	@OneToOne(mappedBy = "usuarios")
+	@JsonIgnoreProperties("usuarios")
+	@JoinColumn(name = "location_id")
+	@OneToOne
 	private Location location;
 
 	public Long getId() {
@@ -68,14 +72,6 @@ public class Usuarios {
 		this.email = email;
 	}
 
-	public Location getLocation() {
-		return location;
-	}
-
-	public void setLocation(Location location) {
-		this.location = location;
-	}
-
 	public String getSenha() {
 		return senha;
 	}
@@ -84,12 +80,21 @@ public class Usuarios {
 		this.senha = senha;
 	}
 
-	public Instant getData() {
-		return data;
+	public List<Pedidos> getPedido() {
+		return pedido;
 	}
 
-	public void setData(Instant data) {
-		this.data = data;
+	public void setPedido(List<Pedidos> pedido) {
+		this.pedido = pedido;
 	}
 
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+
+	
 }

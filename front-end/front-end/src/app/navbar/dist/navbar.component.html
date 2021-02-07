@@ -1,0 +1,204 @@
+<<<<<<< HEAD
+<div class="navbar navbar-expand-lg navbar-light bk lead">
+
+  <a class="navbar-brand ml-3" href="#">
+    <img src="../../assets/padrao/logo_img.png" alt="Icone" width="65px" height="65px" class="img-fluid rounded-circle">
+  </a>
+
+
+
+
+  <ul class="navbar-nav ">
+    <li class="nav-item navbar-brand">
+      <a class="nav-link text-light" href="#">They Matter</a>
+    </li>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item text-light" href="#">Sobre nós</a>
+
+    </div>
+
+  </ul>
+  <button class="navbar-toggler botao text-light" type="button" data-toggle="collapse"
+    data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false"
+    aria-label="Alterna navegação">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+  </button>
+  <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+<<<<<<< HEAD
+    <ul class="navbar-nav mr-auto">
+
+    <form class="form-inline ">
+      <input type="search" id="form1" class="form-control pesquisar" placeholder="Pesquisar" />
+      <button type="button" class="btn btn-light btnpesquisar">
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </button>
+    </form>
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link text-light" href="#">Doar</a>
+=======
+<div class="container-fluid bk">
+  <div class="navbar navbar-expand-md navbar-light">
+    <a class="navbar-brand ml-3" href="#">
+      <img src="../../assets/padrao/logo_img.png" alt="Icone" width="65px" height="65px"
+        class="img-fluid rounded-circle">
+    </a>
+    <ul class="navbar-nav ">
+      <li class="nav-item navbar-brand">
+        <a class="nav-link text-light" href="#">They Matter</a>
+>>>>>>> origin/main-page
+      </li>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item text-light" href="#">Sobre nós</a>
+      </div>
+    </ul>
+    <button class="navbar-toggler botao text-light" type="button" data-toggle="collapse"
+      data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false"
+      aria-label="Alterna navegação">
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+      <div class="d-flex justify-content-center p-3 w-100 align-content-center">
+        <form class="w-100 d-flex flex-nowrap p-3 align-content-center">
+          <input type="search " id="form1" class="form-control w-100 pesquisar p-3" placeholder="Pesquisar" />
+          <button type="button" class="btn btn-light btnpesquisar">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+        </form>
+        <ul class="d-flex justify-content-end align-content-center ml-auto">
+          <li class="nav-item dropdown container">
+            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Minha Conta
+            </a>
+            <div class="dropdown-menu" aria-haspopup="true" aria-expanded="false" aria-labelledby="navbarDropdown">
+              <div class="d-inline">
+                <div class="row ml-1">
+                  <div>
+                    <div class="align-items-center">
+                      <a class="dropdown-item" routerLink="/login-cadastro">Log-in </a>
+                    </div>
+                  </div>
+                  <div class="mt-1 ml-3">
+                    <i class="fa fa-sign-in" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dropdown-divider"></div>
+              <div class="d-inline">
+                <div class="row ml-1">
+                  <div>
+                    <div id="#logout" class="align-items-center">
+                      <a class="dropdown-item" href="#">Log-out</a>
+                    </div>
+                  </div>
+                  <div class="mt-1 ml-2">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+
+                  </div>
+                </div>
+              </div>
+              <div class="dropdown-divider"></div>
+              <div class="d-inline">
+                <div class="row ml-1">
+                  <div>
+                    <div class="align-items-center">
+                      <a class="dropdown-item" routerLink="/carrinho">Carrinho</a>
+                    </div>
+                  </div>
+                  <div class="mt-1">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-expand-md navbar-light bk">
+    <div class="collapse justify-content-center navbar-collapse" id="conteudoNavbarSuportado">
+
+      <ul class="d-flex flex-wrap">
+        <li class="nav-item list-unstyled dropdown text-center m-2">
+          <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categorias
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item fad" routerLink='/produtos'>Todos</a>
+            <div *ngFor="let categorias of categoria">
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item sr" routerLink="/categoria/{{categorias.id}}">{{categorias.nome}}</a>
+            </div>
+          </div>
+        </li>
+        <div class="row">
+          <ul class="d-flex justify-content-center w-100 list-unstyled">
+
+<<<<<<< HEAD
+</div>
+<div class="navbar navbar-expand-lg navbar-light bk">
+
+  <div class="collapse justify-content-center navbar-collapse" id="conteudoNavbarSuportado">
+    <ul class="d-flex flex-wrap">
+      <li class="nav-item list-unstyled dropdown text-center ">
+        <a class="nav-link dropdown-toggle mr-2 ml-5 mr-5 text-light" href="#" id="navbarDropdown" role="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Produtos
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item fad" href="#">Floresta Amazônica</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item sr" href="#">Serrado</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item ca" href="#">Caatinga</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item pa" href="#">Pantanal</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item mat" href="#">Mata Atlântica</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item pam" href="#">Pampa</a>
+        </div>
+      </li>
+      <div class="row">
+        <ul class="d-flex justify-content-center w-100 list-unstyled">
+
+          <li class="nav-item">
+            <a class="nav-link text-light ml-3 mr-3" href="#">Mapa</a>
+          </li>
+=======
+            <li class="nav-item m-2">
+              <a class="nav-link text-light" href="#">Mapa</a>
+            </li>
+>>>>>>> origin/main-page
+
+            <li class="nav-item m-2">
+              <a class="nav-link text-light " href="#">Promoções</a>
+            </li>
+
+            <li class="nav-item m-2">
+              <a class="nav-link text-light" routerLink="/sobre">Sobre nós</a>
+            </li>
+
+            <li class="nav-item m-2">
+              <a class="nav-link text-light" href="#">Animais</a>
+            </li>
+
+            <li class="nav-item m-2">
+              <a class="nav-link text-light" href="#">Desmatamente</a>
+            </li>
+
+            <li class="nav-item m-2">
+              <a class="nav-link text-light" href="#">Aquecimento Global</a>
+            </li>
+          </ul>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>

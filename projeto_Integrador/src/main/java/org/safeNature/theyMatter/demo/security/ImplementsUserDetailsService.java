@@ -17,6 +17,8 @@ public class ImplementsUserDetailsService implements UserDetails {
     	this.password = user.getSenha();
     }
 
+    public ImplementsUserDetailsService(){}
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
@@ -24,12 +26,12 @@ public class ImplementsUserDetailsService implements UserDetails {
 
     @Override
     public String getPassword() {
-        return this.password;
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return userName;
     }
 
     @Override
@@ -56,12 +58,8 @@ public class ImplementsUserDetailsService implements UserDetails {
 		this.password = password;
 	}
 
-	public String getUserName() {
-		return userName;
-    }
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-
 
 }

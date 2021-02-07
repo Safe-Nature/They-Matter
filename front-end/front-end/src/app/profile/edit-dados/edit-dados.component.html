@@ -1,0 +1,40 @@
+<!-- Botão para acionar modal -->
+<!-- Modal -->
+
+<div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="TituloModalLongoExemplo"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="TituloModalLongoExemplo">Atualizar Cadastro</h5>
+               
+            </div>
+            <div class="modal-body">
+                <div class="form-group mr-2 ml-3">
+                    <label for="nome">Nome</label>
+                    <input [(ngModel)]='usuarios.nome' class="form-control" type="text" name="name" id="name"
+                        placeholder="Usuario" tabindex="4" required minlength="6" maxlength="25">
+                </div>
+                <div class="form-group mr-3 ml-3">
+                    <label for="email">E-mail</label>
+                    <input [(ngModel)]="usuarios.email" class="form-control" type="email" name="email" id="email"
+                        placeholder=" email@theymatter.com" tabindex="5" required>
+                </div>
+                <div class="form-group mr-2 ml-3">
+                    <label for="Senha">Senha</label>
+                    <input (input)='confirmSenha($event)' class="form-control" type="password" name="senha" id="senha"
+                        placeholder="Sua senha" required minlength="6" maxlength="10">
+                </div>
+                <div class="form-group mr-2 ml-3">
+                    <label for="confirmSenha">Confirmar Senha</label>
+                    <input [(ngModel)]="usuarios.senha" class="form-control" type="password" name="confirmSenha"
+                        id="confirmSenha" placeholder="Confirme sua senha" required minlength="6" maxlength="10">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger text-center" data-dismiss="modal" routerLink='/profile'>Cancelar</button>
+                <button type="button" class="btn btn-success text-center" data-dismiss="modal" (click)='atualizar()'>Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>

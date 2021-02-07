@@ -1,0 +1,48 @@
+.rounded{
+    width: 30px;
+    height: 30px;
+}
+.nav-item :hover {
+    color: #000000;
+    text-decoration: none;
+}
+
+
+
+
+
+/* tamanho da barra de calcular frete*/
+.tm{
+    padding-inline: 20px;
+    width: 15px;
+    height: 10px;
+}
+/* borda do botao do frete*/
+.br{
+    border-radius: 18px;
+}
+/* tamanho da barra de total*/
+.tmt{
+    width: 38%;
+}
+.botao{
+
+    transition: 0.2s;
+    top:-4px;
+    box-shadow:0 6px 4px #999;
+    color: white;
+    background: #00463F;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 16px;
+    
+}
+.botao:hover{
+    background-color: white;
+    color: black
+    
+}
+.fs-16{
+    font-size: 50px;
+}
+

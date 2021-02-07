@@ -1,0 +1,1 @@
+{"version":3,"sources":["Usuario.ts"],"names":[],"mappings":";;AAAA;IAAA;IAOA,CAAC;IAAD,cAAC;AAAD,CAPA,AAOC,IAAA;AAPY,0BAAO","file":"Usuario.js","sourcesContent":["export class Usuario {\r\n    public id: number\r\n    public nome: string\r\n    public email: string\r\n    public senha: string\r\n    public location: Location\r\n    \r\n}\r\n"]}

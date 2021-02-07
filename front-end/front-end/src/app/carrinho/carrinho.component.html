@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-10 mt-5">
+            <!--Titulo-->
+            <h2>Meu carrinho</h2>
+            <hr>
+            <!--/Titulo-->
+                <div class="row ">
+                    <!-- coluna de produto-->
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">Produto</th>
+                            <th scope="col">Descrição</th>
+                            <th scope="col">Valor</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let produto of listaProdutos">
+                            <th scope="row" ><img class=" tm1" src="{{produto.imagem}}"></th>
+                            <td class="align-middle">{{produto.nome}}</td>
+                            <td class="align-middle">R$ {{produto.preco}}</td>
+                            <td class="align-middle"><button (click)="removeProduto(listaProdutos.indexOf(produto))" class="btn btn-danger mr-3" style="float:right"  >Remover</button></td>
+                        </tr>  
+                        </tbody>
+                    </table>
+                    
+                <!-- /coluna de produto-->
+            </div>
+            <hr>
+            <!--coluna de total-->
+        </div>
+    </div>
+    <hr>
+    <div class="row ">
+        <!--coluna do calculo-->
+        <div class="col-md-10 mb-5 d-flex justify-content-end">
+            <div>
+                <p class="text-capitalize text-justify">Valor total: R$ {{total}}</p>
+            </div>
+        </div>
+        
+    </div>
+    <!--coluna do botao-->
+    <div class="row mt-5 mb-5">
+        <div class="col-md-10 d-flex justify-content-end">
+            <button class="botao" (click)="realizarPedido()">Continuar</button>
+        </div>
+    </div>
+    <!--/coluna do calculo-->
+
+</div>

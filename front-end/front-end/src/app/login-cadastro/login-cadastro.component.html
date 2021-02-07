@@ -1,0 +1,107 @@
+<div class="container-fluid  mt-3">
+
+  <div class="row d-flex justify-content-center align-items-center ">
+    <div class="col-md-10 border shadow-lg  mb-5 bg-white rounded d-flex flex-wrap   justify-content-center">
+
+      <div class="col-md-6">
+
+        <div class="row d-flex justify-content-center ">
+
+          <div class="col-md-6">
+
+
+            <h1 class="text-center mb-6  font p  p-5 ">Entrar</h1>
+
+
+            <div class="form-group ml-4 mr-3  trans">
+              <label for="nome">Usuário</label>
+              <input [(ngModel)]="userLogin.nome" class="form-control" type="text" name="nome" id="#nome"
+                placeholder="Seu Usuário" tabindex="1" required minlength="6" maxlength="25">
+
+
+            </div>
+
+            <div class="form-group ml-4 mr-3">
+              <label for="Senha">Senha</label>
+              <input [(ngModel)]="userLogin.senha" class="form-control " type="password" name="senha" id="#senha"
+                placeholder="Sua senha" required minlength="6" maxlength="10">
+            </div>
+            <br>
+            <p id='#invalid-user' class=""></p>
+            <hr>
+            <p class="text-center p2">
+              Esqueceu sua senha? <a routerLink='/cadastrar'>Clique aqui.</a>
+            </p>
+            <div class="d-flex justify-content-center p-1 ml-4 mr-3 p-3">
+              <button type="submit" class="btn btn-white  border-dark text-dark btn-outline-success font-weight-bold "
+                (click)='login()'>Entrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6  d-flex  align-content-center">
+        <div class="row p-5 ">
+          <div class="col-md-12 mr-4 ml-6 ">
+            <h1 class="text-center font p">Cadastro</h1>
+            <div class="form-group mr-2 ml-3 ">
+              <label for="nome">Usuário</label>
+              <input [(ngModel)]='usuarios.nome' class="form-control" type="text" name="name" id="name"
+                placeholder="Seu Usuário" tabindex="4" required minlength="6" maxlength="25" #nome="ngModel">
+<div *ngIf="!nome.valid && nome.touched" class=" text-danger">
+  Usuário deve ter mais de 6 letras.
+</div>
+
+            </div>
+            <div class="form-group mr-3 ml-3">
+              <label for="email">E-mail</label>
+              <input (input)="confirmEmail($event)" class="form-control" type="email" name="email" id="email"
+                placeholder=" email@theymatter.com" tabindex="5" required ngModel [email]="true">
+            </div>
+
+            <div class="form-group mr-3 ml-3">
+              <label for="email">Confirmar E-mail</label>
+              <input [(ngModel)]="usuarios.email" class="form-control" type="email" name="email" id="email"
+                placeholder=" email@theymatter.com" tabindex="5" required ngModel [email]="true" #email="ngModel">
+                <div *ngIf="!email.valid && email.touched" class=" text-danger">
+                 Digite um e-mail válido.
+                </div>
+            </div>
+
+
+
+            <div class="form-group mr-2 ml-3">
+              <label for="Senha">Senha</label>
+              <input (input)='confirmSenha($event)' class="form-control" type="password" name="senha" id="senha"
+                placeholder="Sua senha" required minlength="6" maxlength="10" >
+
+            </div>
+            <div class="form-group mr-2 ml-3">
+              <label for="confirmSenha">Confirmar Senha</label>
+              <input [(ngModel)]="usuarios.senha" class="form-control" type="password" name="confirmSenha"
+                id="confirmSenha" placeholder="Confirme sua senha" required minlength="6" maxlength="10" #senha="ngModel">
+                <div *ngIf="!senha.valid && senha.touched" class=" text-danger">
+                 A senha deve conter no mimino 6 caracteres.
+                </div>
+            </div>
+            <div class="form-group mr-2 ml-3">
+              <label for="confirmSenha">Compartilhar Dados</label>
+              <select class="form-control" name="dados" id="dados">
+                <option>Gostaria de receber e-mails?</option>
+                <option value="sim">Sim</option>
+                <option value="não">Não</option>
+              </select>
+            </div>
+            <div class="d-flex justify-content-center">
+              <button type="submit"
+                class=" btn btn-white font-weight-bold  border-dark text-dark mr-4 btn-outline-danger"
+                routerLink='/inicio'>Cancelar</button>
+              <button type="submit" class="btn btn-white font-weight-bold  border-dark text-dark btn-outline-success"
+                (click)='cadastrar()'>Cadastrar</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>

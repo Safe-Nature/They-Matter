@@ -1,0 +1,94 @@
+.bg-colorstyle {
+  background: #f5f5f5;  
+}
+
+.socialIcon {
+  width: 2rem;
+}
+
+.card {
+    border: none;
+}
+
+.textSize{
+  font-size: 1.2rem;
+  text-align: justify;
+}
+
+.card.hovercard {
+  position: relative;
+  padding-top: 0;
+  overflow: hidden;
+  text-align: center;
+  background-color: #b1060600;
+}
+
+.cardheader{
+    height: 100px;
+    /* background: #ffffff; */
+}
+
+.card.hovercard .avatar {
+  position: relative;
+  margin-top: -70px;
+  
+}
+
+.card.hovercard .avatar img {
+  width: 150px;
+  height: 150px;
+  max-width: 150px;
+  max-height: 150px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 5px solid #f5f5f5;
+  cursor: pointer;
+  position: relative;
+  transition: .5s;
+}
+
+
+
+.card.hovercard .avatar img:hover{
+    border: 5px solid #39c726c6;
+}
+
+
+.card.hovercard .info {
+  padding: 4px 8px 10px;
+}
+
+.card.hovercard .info .title {
+  margin-bottom: 4px;
+  font-size: 30px;
+  line-height: 1;
+  color: #262626;
+  vertical-align: middle;
+}
+
+.card.hovercard .info .titleGrande {
+    margin-bottom: 4px;
+    font-size: 30px;
+    line-height: 1;
+    color: #262626;
+    vertical-align: middle;
+  }
+
+  .cardTamanho{
+      height: 300px;
+  }
+
+.card.hovercard .info .desc {
+  overflow: hidden;
+  font-size: 15px;
+  line-height: 20px;
+  color: #737373;
+  text-overflow: ellipsis;
+}
+
+.textFormat{
+
+  font: 10rem;
+
+}

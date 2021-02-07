@@ -1,0 +1,64 @@
+<div class="container-fluid ">
+  <div class="row header-style p-5">
+    <h2 class="ml-5 " style="font-family: 'Roboto Slab', serif; font-size: 24pt;">{{categoria.nome}}</h2>
+  </div>
+
+  <div class="row mt-5 text-center justify-content-start ">
+
+    <div class="col-md-2 lead">
+      <div class="categoria-box justify-content-center align-content-center">
+        <a routerLink="/categoria/1"
+          class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+          <img class="ctg-img img-back mt-3" src="../../assets/padrao/tshirt.png" />
+          <img class="ctg-img img-front mt-3" src="../../assets/padrao/tshirt-hover.png">
+          <p>Vestuário</p>
+        </a>
+        <a routerLink="/categoria/2"
+          class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+          <img class="ctg-img img-back mt-3" src="../../assets/padrao/acessorio.png" />
+          <img class="ctg-img img-front mt-3" src="../../assets/padrao/acessorio-hover.png">
+          <p>Acessórios</p>
+        </a>
+        <a routerLink="/categoria/3"
+          class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+          <img class="ctg-img img-back mt-3" src="../../assets/padrao/cup.png" />
+          <img class="ctg-img img-front mt-3" src="../../assets/padrao/cup-hover.png">
+          <p>Canecas</p>
+        </a>
+        <a routerLink="/categoria/4"
+          class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+          <img class="ctg-img img-back mt-3" src="../../assets/padrao/teddy-bear.png" />
+          <img class="ctg-img img-front mt-3" src="../../assets/padrao/teddy-bear-hover.png">
+          <p>Brinquedos</p>
+        </a>
+        <a routerLink="/categoria/5"
+          class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+          <img class="ctg-img img-back mt-3" src="../../assets/padrao/recycle.png" />
+          <img class="ctg-img img-front mt-3" src="../../assets/padrao/recycle-hover.png">
+          <p>Retornáveis</p>
+        </a>
+        <a routerLink="/categoria/6"
+          class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+          <img class="ctg-img img-back mt-3" src="../../assets/padrao/heart.png" />
+          <img class="ctg-img img-front mt-3" src="../../assets/padrao/heart-hover.png">
+          <p>Doe Aqui</p>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-8 d-flex justify-content-center mb-5 card-row flex-wrap">
+      <!-- Cards 4 Produtos -->
+      <div *ngFor="let produto of categoria.produtos" class="card m-1">
+        <img class="card-img-top img-fluid" src="{{produto.imagem}}">
+        <div class="card-body">
+          <h4 class="card-title">{{produto.nome}}</h4>
+          <h6 class="card-title">R${{produto.preco}}</h6>
+          <p class="text-secondary">em {{produto.parcelamento}} sem juros.</p>
+          <hr>
+          <p class="card-text">{{produto.descricao}}</p>
+          <a (click)="comprar(produto.id)" class="btn btn-verde d-flex justify-content-center">Comprar</a>
+          <p class="mt-3 text-secondary">50% do valor desse produto é destinado a ONGs de conservação ambiental</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
