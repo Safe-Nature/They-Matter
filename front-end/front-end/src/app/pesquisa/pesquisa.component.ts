@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { Produtos } from '../models/Produtos';
 import { ProdutosService } from '../service/produtos.service';
 
+
 @Component({
   selector: 'app-pesquisa',
   templateUrl: './pesquisa.component.html',
@@ -13,8 +14,9 @@ export class PesquisaComponent implements OnInit {
 
   produto: Produtos = new Produtos()
   listaPesquisa: Produtos[]
-  listaProdutos: Produtos[]
+  listaProdutos: Produtos[] = []
   nomeProd: string
+  loading = false
 
   constructor(
     private router: Router,
@@ -24,18 +26,24 @@ export class PesquisaComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.nomeProd = this.route.snapshot.params['busca']
-    this.findByNomeProduto(this.nomeProd)
-    console.log(this.nomeProd)
-  }
+    this.route.params.subscribe(
+        params => {
+          this.nomeProd = params['busca']
+          this.findByNomeProduto(this.nomeProd)
+          console.log(this.nomeProd)
+        }
+    );
+      }
 
   findByNomeProduto(nome: string){
+    this.loading = true
     this.produtoService.getByNomeProdutos(nome).subscribe((resp: Produtos[]) =>{
       this.listaPesquisa = resp
+      this.loading = false
       console.log(this.listaPesquisa)
     })
   }
-
+    
   comprar(id: number) {
 
     if(environment.token == null) {
@@ -43,11 +51,12 @@ export class PesquisaComponent implements OnInit {
     }
     this.produtoService.getByIdProdutos(id).subscribe((resp: Produtos) => {
       this.produto = resp
+      console.log(this.produto)
       this.listaProdutos.push(resp)
-    })
-    console.log(this.listaProdutos)
+  
     localStorage.setItem('listaProdutos', JSON.stringify(this.listaProdutos))
-    return this.listaProdutos
+   
+  })
   }
 
 }

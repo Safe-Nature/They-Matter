@@ -1,9 +1,17 @@
 <div class="container-fluid mt-5">
-    <h2 class="ml-5" style="font-family: 'Roboto Slab', serif; font-size: 24pt;"></h2>
+   <h2 class="ml-5" style="font-family: 'Roboto Slab', serif; font-size: 24pt;"> Resultados</h2>
     <hr>
     <div class="row mt-5 d-flex flex-wrap text-center justify-content-center ">
       <br>
-      <div class="col-md-12 d-flex justify-content-center mb-5 flex-wrap">
+      
+      <div class="col-md-12 d-flex justify-content-center mb-5 flex-wrap loading" *ngIf="loading">
+        <div class="spinner-border text-success" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <div class="col-md-12 d-flex justify-content-center mb-5 flex-wrap" *ngIf="!loading">
+        <p class="text-center" style="font-family: 'Roboto Slab', serif; font-size: 24pt;" *ngIf="listaPesquisa?.length == 0 ">Nenhum Produto Foi Encontrado!</p>
+
         <!-- Cards 4 Produtos -->
         <div *ngFor="let teste of listaPesquisa" class="card m-1 col-3">
           <img class="card-img-top" src="{{teste.imagem}}">
@@ -20,3 +28,4 @@
       </div>
     </div>
   </div>
+ 

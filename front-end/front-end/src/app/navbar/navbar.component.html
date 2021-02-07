@@ -39,13 +39,13 @@
       </div>
       <div class="col-md-6 collapse navbar-collapse" id="conteudoNavbarSuportado">
           
-            <input #input type="search " id="form1" class="form-control w-100 pesquisar p-3" placeholder="Pesquisar" [(ngModel)]="produtoPesquisa" >
-            <button type="button" class="form-control btnpesquisar"  [routerLink]="['/pesquisa', produtoPesquisa]">
+            <input #input type="search " id="form1" class="form-control w-100 pesquisar p-3" placeholder="Pesquisar" [(ngModel)]="produtoPesquisa" #filterName name="filterName">
+            <a type="button" class="form-control btnpesquisar"  [routerLink]="['/pesquisa', produtoPesquisa]" (click) = "filterName.value = ''">
               <i class="fa fa-search" aria-hidden="true"></i>
-            </button>
+            </a>
          
       </div>
-      <div class="col-md-3 d-flex justify-content-around p-4 align-content-center ">
+      <div class="col-md-3 d-flex justify-content-around p-4 align-content-center " *ngIf="this.teste == 0">
         <a></a>
         <a class="nav-link text-light" routerLink="/carrinho" ><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
         <a routerLink="/login-cadastro" class="nav-link text-light align-mi">Entre, ou cadastre-se</a>
