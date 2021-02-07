@@ -48,7 +48,21 @@
       <div class="col-md-3 d-flex justify-content-around p-4 align-content-center ">
         <a></a>
         <a class="nav-link text-light" routerLink="/carrinho" ><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-        <a routerLink="/login-cadastro" class="nav-link text-light align-mi"   #EntreCadast   >Entre, ou cadastre-se</a>
+        <div *ngIf='sumir==0'>
+          <a routerLink="/login-cadastro" class="nav-link text-light align-mi "   #EntreCadast >Entre, ou cadastre-se</a>
+        </div>
+        <div *ngIf='sumir==1'>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Botão dropdown
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Alguma ação</a>
+              <a class="dropdown-item" href="#">Outra ação</a>
+              <a class="dropdown-item" href="#">Alguma coisa aqui</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

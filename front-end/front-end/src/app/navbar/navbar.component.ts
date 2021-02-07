@@ -15,11 +15,30 @@ export class NavbarComponent implements OnInit {
 
   categoria: Categoria[];
 
+  sumir: number=0;
+   token = localStorage.getItem('token');
+
+
+  
   constructor(private produtosService: ProdutosService) { }
 
   ngOnInit() {
     this.produtosService.getCategoria().subscribe(resp => this.categoria = resp)
+    
 
+    this.trocar();
+   
+  
+  
   }
 
+ trocar(){
+  if(this.token==''){
+    this.sumir=0
+  }else{
+    this.sumir=1
+  }
+
+ }
+  
 }

@@ -51,11 +51,15 @@ export class LoginCadastroComponent implements OnInit {
 
 
 
+
+
       if (environment.token == null) {
 
         alert('Usuario inválido')
-
+        
       } else {
+        localStorage.setItem('token', environment.token)
+        window.location.reload()
         this.router.navigate(['/profile'])
       }
 
