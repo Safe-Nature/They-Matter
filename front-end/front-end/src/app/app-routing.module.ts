@@ -1,3 +1,4 @@
+import { NavbarComponent } from './navbar/navbar.component';
 import { CategoriasPageComponent } from './categorias-page/categorias-page.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { ProdutosComponent } from './produtos/produtos.component';
@@ -23,12 +24,19 @@ const routes: Routes = [
   {path: 'categoria/:id', component: CategoriasPageComponent},
   {path: 'edit-dados/:id', component: EditDadosComponent},
   {path: 'delete-dados/:id', component: DeleteDadosComponent},
-  {path: 'pesquisa/:busca', component: PesquisaComponent}
+  {path: 'pesquisa/:busca', component: PesquisaComponent},
+  
 
 ];
+const volitileRoutes: Routes = [
+  {path: 'navbar', component: NavbarComponent}
+]
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    RouterModule.forRoot(volitileRoutes, {onSameUrlNavigation: 'reload'})
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

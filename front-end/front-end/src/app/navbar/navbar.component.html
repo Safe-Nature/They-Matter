@@ -1,11 +1,11 @@
 <div class="container-fluid bk">
-  <div class="row navbar-expand-md justify-content-center ">
-    <a class="navbar-brand" routerLink="/inicio">
+  <div class="row navbar-expand-md justify-content-center">
+    <a class="navbar-brand mt-2" routerLink="/inicio">
       <img src="../../assets/padrao/logo_img.png" alt="Icone" width="65px" height="65px"
         class="img-fluid rounded-circle">
 
     </a>
-    <a class="navbar-brand ml-3 text-white font-weight-bolder"
+    <a class="navbar-brand ml-3 mt-3 text-white font-weight-bolder"
       style="font-family: 'Roboto Slab', serif; font-size: 24pt;" routerLink="/inicio">
       They Matter
     </a>
@@ -51,17 +51,14 @@
         <div *ngIf='sumir==0'>
           <a routerLink="/login-cadastro" class="nav-link text-light align-mi "   #EntreCadast >Entre, ou cadastre-se</a>
         </div>
-        <div *ngIf='sumir==1'>
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Botão dropdown
-            </button>
+        <div *ngIf='sumir==1' class="dropdown nav-link">
+            <a class="dropdown-toggle text-white " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Olá, {{userLogin.nome}}
+            </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Alguma ação</a>
-              <a class="dropdown-item" href="#">Outra ação</a>
-              <a class="dropdown-item" href="#">Alguma coisa aqui</a>
+              <a class="dropdown-item" routerLink="/profile">Perfil</a>
+              <a class="dropdown-item" (click)="logout()">Logout</a>
             </div>
-          </div>
         </div>
       </div>
     </div>
