@@ -21,7 +21,6 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent},
   {path: 'produtos', component: ProdutosComponent},
   {path: 'sobre', component: SobreComponent},
-  {path: 'categoria/:id', component: CategoriasPageComponent},
   {path: 'edit-dados/:id', component: EditDadosComponent},
   {path: 'delete-dados/:id', component: DeleteDadosComponent},
   {path: 'pesquisa/:busca', component: PesquisaComponent},
@@ -29,7 +28,8 @@ const routes: Routes = [
 
 ];
 const volitileRoutes: Routes = [
-  {path: 'navbar', component: NavbarComponent}
+  {path: 'navbar', component: NavbarComponent},
+  {path: 'categoria/:id', component: CategoriasPageComponent}
 ]
 
 @NgModule({

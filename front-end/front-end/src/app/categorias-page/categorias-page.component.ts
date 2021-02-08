@@ -29,15 +29,13 @@ export class CategoriasPageComponent implements OnInit {
 
   ngOnInit() {
     let id = this.direction.snapshot.params['id']
-    this.loadByNomeCat(id)  
+    this.produtoService.getCategoriaById(id).subscribe(resp => this.categoria = resp)
     
   }
-
-  loadByNomeCat(id: number) {
-    this.produtoService.getCategoriaById(id).subscribe(resp => this.categoria = resp)
-    console.log(this.categoria.produtos)
+  loadCatPage(id: number) {
+    this.router.navigate([`/categoria/${id}`])
+    this.ngOnInit()
   }
-
   comprar(id: number) {
 
     if(environment.token == null) {

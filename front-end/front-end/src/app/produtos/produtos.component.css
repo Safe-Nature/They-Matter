@@ -9,6 +9,14 @@
     display: flex;
     flex-direction: column;
 }
+.card-img-top {
+    width: 300px;
+}
+.card {
+    width: 25em;
+    height: 40em;
+    align-items: center;
+}
 .categoria:hover {
     color: lightgray;
 }
@@ -43,15 +51,9 @@
     color: whitesmoke;
 }
 @media only screen and (max-width: 800px) {
-    .categoria-box {
-        
+    .categoria-box { 
         flex-direction: row;
         flex-wrap: wrap;
-    }
-    .card {
-        flex-direction: row;
-    }
-    .card-row {
-        flex-direction: row;
+        margin-bottom: 3em;
     }
 }

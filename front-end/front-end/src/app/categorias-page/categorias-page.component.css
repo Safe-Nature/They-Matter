@@ -8,6 +8,14 @@
 .btn-verde:active {
     background-color: white;
 }
+.card-img-top {
+    width: 300px;
+}
+.card {
+    width: 25em;
+    height: 40em;
+    align-items: center;
+}
 .categoria {
     width: 150px;
     height: 150px;
@@ -30,7 +38,8 @@
     width: 80px;
     height: 80px;
     transition: 0.2s;
-}.img-front {
+}
+.img-front {
     display: none;
 }
 .categoria:hover .img-back {
@@ -51,11 +60,6 @@
         
         flex-direction: row;
         flex-wrap: wrap;
-    }
-    .card {
-        flex-direction: row;
-    }
-    .card-row {
-        flex-direction: row;
+        margin-bottom: 3em;
     }
 }
