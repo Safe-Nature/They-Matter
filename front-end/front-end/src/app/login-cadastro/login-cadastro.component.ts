@@ -1,3 +1,5 @@
+import { NavbarService } from './../service/navbar.service';
+import { NavbarComponent } from './../navbar/navbar.component';
 
 import { Usuarios } from '../models/Usuarios';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
@@ -5,8 +7,6 @@ import { ConsumoService } from '../service/usuario.service';
 import { Router } from '@angular/router';
 import { UserLogin } from '../models/UserLogin';
 import { environment } from 'src/environments/environment.prod';
-import { invalid } from '@angular/compiler/src/render3/view/util';
-
 
 
 @Component({
@@ -27,7 +27,8 @@ export class LoginCadastroComponent implements OnInit {
 
   constructor(
     private consumoService: ConsumoService,
-    private router: Router
+    private router: Router,
+    private navbarService: NavbarService
   ) { }
 
   ngOnInit() {
@@ -49,14 +50,13 @@ export class LoginCadastroComponent implements OnInit {
 
       console.log(environment.email)
 
-
-
       if (environment.token == null) {
 
         alert('Usuario inválido')
 
       } else {
-        this.router.navigate(['/profile'])
+        this.navbarService.notifyOther({refresh: true});
+        this.router.navigateByUrl('/profile')
       }
 
     }, erro => {
@@ -91,15 +91,15 @@ export class LoginCadastroComponent implements OnInit {
     this.Dadosliberados = event.target.value
   }
 
-  confirmEmail(event: any){
-    this.confirmEmail=event.target.value
+  confirmEmail(event: any) {
+    this.confirmEmail = event.target.value
   }
 
 
 
 
 
-  }
+}
 
 
 

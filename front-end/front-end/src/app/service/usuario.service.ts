@@ -17,17 +17,17 @@ export class ConsumoService {
   ) { }
 
   login(userLogin: UserLogin): Observable<UserLogin>{
-    return this.http.post<UserLogin>("http://localhost:8081/usuario/logar", userLogin)
+    return this.http.post<UserLogin>("https://theymatter.com.br/usuario/logar", userLogin)
 
   }
   cadastrar(usuario: Usuarios): Observable<Usuarios>{
-    return this.http.post<Usuarios>("http://localhost:8081/usuario/cadastrar", usuario)
+    return this.http.post<Usuarios>("https://theymatter.com.br/usuario/cadastrar", usuario)
   }
   getUser(id: number){
-    return this.http.get<UserLogin>(`http://localhost:8081/usuario/id/${id}`)
+    return this.http.get<UserLogin>(`https://theymatter.com.br/usuario/id/${id}`)
   }
   getById(id: number){
-   return this.http.get<Usuarios>(`http://localhost:8081/usuario/id/${id}`)
+   return this.http.get<Usuarios>(`https://theymatter.com.br/usuario/id/${id}`)
  }
 
   logado(){
@@ -42,9 +42,9 @@ export class ConsumoService {
 
   //teste do profile
   getByIdUser(id: number): Observable<Usuarios>{
-    return this.http.get<Usuarios>(`http://localhost:8081/usuario/id/${id}`)
+    return this.http.get<Usuarios>(`https://theymatter.com.br/usuario/id/${id}`)
   }
   deleteUsuario(id: number){
-    return this.http.delete(`http://localhost:8081/usuario/delete/${id}`)
+    return this.http.delete(`https://theymatter.com.br/delete/${id}`)
   }
 }

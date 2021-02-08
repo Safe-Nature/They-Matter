@@ -1,0 +1,31 @@
+<div class="container-fluid mt-5">
+   <h2 class="ml-5" style="font-family: 'Roboto Slab', serif; font-size: 24pt;"> Resultados</h2>
+    <hr>
+    <div class="row mt-5 d-flex flex-wrap text-center justify-content-center ">
+      <br>
+      
+      <div class="col-md-12 d-flex justify-content-center mb-5 flex-wrap loading" *ngIf="loading">
+        <div class="spinner-border text-success" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <div class="col-md-12 d-flex justify-content-center mb-5 flex-wrap" *ngIf="!loading">
+        <p class="text-center" style="font-family: 'Roboto Slab', serif; font-size: 24pt;" *ngIf="listaPesquisa?.length == 0 ">Nenhum Produto Foi Encontrado!</p>
+
+        <!-- Cards 4 Produtos -->
+        <div *ngFor="let teste of listaPesquisa" class="card m-1 col-3">
+          <img class="card-img-top" src="{{teste.imagem}}">
+          <div class="card-body">
+            <h4 class="card-title">{{teste.nome}}</h4>
+            <h6 class="card-title">R${{teste.preco}}</h6>
+            <p class="text-secondary">em {{teste.parcelamento}} sem juros.</p>
+            <hr>
+            <p class="card-text">{{teste.descricao}}</p>
+            <a (click)="comprar(teste.id)" class="btn btn-verde d-flex justify-content-center">Comprar</a>
+            <p class="mt-3 text-secondary">50% do valor desse produto é destinado a ONGs de conservação ambiental</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 

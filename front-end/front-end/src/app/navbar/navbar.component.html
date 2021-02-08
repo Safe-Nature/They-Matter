@@ -1,11 +1,11 @@
 <div class="container-fluid bk">
-  <div class="row navbar-expand-md justify-content-center ">
-    <a class="navbar-brand" routerLink="/inicio">
+  <div class="row navbar-expand-md justify-content-center">
+    <a class="navbar-brand mt-2" routerLink="/inicio">
       <img src="../../assets/padrao/logo_img.png" alt="Icone" width="65px" height="65px"
         class="img-fluid rounded-circle">
 
     </a>
-    <a class="navbar-brand ml-3 text-white font-weight-bolder"
+    <a class="navbar-brand ml-3 mt-3 text-white font-weight-bolder"
       style="font-family: 'Roboto Slab', serif; font-size: 24pt;" routerLink="/inicio">
       They Matter
     </a>
@@ -38,17 +38,28 @@
         <a class="nav-link text-light p-3" routerLink="/sobre">Sobre nós</a>
       </div>
       <div class="col-md-6 collapse navbar-collapse" id="conteudoNavbarSuportado">
-          <form class="w-100 d-flex flex-nowrap p-3 align-content-center">
-            <input type="search " id="form1" class="form-control w-100 pesquisar p-3" placeholder="Pesquisar" />
-            <button type="button" class="form-control btnpesquisar">
+          
+            <input #input type="search " id="form1" class="form-control w-100 pesquisar p-3" placeholder="Pesquisar" [(ngModel)]="produtoPesquisa" #filterName name="filterName">
+            <a type="button" class="form-control btnpesquisar"  [routerLink]="['/pesquisa', produtoPesquisa]" (click) = "filterName.value = ''">
               <i class="fa fa-search" aria-hidden="true"></i>
-            </button>
-          </form>
+            </a>
+         
       </div>
       <div class="col-md-3 d-flex justify-content-around p-4 align-content-center ">
         <a></a>
         <a class="nav-link text-light" routerLink="/carrinho" ><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-        <a routerLink="/login-cadastro" class="nav-link text-light align-mi"   #EntreCadast   >Entre, ou cadastre-se</a>
+        <div *ngIf='sumir==0'>
+          <a routerLink="/login-cadastro" class="nav-link text-light align-mi "   #EntreCadast >Entre, ou cadastre-se</a>
+        </div>
+        <div *ngIf='sumir==1' class="dropdown nav-link">
+            <a class="dropdown-toggle text-white " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Olá, {{userLogin.nome}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" routerLink="/profile">Perfil</a>
+              <a class="dropdown-item" (click)="logout()">Logout</a>
+            </div>
+        </div>
       </div>
     </div>
   </div>

@@ -4,7 +4,7 @@
   </div>
   <div class="row mt-5 text-center justify-content-start ">
 
-    <div class="col-md-2 m-5 lead">
+    <div class="col-md-2 lead">
       <div class="categoria-box justify-content-center align-content-center">
         <a routerLink="/categoria/1" target="_self"
           class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
@@ -54,7 +54,7 @@
           <p class="text-secondary">em {{produto.parcelamento}} sem juros.</p>
           <hr>
           <p class="card-text">{{produto.descricao}}</p>
-          <a (click)="comprar(produto.id)" data-container="body" data-toggle="popover" data-placement="top" class="btn btn-verde d-flex justify-content-center" data-content="Pedido Adicionado ao Carrinho!">
+          <a (click)="comprar(produto.id)" data-container="body" data-toggle="tooltip" data-placement="top" class="btn btn-verde d-flex justify-content-center" data-content="Pedido Adicionado ao Carrinho!">
             Comprar</a>
           <p class="mt-3 text-secondary">50% do valor desse produto é destinado a ONGs de conservação ambiental</p>
         </div>

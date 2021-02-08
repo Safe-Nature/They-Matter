@@ -1,3 +1,4 @@
+import { NavbarComponent } from './navbar/navbar.component';
 import { CategoriasPageComponent } from './categorias-page/categorias-page.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { ProdutosComponent } from './produtos/produtos.component';
@@ -9,6 +10,7 @@ import { LoginCadastroComponent } from './login-cadastro/login-cadastro.componen
 import { MainPageComponent } from './main-page/main-page.component';
 import { EditDadosComponent } from './profile/edit-dados/edit-dados.component';
 import { DeleteDadosComponent } from './profile/delete-dados/delete-dados.component';
+import { PesquisaComponent } from './pesquisa/pesquisa.component';
 
 const routes: Routes = [
 
@@ -21,12 +23,20 @@ const routes: Routes = [
   {path: 'sobre', component: SobreComponent},
   {path: 'categoria/:id', component: CategoriasPageComponent},
   {path: 'edit-dados/:id', component: EditDadosComponent},
-  {path: 'delete-dados/:id', component: DeleteDadosComponent}
+  {path: 'delete-dados/:id', component: DeleteDadosComponent},
+  {path: 'pesquisa/:busca', component: PesquisaComponent},
+  
 
 ];
+const volitileRoutes: Routes = [
+  {path: 'navbar', component: NavbarComponent}
+]
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    RouterModule.forRoot(volitileRoutes, {onSameUrlNavigation: 'reload'})
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
