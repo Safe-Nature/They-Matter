@@ -9,7 +9,8 @@ import { map, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ProdutosService {
-
+  
+  listaProdutos: Produtos[] = []
   constructor(private http:HttpClient) { }
 
   getAllProdutos(){

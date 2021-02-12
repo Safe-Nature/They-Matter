@@ -14,7 +14,7 @@ export class PesquisaComponent implements OnInit {
 
   produto: Produtos = new Produtos()
   listaPesquisa: Produtos[]
-  listaProdutos: Produtos[] = []
+  
   nomeProd: string
   loading = false
 
@@ -46,17 +46,18 @@ export class PesquisaComponent implements OnInit {
     
   comprar(id: number) {
 
-    if(environment.token == null) {
-      alert('Precisa Estar Logado para comprar')
+    if(environment.token == '') {
+      alert('Entre com sua conta para comprar')
+    } else {
+      this.produtoService.getByIdProdutos(id).subscribe((resp: Produtos) => {
+        this.produto = resp
+        console.log(this.produto)
+        this.produtoService.listaProdutos.push(resp)
+        localStorage.setItem('listaProdutos', JSON.stringify(this.produtoService.listaProdutos))
+      }) 
+      alert('Produto Adicionado ao carrinho')
     }
-    this.produtoService.getByIdProdutos(id).subscribe((resp: Produtos) => {
-      this.produto = resp
-      console.log(this.produto)
-      this.listaProdutos.push(resp)
-  
-    localStorage.setItem('listaProdutos', JSON.stringify(this.listaProdutos))
    
-  })
-  }
+  } 
 
 }

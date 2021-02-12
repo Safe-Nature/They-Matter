@@ -31,8 +31,8 @@ export class ProdutosComponent implements OnInit {
       this.produtosService.getByIdProdutos(id).subscribe((resp: Produtos) => {
         this.produto = resp
         console.log(this.produto)
-        this.listaProdutos.push(resp)
-        localStorage.setItem('listaProdutos', JSON.stringify(this.listaProdutos))
+        this.produtosService.listaProdutos.push(resp)
+        localStorage.setItem('listaProdutos', JSON.stringify(this.produtosService.listaProdutos))
       }) 
       alert('Produto Adicionado ao carrinho')
     }

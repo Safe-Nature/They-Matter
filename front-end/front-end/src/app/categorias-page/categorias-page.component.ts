@@ -17,7 +17,7 @@ export class CategoriasPageComponent implements OnInit {
 
   produto: Produtos = new Produtos()
 
-  listaProdutos: Produtos[]
+  listaProdutos: Produtos[] = []
 
   
   
@@ -38,16 +38,18 @@ export class CategoriasPageComponent implements OnInit {
   }
   comprar(id: number) {
 
-    if(environment.token == null) {
-      alert('Precisa Estar Logado para comprar')
+    if(environment.token == '') {
+      alert('Entre com sua conta para comprar')
+    } else {
+      this.produtoService.getByIdProdutos(id).subscribe((resp: Produtos) => {
+        this.produto = resp
+        console.log(this.produto)
+        this.produtoService.listaProdutos.push(resp)
+        localStorage.setItem('listaProdutos', JSON.stringify(this.produtoService.listaProdutos))
+      }) 
+      alert('Produto Adicionado ao carrinho')
     }
-    this.produtoService.getByIdProdutos(id).subscribe((resp: Produtos) => {
-      this.produto = resp
-      this.listaProdutos.push(resp)
-    })
-    console.log(this.listaProdutos)
-    localStorage.setItem('listaProdutos', JSON.stringify(this.listaProdutos))
-    return this.listaProdutos
-  }
+   
+  }   
  
 }
