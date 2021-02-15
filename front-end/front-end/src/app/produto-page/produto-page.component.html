@@ -1,1 +1,32 @@
-<p>produto-page works!</p>
+<div class="container-fluid p-5 d-flex justify-content-center">
+
+    <div class="col-10 flex-none">
+        <div class="p-4 header-prod w-100 rounded-top text-light">
+            <a class="text-light" routerLink="/inicio">Home</a>
+            <i class="fa fa-arrow-right text-light ml-3" aria-hidden="true"></i>
+            <a class="text-light ml-3" routerLink="/produtos">Produtos</a>
+        </div>
+        <div class="col-md-12 rounded-bottom  shadow d-flex justify-content-center" >
+            <div class="col-md-6 d-flex justify-content-center p-3">
+                    <img class="img-fluid" src="{{produto.imagem}}">
+            </div>
+            <hr>
+            <div class="col-md-3 p-3">
+                    <h3>{{produto.nome}}</h3>
+                    <p>Código do produto: {{produto.id}}</p>
+                    <br>
+                    <p>Tamanho: {{produto.tamanho}}</p>
+                    <br>
+                    <h5>Descrição:</h5>
+                    <br>
+                    <p>{{produto.descricao}}</p>
+            </div>
+            <hr>
+            <div class="col-md-3 p-3 text-center">
+                <h1>R$ {{produto.preco}}.00</h1>
+                <br>
+                <h5>Valor parcelado em até {{produto.parcelamento}}x vezes sem juros</h5>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,3 +1,4 @@
+import { ProdutoPageComponent } from './produto-page/produto-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CategoriasPageComponent } from './categorias-page/categorias-page.component';
 import { SobreComponent } from './sobre/sobre.component';
@@ -24,7 +25,7 @@ const routes: Routes = [
   {path: 'edit-dados/:id', component: EditDadosComponent},
   {path: 'delete-dados/:id', component: DeleteDadosComponent},
   {path: 'pesquisa/:busca', component: PesquisaComponent},
-  
+  {path: 'produto/:id', component: ProdutoPageComponent}
 
 ];
 const volitileRoutes: Routes = [
