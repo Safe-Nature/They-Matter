@@ -18,6 +18,7 @@ import { CategoriasPageComponent } from './categorias-page/categorias-page.compo
 import { EditDadosComponent } from './profile/edit-dados/edit-dados.component';
 import { DeleteDadosComponent } from './profile/delete-dados/delete-dados.component';
 import { PesquisaComponent } from './pesquisa/pesquisa.component';
+import { ProdutoPageComponent } from './produto-page/produto-page.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { PesquisaComponent } from './pesquisa/pesquisa.component';
     CategoriasPageComponent,
     PesquisaComponent,
     EditDadosComponent,
-    DeleteDadosComponent
+    DeleteDadosComponent,
+    ProdutoPageComponent
 
   ],
   imports: [
