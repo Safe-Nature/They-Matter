@@ -36,6 +36,5 @@ export class ProdutosComponent implements OnInit {
       }) 
       alert('Produto Adicionado ao carrinho')
     }
-   
   }  
 }
