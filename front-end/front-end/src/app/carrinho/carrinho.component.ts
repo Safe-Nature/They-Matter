@@ -67,10 +67,17 @@ export class CarrinhoComponent implements OnInit {
       this.pedidosService.postPedido(this.pedido).subscribe((resp: Pedidos) => {
         this.pedido = resp
       })
-  
+      
+      for(let produtos of this.listaProdutos) {
+        produtos.estoque = (produtos.estoque - 1)
+        console.log(produtos.estoque)
+        this.produtosService.updateProdutoById(produtos.id, produtos).subscribe((resp: Produtos) => {
+          produtos = resp
+        })
+      }
       alert("Pedido realizado!! Obrigado por comprar conosco!")
       localStorage.removeItem('listaProdutos')
-      this.ngOnInit()
+      this.router.navigate(['/inicio'])
     } else {
       alert("Você precisa entrar para realizar seu pedido.")
     }

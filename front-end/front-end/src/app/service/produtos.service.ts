@@ -1,8 +1,8 @@
+import { Produtos } from './../models/Produtos';
 import { Categoria } from './../models/Categoria';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Produtos } from '../models/Produtos';
 import { map, tap } from 'rxjs/operators';
 
 @Injectable({
@@ -19,12 +19,12 @@ export class ProdutosService {
   getByIdProdutos(id: number): Observable <Produtos>{
     return this.http.get<Produtos>(`http://localhost:8081/produtos/id/${id}`)
   }
-
   getByNomeProdutos(nome: string): Observable <Produtos[]>{
     return this.http.get<Produtos[]>(`http://localhost:8081/produtos/nome/${nome}`)
   }
-
-
+  updateProdutoById(id: number, produtos: Produtos): Observable<Produtos>{
+    return this.http.put<Produtos>(`http://localhost:8081/produtos/update/${id}`, produtos)
+  }
   postProdutos(produtos: Produtos): Observable<Produtos>{
     return this.http.post<Produtos>('http://localhost:8081/produtos', produtos)
   }

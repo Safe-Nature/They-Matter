@@ -6,12 +6,12 @@
             <i class="fa fa-arrow-right text-light ml-3" aria-hidden="true"></i>
             <a class="text-light ml-3" routerLink="/produtos">Produtos</a>
         </div>
-        <div class="col-md-12 rounded-bottom  shadow d-flex justify-content-center" >
-            <div class="col-md-6 d-flex justify-content-center p-3">
+        <div class="col-md-12 rounded-bottom shadow d-flex flex-wrap justify-content-center " >
+            <div class="col-md-6 d-flex justify-content-center p-3 ">
                     <img class="img-fluid" src="{{produto.imagem}}">
             </div>
             <hr>
-            <div class="col-md-3 p-3">
+            <div class="col-md-3 p-3 align-self-center">
                     <h3>{{produto.nome}}</h3>
                     <p>Código do produto: {{produto.id}}</p>
                     <br>
@@ -22,10 +22,16 @@
                     <p>{{produto.descricao}}</p>
             </div>
             <hr>
-            <div class="col-md-3 p-3 text-center">
+            <div class="col-md-3 p-3 text-center align-self-center">
                 <h1>R$ {{produto.preco}}.00</h1>
                 <br>
                 <h5>Valor parcelado em até {{produto.parcelamento}}x vezes sem juros</h5>
+                <br>
+                <br>
+                <br>
+                <button class="btn btn-verde" (click)="comprar(produto.id)">Comprar</button>
+                <hr>
+                <p class="text-lighten-1">50% do valor desse produto é destinado a ongs de preservação ambiental.</p>
             </div>
         </div>
     </div>

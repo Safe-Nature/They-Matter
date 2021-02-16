@@ -29,7 +29,9 @@ export class ProdutoPageComponent implements OnInit {
         console.log(this.produto)
         this.produtosService.listaProdutos.push(resp)
         localStorage.setItem('listaProdutos', JSON.stringify(this.produtosService.listaProdutos))
-      }) 
+
+      })
+      
       alert('Produto Adicionado ao carrinho')
     }
   }  
