@@ -10,6 +10,4 @@ public interface ProdutosRepository extends JpaRepository<Produtos, Long> {
 	
 	public List<Produtos> findAllByNomeContainingIgnoreCase(String nome);
 
-	public void save(Usuarios usuario);
-
 }

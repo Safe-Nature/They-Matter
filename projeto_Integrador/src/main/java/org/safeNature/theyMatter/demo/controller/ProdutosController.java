@@ -59,12 +59,38 @@ public class ProdutosController {//CRUD METHODS --------------------------------
 
 	//METODO PUT/UPDATE------------------------------------------------------------\\
 
-	@PutMapping("put/{id}")
-	public Produtos put(@PathVariable Long id, @RequestBody Produtos produtos) {
-		produtos.setId(id);
-		produtosRepository.save(produtos);
-		return produtos;
-	}
+	@PutMapping("/update/{id}")
+	public ResponseEntity<Produtos> update(@PathVariable Long id, @RequestBody Produtos produtos) {
+		return produtosRepository.findById(id)
+		           .map(record -> {
+		        	   if(produtos.getNome() != null) {
+		        		   record.setNome(produtos.getNome());
+		        	   }
+		        	   if(produtos.getCategoria() != null) {
+		        		   record.setCategoria(produtos.getCategoria());
+		        	   }
+		        	   if(produtos.getEstoque() != 0) {
+		        		   record.setEstoque(produtos.getEstoque());
+		        	   }
+					   if(produtos.getImagem() != null) {
+						   record.setImagem(produtos.getImagem());
+					   }
+					   if(produtos.getDescricao() != null) {
+						   record.setDescricao(produtos.getDescricao());
+					   }
+					   if(produtos.getParcelamento() != null) {
+						   record.setParcelamento(produtos.getParcelamento());
+					   }
+					   if(produtos.getTamanho() != null) {
+						   record.setTamanho(produtos.getTamanho());
+					   }
+					   if(produtos.getPreco() != 0) {
+						   record.setPreco(produtos.getPreco());
+					   }
+		               Produtos updated = produtosRepository.save(record);
+		               return ResponseEntity.ok().body(updated);
+				   }).orElse(ResponseEntity.notFound().build());
+				}
 
 	// ------------------------------------------------------------------------------\\
 

@@ -1,3 +1,4 @@
+import { Location } from './../models/Location';
 import { Usuarios } from './../models/Usuarios';
 import { environment } from './../../environments/environment.prod';
 import { PedidosService } from './../service/pedidos.service';
@@ -18,6 +19,8 @@ export class CarrinhoComponent implements OnInit {
   listaProdutos: Produtos[] = []
 
   pedido: Pedidos = new Pedidos()
+
+  local: Location = new Location()
 
   usuario: Usuarios = new Usuarios()
 
@@ -63,7 +66,6 @@ export class CarrinhoComponent implements OnInit {
       this.usuario.id = environment.id
       this.pedido.usuarios = this.usuario
       console.log(this.pedido)
-  
       this.pedidosService.postPedido(this.pedido).subscribe((resp: Pedidos) => {
         this.pedido = resp
       })

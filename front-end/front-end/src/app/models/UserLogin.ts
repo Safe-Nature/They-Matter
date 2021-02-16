@@ -1,3 +1,4 @@
+import { Location } from './Location';
 import { Pedidos } from './Pedidos';
 export class UserLogin {
   public id: number
@@ -6,4 +7,5 @@ export class UserLogin {
   public senha: string
   public token: string
   public pedido: Pedidos[]
+  public location: Location
 }
