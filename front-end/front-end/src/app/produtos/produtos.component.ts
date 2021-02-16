@@ -1,3 +1,4 @@
+import { Categoria } from './../models/Categoria';
 import { environment } from './../../environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -14,27 +15,21 @@ export class ProdutosComponent implements OnInit {
   produtos: Produtos[]
   produto: Produtos = new Produtos
   listaProdutos: Produtos[] = []
+  categoria: Categoria
   
   constructor(
-    private produtosService: ProdutosService ,
+    private produtosService: ProdutosService,
+    private router: Router
   ) { }
 
   ngOnInit(){
     this.produtosService.getAllProdutos().subscribe(resp => this.produtos = resp)
   }
-
-  comprar(id: number) {
-
-    if(environment.token == '') {
-      alert('Entre com sua conta para comprar')
-    } else {
-      this.produtosService.getByIdProdutos(id).subscribe((resp: Produtos) => {
-        this.produto = resp
-        console.log(this.produto)
-        this.produtosService.listaProdutos.push(resp)
-        localStorage.setItem('listaProdutos', JSON.stringify(this.produtosService.listaProdutos))
-      }) 
-      alert('Produto Adicionado ao carrinho')
-    }
-  }  
+  loadCatPage(id: number) {
+    this.router.navigate([`/categoria/${id}`])
+    this.produtosService.getCategoriaById(id).subscribe(resp => this.categoria = resp)
+  }
+  goToProduto(id: number) {
+    this.router.navigate([`/produto/${id}`])
+  }
 }

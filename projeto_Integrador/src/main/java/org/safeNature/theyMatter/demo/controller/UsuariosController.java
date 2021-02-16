@@ -81,7 +81,7 @@ public class UsuariosController {// CRUD METHODS
 		               Usuarios updated = usuariosRepository.save(record);
 		               return ResponseEntity.ok().body(updated);
 				   }).orElse(ResponseEntity.notFound().build());
-				}
+	}
 	// ------------------------------------------------------------------------------\\
 
 	//

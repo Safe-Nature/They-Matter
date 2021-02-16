@@ -11,10 +11,17 @@
 .card-img-top {
     width: 300px;
 }
-.card {
-    width: 25em;
-    height: 40em;
-    align-items: center;
+.mobile-card-img {
+    transition: 0.5s;
+}
+.mobile-card-img:hover {
+    box-shadow: -2px 1px 35px 1px rgba(159,150,150,0.75);
+    -webkit-box-shadow: -2px 1px 35px 1px rgba(159,150,150,0.75);
+    -moz-box-shadow: -2px 1px 35px 1px rgba(159,150,150,0.75);
+}
+.mobile-card-img:active {
+    background-color: #00463F;
+    color: whitesmoke;
 }
 .categoria {
     width: 150px;
@@ -41,6 +48,10 @@
 }
 .img-front {
     display: none;
+}
+.img-fluid{
+  width: 270px;
+  height: 240px;
 }
 .categoria:hover .img-back {
     display: none;
