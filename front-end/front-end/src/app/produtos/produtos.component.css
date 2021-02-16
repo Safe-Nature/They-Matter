@@ -50,10 +50,21 @@
     background-color: #00463f;
     color: whitesmoke;
 }
+.img-fluid{
+  width: 270px;
+  height: 240px;
+}
+
+
+
+
+
+
 @media only screen and (max-width: 800px) {
-    .categoria-box { 
+    .categoria-box {
         flex-direction: row;
         flex-wrap: wrap;
         margin-bottom: 3em;
     }
+
 }
