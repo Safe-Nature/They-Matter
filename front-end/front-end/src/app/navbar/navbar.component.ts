@@ -20,7 +20,8 @@ export class NavbarComponent implements OnInit {
   nome = environment.nome;
   userLogin: UserLogin;
 
-  categoria: Categoria[];
+  listaCategoria: Categoria[];
+  categoria: Categoria
   ListaProdutos: Produtos[];
 
   produtoPesquisa: string;
@@ -31,7 +32,7 @@ export class NavbarComponent implements OnInit {
   constructor(private router: Router ,private produtosService: ProdutosService, private consumoService: ConsumoService, private navbarService: NavbarService) { }
 
   ngOnInit() {
-    this.produtosService.getCategoria().subscribe(resp => this.categoria = resp)
+    this.produtosService.getCategoria().subscribe(resp => this.listaCategoria = resp)
     
     this.navbarService.notifyObservable$.subscribe(res => {
       if(res.refresh == true){
@@ -66,5 +67,9 @@ export class NavbarComponent implements OnInit {
         })
       )
       .subscribe();
+  }
+  loadCatPage(id: number) {
+    this.router.navigate([`/categoria/${id}`])
+    this.produtosService.getCategoriaById(id).subscribe(resp => this.categoria = resp)
   }
 }

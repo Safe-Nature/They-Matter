@@ -46,7 +46,7 @@
     <!-- Cards 4 Produtos -->
     <div *ngFor="let produto of produtos">
       <div (click)="goToProduto(produto.id)" class=" border mobile-card-img m-1">
-        <img class=" p-3 card-img-top img-fluid " src="{{produto.imagem}}">
+        <img class=" p-3 card-img-top img-card " src="{{produto.imagem}}">
         <div class="card-body text-center">
           <h5 class="card-text">{{produto.descricao}}</h5>
           <p> R${{produto.preco}}</p>

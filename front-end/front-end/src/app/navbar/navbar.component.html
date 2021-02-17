@@ -28,9 +28,9 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item fad" routerLink='/produtos'>Todos</a>
-              <div *ngFor="let categorias of categoria">
+              <div *ngFor="let categorias of listaCategoria">
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item sr" routerLink="/categoria/{{categorias.id}}" target="_self">{{categorias.nome}}</a>
+                <a class="dropdown-item sr" (click)="loadCatPage(categorias.id)">{{categorias.nome}}</a>
               </div>
             </div>
           </div>
@@ -47,7 +47,7 @@
       </div>
       <div class="col-md-3 d-flex justify-content-around p-4 align-content-center ">
         <a></a>
-        <a class="nav-link text-light" routerLink="/carrinho" ><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+        <a *ngIf="sumir == 1" class="nav-link text-light" routerLink="/carrinho" ><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
         <div *ngIf='sumir==0'>
           <a routerLink="/login-cadastro" class="nav-link text-light align-mi "   #EntreCadast >Entre, ou cadastre-se</a>
         </div>

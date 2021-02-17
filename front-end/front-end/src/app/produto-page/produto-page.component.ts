@@ -3,6 +3,7 @@ import { ProdutosService } from './../service/produtos.service';
 import { Component, OnInit } from '@angular/core';
 import { Produtos } from '../models/Produtos';
 import { environment } from 'src/environments/environment.prod';
+import { Categoria } from '../models/Categoria';
 
 @Component({
   selector: 'app-produto-page',
@@ -11,13 +12,27 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class ProdutoPageComponent implements OnInit {
 
-  produto: Produtos = new Produtos
-
+  produto: Produtos = new Produtos()
+  categoria: Categoria = new Categoria()
+  listaProdutos: Produtos[] = []
   constructor( private produtosService: ProdutosService, private route: Router, private direction: ActivatedRoute,) { }
 
   ngOnInit() {
     let id = this.direction.snapshot.params['id']
-    this.produtosService.getByIdProdutos(id).subscribe(resp => this.produto = resp)
+    this.produtosService.getByIdProdutos(id).subscribe((resp: Produtos) => {
+      this.produto = resp
+      console.log(resp.categoria.id)
+      this.produtosService.getCategoriaById(resp.categoria.id).subscribe((resp: Categoria) => {
+        for(let produto of resp.produtos){
+          if(produto.id != this.produto.id) {
+            this.categoria.id = resp.id
+            this.categoria.nome = resp.nome
+            this.listaProdutos.push(produto) 
+          } 
+        }
+        console.log(this.categoria)
+      })
+    })
   }
   comprar(id: number) {
 
@@ -34,5 +49,27 @@ export class ProdutoPageComponent implements OnInit {
       
       alert('Produto Adicionado ao carrinho')
     }
-  }  
+  }
+  loadCatPage(id: number) {
+    this.route.navigate([`/categoria/${id}`])
+    this.produtosService.getCategoriaById(id).subscribe(resp => this.categoria = resp)
+  }
+  goToProduto(id: number) {
+    this.route.navigate([`/produto/${id}`])
+    this.produtosService.getByIdProdutos(id).subscribe((resp: Produtos) => {
+      this.produto = resp
+      console.log(resp.categoria.id)
+      this.produtosService.getCategoriaById(resp.categoria.id).subscribe((resp: Categoria) => {
+        this.listaProdutos = []
+        for(let produto of resp.produtos){
+          if(produto.id != this.produto.id) {
+            this.categoria.id = resp.id
+            this.categoria.nome = resp.nome
+            this.listaProdutos.push(produto) 
+          } 
+        }
+        console.log(this.categoria)
+      })
+    })
+  }   
 }

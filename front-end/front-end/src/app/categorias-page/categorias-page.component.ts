@@ -38,5 +38,4 @@ export class CategoriasPageComponent implements OnInit {
   goToProduto(id: number) {
     this.router.navigate([`/produto/${id}`])
   } 
- 
 }

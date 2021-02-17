@@ -1,38 +1,91 @@
-<div class="container-fluid p-5 d-flex justify-content-center">
-
-    <div class="col-10 flex-none">
-        <div class="p-4 header-prod w-100 rounded-top text-light">
-            <a class="text-light" routerLink="/inicio">Home</a>
-            <i class="fa fa-arrow-right text-light ml-3" aria-hidden="true"></i>
-            <a class="text-light ml-3" routerLink="/produtos">Produtos</a>
-        </div>
-        <div class="col-md-12 rounded-bottom shadow d-flex flex-wrap justify-content-center " >
-            <div class="col-md-6 d-flex justify-content-center p-3 ">
-                    <img class="img-fluid" src="{{produto.imagem}}">
-            </div>
-            <hr>
-            <div class="col-md-3 p-3 align-self-center">
-                    <h3>{{produto.nome}}</h3>
-                    <p>Código do produto: {{produto.id}}</p>
-                    <br>
-                    <p>Tamanho: {{produto.tamanho}}</p>
-                    <br>
-                    <h5>Descrição:</h5>
-                    <br>
-                    <p>{{produto.descricao}}</p>
-            </div>
-            <hr>
-            <div class="col-md-3 p-3 text-center align-self-center">
-                <h1>R$ {{produto.preco}}.00</h1>
-                <br>
-                <h5>Valor parcelado em até {{produto.parcelamento}}x vezes sem juros</h5>
-                <br>
-                <br>
-                <br>
-                <button class="btn btn-verde" (click)="comprar(produto.id)">Comprar</button>
-                <hr>
-                <p class="text-lighten-1">50% do valor desse produto é destinado a ongs de preservação ambiental.</p>
-            </div>
-        </div>
+<div class="container-fluid d-flex p-5 justify-content-between">
+  <div class="col-md-2 mt-5 mb-5 lead float-left">
+    <div class="categoria-box">
+      <a (click)="loadCatPage(1)"
+        class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+        <img class="ctg-img img-back mt-3" src="../../assets/padrao/tshirt.png" />
+        <img class="ctg-img img-front mt-3" src="../../assets/padrao/tshirt-hover.png">
+        <p>Vestuário</p>
+      </a>
+      <a (click)="loadCatPage(2)"
+        class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+        <img class="ctg-img img-back mt-3" src="../../assets/padrao/acessorio.png" />
+        <img class="ctg-img img-front mt-3" src="../../assets/padrao/acessorio-hover.png">
+        <p>Acessórios</p>
+      </a>
+      <a (click)="loadCatPage(3)"
+        class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+        <img class="ctg-img img-back mt-3" src="../../assets/padrao/cup.png" />
+        <img class="ctg-img img-front mt-3" src="../../assets/padrao/cup-hover.png">
+        <p>Canecas</p>
+      </a>
+      <a (click)="loadCatPage(4)"
+        class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+        <img class="ctg-img img-back mt-3" src="../../assets/padrao/teddy-bear.png" />
+        <img class="ctg-img img-front mt-3" src="../../assets/padrao/teddy-bear-hover.png">
+        <p>Brinquedos</p>
+      </a>
+      <a (click)="loadCatPage(5)"
+        class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+        <img class="ctg-img img-back mt-3" src="../../assets/padrao/recycle.png" />
+        <img class="ctg-img img-front mt-3" src="../../assets/padrao/recycle-hover.png">
+        <p>Retornáveis</p>
+      </a>
+      <a (click)="loadCatPage(6)"
+        class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+        <img class="ctg-img img-back mt-3" src="../../assets/padrao/heart.png" />
+        <img class="ctg-img img-front mt-3" src="../../assets/padrao/heart-hover.png">
+        <p>Doe Aqui</p>
+      </a>
     </div>
+  </div>
+
+  <div class="col-10 align-items-center flex-none">
+    <div class="p-4 header-prod w-100 rounded-top text-light">
+      <a class="text-light" routerLink="/inicio">Home</a>
+      <i class="fa fa-arrow-right text-light ml-3" aria-hidden="true"></i>
+      <a class="text-light ml-3" routerLink="/produtos">Produtos</a>
+    </div>
+    <div class="col-md-12 rounded-bottom shadow d-flex flex-wrap justify-content-center ">
+      <div class="col-md-6 d-flex justify-content-center p-3 ">
+        <img class="img-fluid" src="{{produto.imagem}}">
+      </div>
+      <hr>
+      <div class="col-md-6 p-3 font-univ">
+        <h1>{{produto.nome}}</h1>
+        <p>Código do produto: {{produto.id}}</p>
+        <hr>
+        <br>
+        <p *ngIf="produto.categoria.id == 1">Tamanho: {{produto.tamanho}}</p>
+        <p>Quantidade em Estoque: {{produto.estoque}}</p>
+        <br>
+        <h5>Descrição:</h5>
+        <br>
+        <p>{{produto.descricao}}</p>
+        <br>
+        <h1 class="font-bold">R$ {{produto.preco}}.00</h1>
+        <br>
+        <h5>Valor parcelado em até {{produto.parcelamento}}x vezes sem juros</h5>
+        <br>
+        <div class="cpr-btn">
+          <button class="btn btn-verde" (click)="comprar(produto.id)">Comprar</button>
+        </div>
+        <hr>
+        <p class="text-lighten-1">50% do valor desse produto é destinado a ongs de preservação ambiental.</p>
+      </div>
+      <hr>
+    </div>
+    <br>
+    <h5 class="text-center">Produtos similares:</h5>
+
+    <div *ngFor="let produto of listaProdutos" class="row">
+      <div (click)="goToProduto(produto.id)" class=" border mobile-card-img m-2">
+        <img class=" p-3 card-img-top img-card " src="{{produto.imagem}}">
+        <div class="card-body text-center">
+          <h5 class="card-text">{{produto.descricao}}</h5>
+          <p> R${{produto.preco}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

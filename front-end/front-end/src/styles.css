@@ -2,3 +2,9 @@
 html, body {
     font-family: 'Ubuntu', sans-serif!important;
 }
+.font-univ {
+    font-family: 'Roboto', sans-serif;
+}
+.font-bold {
+    font-family: 'Roboto Slab', serif;
+}
