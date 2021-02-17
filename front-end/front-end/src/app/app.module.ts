@@ -19,6 +19,8 @@ import { EditDadosComponent } from './profile/edit-dados/edit-dados.component';
 import { DeleteDadosComponent } from './profile/delete-dados/delete-dados.component';
 import { PesquisaComponent } from './pesquisa/pesquisa.component';
 import { ProdutoPageComponent } from './produto-page/produto-page.component';
+import { ParceirasComponent } from './parceiras/parceiras.component';
+
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { ProdutoPageComponent } from './produto-page/produto-page.component';
     PesquisaComponent,
     EditDadosComponent,
     DeleteDadosComponent,
-    ProdutoPageComponent
+    ProdutoPageComponent,
+    ParceirasComponent,
+    ParceirasComponent
 
   ],
   imports: [

@@ -12,6 +12,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { EditDadosComponent } from './profile/edit-dados/edit-dados.component';
 import { DeleteDadosComponent } from './profile/delete-dados/delete-dados.component';
 import { PesquisaComponent } from './pesquisa/pesquisa.component';
+import { ParceirasComponent } from './parceiras/parceiras.component';
 
 const routes: Routes = [
 
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path: 'edit-dados/:id', component: EditDadosComponent},
   {path: 'delete-dados/:id', component: DeleteDadosComponent},
   {path: 'pesquisa/:busca', component: PesquisaComponent},
-  {path: 'produto/:id', component: ProdutoPageComponent}
+  {path: 'produto/:id', component: ProdutoPageComponent},
+  {path: 'parceiras', component: ParceirasComponent}
 
 ];
 const volitileRoutes: Routes = [
