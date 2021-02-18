@@ -37,6 +37,10 @@ public class Pedidos {
 
     @Column
     @NotNull
+    private String metodo;
+
+    @Column
+    @NotNull
     private Instant data = Instant.now();
 
     @ManyToOne
@@ -94,6 +98,14 @@ public class Pedidos {
 
     public void setUsuarios(Usuarios usuarios) {
         this.usuarios = usuarios;
+    }
+
+    public String getMetodo() {
+        return metodo;
+    }
+
+    public void setMetodo(String metodo) {
+        this.metodo = metodo;
     }
    
 }

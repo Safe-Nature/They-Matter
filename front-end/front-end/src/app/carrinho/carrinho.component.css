@@ -12,6 +12,13 @@
 .tmt{
     width: 38%;
 }
+.cart-icon {
+    font-size: 60pt;
+}
+.cd-banner {
+    width: 50%;
+    height: auto;
+}
 .botao{
 
     transition: 0.2s;

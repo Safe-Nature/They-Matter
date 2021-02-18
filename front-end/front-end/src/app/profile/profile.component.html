@@ -150,6 +150,7 @@
                             <th scope="col">ID pedido:</th>
                             <th scope="col">Status:</th>
                             <th scope="col" class="text-right">Valor total:</th>
+                            <th scope="col" class="text-right">Método</th>
                             <th scope="col" class="text-right">Data:</th>
                         </tr>
                     </thead>
@@ -158,6 +159,7 @@
                             <th scope="col">{{pedidos.id}}</th>
                             <td scope="col" >{{pedidos.status}}</td>
                             <td scope="col" class="text-right">R$ {{pedidos.total}}</td>
+                            <td scope="col" class="text-right">{{pedidos.metodo}}</td>
                             <td scope="col" class="text-right">{{pedidos.data}}</td>
                         </tr>
                         <tr *ngFor="let produtos of userLogin.pedido" class="d-none">

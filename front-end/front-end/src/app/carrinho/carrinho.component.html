@@ -1,6 +1,20 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
+    <div class="row d-flex justify-content-center mb-lg-5 mt-lg-5">
+        <div class="col-md-3 text-center mt-5">
+            <i class="fa fa-shopping-cart cart-icon" aria-hidden="true"></i>
+            <h4>Carrinho Vazio!</h4>
+            <hr>
+            <p>Navegue por nossos <a routerLink="/produtos">produtos</a>!</p>
+        </div>
+    </div>
+    
+</div> -->
+
+
+<div  class="container-fluid">
     <div class="row d-flex justify-content-center">
-        <div class="col-md-10 mt-5">
+        
+        <div class="col-md-6 mt-5">
             <!--Titulo-->
             <h2>Meu carrinho</h2>
             <hr>
@@ -33,21 +47,64 @@
         </div>
     </div>
     <hr>
-    <div class="row ">
-        <!--coluna do calculo-->
-        <div class="col-md-10 mb-5 d-flex justify-content-end">
-            <div>
-                <p class="text-capitalize text-justify">Valor total: R$ {{total}}</p>
-            </div>
-        </div>
-        
-    </div>
     <!--coluna do botao-->
-    <div class="row mt-5 mb-5">
-        <div class="col-md-10 d-flex justify-content-end">
-            <button class="botao" (click)="realizarPedido()">Continuar</button>
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-2"></div>
+        <div class="col-md-4 p-5">
+            <div class="card">
+                <div class="card text-center">
+                    <div class="card-header border-0">
+                        INSIRA SEU ENDEREÇO DE ENTREGA
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="inputAddress">Nome da rua: </label>
+                                <input [(ngModel)]="location.nome" type="text" name="Rua" class="form-control" id="inputAddress"
+                                    placeholder="Rua dos Bobos, nº 0">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="inputCity">Cidade</label>
+                                    <input [(ngModel)]="location.cidade" type="text" name="cidade" class="form-control" id="inputCity">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputEstado">Estado</label>
+                                    <select [(ngModel)]="location.uf" id="inputEstado" class="form-control" name="uf">
+                                        <option selected>Escolher...</option>
+                                        <option *ngFor="let item of uf" [value]="item"  >{{item}}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputCEP">CEP</label>
+                                    <input [(ngModel)]="location.cep" name="cep" type="text" minlength="9" maxlength="9" class="form-control" id="inputCEP">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
         </div>
+        <hr>
+        <div class="col-md-4 p-5">
+            <h4 class="text-capitalize text-justify">Valor total da compra: R$ {{total}}</h4>
+            <label type="select">Selecione a forma de pagamento:</label>
+            <br>
+            <select [(ngModel)]="pedido.metodo" placeholder="forma de pagamento" class="form-control">
+                <option [value]="metodo1">Á vista</option>
+                <option [value]="metodo2">2x sem juros</option>
+                <option [value]="metodo3">3x sem juros</option>
+            </select>
+            
+            <hr>
+            <div class="d-flex justify-content-between">
+                <img class="cd-banner" src="../../assets/img/pngwing.com (1).png">
+                <button class="botao" (click)="realizarPedido()">Continuar</button>
+             </div>
+        </div>
+        <div class="col-md-2"></div>
+    
     </div>
-    <!--/coluna do calculo-->
 
 </div>

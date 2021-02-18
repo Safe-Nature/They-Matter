@@ -1,3 +1,4 @@
+import { Location } from './../models/Location';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -46,5 +47,8 @@ export class ConsumoService {
   }
   deleteUsuario(id: number){
     return this.http.delete(`http://localhost:8081/delete/${id}`)
+  }
+  postLocation(location: Location): Observable<Location> {
+    return this.http.post<Location>('http://localhost:8081/location/post', location)
   }
 }

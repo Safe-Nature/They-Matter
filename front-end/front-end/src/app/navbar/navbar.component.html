@@ -18,12 +18,12 @@
   <div class="row navbar-expand-md align-items-center bk">
     <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
       <div class="col-md-3 d-flex align-content-center">
-      
+
         <div class="d-flex flex-wrap ">
           <div class="nav-item dropdown text-center m-2">
             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Categorias
+              Produtos
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item fad" routerLink='/produtos'>Todos</a>
@@ -37,30 +37,32 @@
 
         <a class="nav-link text-light p-3" routerLink="/sobre">Sobre nós</a>
         <a class="nav-link text-light p-3" routerLink="/parceiras">Notícias</a>
-        
+
       </div>
       <div class="col-md-6 collapse navbar-collapse" id="conteudoNavbarSuportado">
-          
-            <input #input type="search " id="form1" class="form-control w-100 pesquisar p-3" placeholder="Pesquisar" [(ngModel)]="produtoPesquisa" #filterName name="filterName">
-            <a type="button" class="form-control btnpesquisar"  [routerLink]="['/pesquisa', produtoPesquisa]" (click) = "filterName.value = ''">
-              <i class="fa fa-search" aria-hidden="true"></i>
-            </a>
-         
+        <input #input type="search " id="form1" class="form-control w-100 pesquisar p-3" placeholder="Pesquisar"
+          [(ngModel)]="produtoPesquisa" #filterName name="filterName">
+        <a type="button" class="form-control btnpesquisar" [routerLink]="['/pesquisa', produtoPesquisa]"
+          (click)="filterName.value = ''">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </a>
       </div>
       <div class="col-md-3 d-flex justify-content-around p-4 align-content-center ">
         <a></a>
-        <a *ngIf="sumir == 1" class="nav-link text-light" routerLink="/carrinho" ><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+        <a *ngIf="sumir == 1" class="nav-link text-light" routerLink="/carrinho"><i class="fa fa-shopping-cart"
+            aria-hidden="true"></i></a>
         <div *ngIf='sumir==0'>
-          <a routerLink="/login-cadastro" class="nav-link text-light align-mi "   #EntreCadast >Entre, ou cadastre-se</a>
+          <a routerLink="/login-cadastro" class="nav-link text-light align-mi " #EntreCadast>Entre, ou cadastre-se</a>
         </div>
         <div *ngIf='sumir==1' class="dropdown nav-link">
-            <a class="dropdown-toggle text-white " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Olá, {{userLogin.nome}}
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" routerLink="/profile">Perfil</a>
-              <a class="dropdown-item" (click)="logout()">Logout</a>
-            </div>
+          <a class="dropdown-toggle text-white " type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Olá, {{userLogin.nome}}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" routerLink="/profile">Perfil</a>
+            <a class="dropdown-item" (click)="logout()">Logout</a>
+          </div>
         </div>
       </div>
     </div>

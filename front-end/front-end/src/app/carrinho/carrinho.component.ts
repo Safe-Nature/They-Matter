@@ -1,3 +1,6 @@
+import { ConsumoService } from 'src/app/service/usuario.service';
+import { NavbarService } from './../service/navbar.service';
+import { NavbarComponent } from './../navbar/navbar.component';
 import { Location } from './../models/Location';
 import { Usuarios } from './../models/Usuarios';
 import { environment } from './../../environments/environment.prod';
@@ -17,25 +20,40 @@ import { Pedidos } from '../models/Pedidos';
 export class CarrinhoComponent implements OnInit {
 
   listaProdutos: Produtos[] = []
-
   pedido: Pedidos = new Pedidos()
-
   local: Location = new Location()
-
   usuario: Usuarios = new Usuarios()
+  location: Location = new Location()
 
+ 
+
+  option: number = 0
   total: number
+  metodo1: string = "Á vista"
+  metodo2: string = "2x"
+  metodo3: string = "3x"
+  uf: Array<string> = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PP', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO']
   
   constructor(
     private produtosService: ProdutosService,
     private router: Router,
-    private pedidosService: PedidosService
-  ) { }
+    private pedidosService: PedidosService,
+    private navbarService: NavbarService,
+    private usuarioService: ConsumoService
+  ) {
+   }
 
   ngOnInit() {
     this.getListaProdutos()
     this.total = this.precoTotal()
-    
+    this.navbarService.notifyObservable$.subscribe(res => {
+      if(res.refresh == true){
+        this.listaProdutos = JSON.parse(localStorage.getItem('listaProdutos')  || '{}');
+        this.trocar();
+      }
+    })
+    console.log(this.uf)
+
   }
   getListaProdutos() {
     this.listaProdutos = JSON.parse(localStorage.getItem('listaProdutos')  || '{}');
@@ -57,6 +75,13 @@ export class CarrinhoComponent implements OnInit {
     }
     return pTotal;
   }
+  trocar() {
+    if(this.listaProdutos == []) {
+      this.option = 0
+    } else {
+      this.option = 1;
+    }
+  }
   realizarPedido() {
 
     if(environment.token != '') {
@@ -65,21 +90,30 @@ export class CarrinhoComponent implements OnInit {
       this.pedido.status = "Aprovada"
       this.usuario.id = environment.id
       this.pedido.usuarios = this.usuario
+      this.pedido.metodo = this.pedido.metodo
+      this.location.usuario = this.usuario
       console.log(this.pedido)
-      this.pedidosService.postPedido(this.pedido).subscribe((resp: Pedidos) => {
-        this.pedido = resp
-      })
       
-      for(let produtos of this.listaProdutos) {
-        produtos.estoque = (produtos.estoque - 1)
-        console.log(produtos.estoque)
-        this.produtosService.updateProdutoById(produtos.id, produtos).subscribe((resp: Produtos) => {
-          produtos = resp
+      if(this.location.nome == null || this.location.cep == null || this.location.cidade == null || this.location.uf == null || this.listaProdutos == []) {
+        alert('Favor Inserir todos os campos de endereço para entrega!')
+      } else {
+        this.pedidosService.postPedido(this.pedido).subscribe((resp: Pedidos) => {
+          this.pedido = resp
         })
+        this.usuarioService.postLocation(this.location).subscribe((resp: Location) => {
+          this.location = resp
+        })
+        alert("Pedido realizado!! Obrigado por comprar conosco!")
+        this.router.navigate(['/inicio'])
+        for(let produtos of this.listaProdutos) {
+          produtos.estoque = (produtos.estoque - 1)
+          console.log(produtos.estoque)
+          this.produtosService.updateProdutoById(produtos.id, produtos).subscribe((resp: Produtos) => {
+            produtos = resp
+          })
+        }
+        localStorage.removeItem('listaProdutos')
       }
-      alert("Pedido realizado!! Obrigado por comprar conosco!")
-      localStorage.removeItem('listaProdutos')
-      this.router.navigate(['/inicio'])
     } else {
       alert("Você precisa entrar para realizar seu pedido.")
     }
