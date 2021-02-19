@@ -2,58 +2,54 @@
   <div class="row header-style p-5">
     <h2 class="ml-5 " style="font-family: 'Roboto Slab', serif; font-size: 24pt;">Produtos</h2>
   </div>
-  <div class="row mt-5 text-center justify-content-start ">
-
-    <div class="col-md-2 lead">
-      <div class="categoria-box justify-content-center align-content-center">
-        <a routerLink="/categoria/1" target="_self"
-          class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
-          <img class="ctg-img img-back mt-3" src="../../assets/padrao/tshirt.png" />
-          <img class="ctg-img img-front mt-3" src="../../assets/padrao/tshirt-hover.png">
-          <p>Vestuário</p>
-        </a>
-        <a routerLink="/categoria/2" target="_self"
-          class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
-          <img class="ctg-img img-back mt-3" src="../../assets/padrao/acessorio.png" />
-          <img class="ctg-img img-front mt-3" src="../../assets/padrao/acessorio-hover.png">
-          <p>Acessórios</p>
-        </a>
-        <a routerLink="/categoria/3" target="_self"
-          class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
-          <img class="ctg-img img-back mt-3" src="../../assets/padrao/cup.png" />
-          <img class="ctg-img img-front mt-3" src="../../assets/padrao/cup-hover.png">
-          <p>Canecas</p>
-        </a>
-        <a routerLink="/categoria/4" target="_self"
-          class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
-          <img class="ctg-img img-back mt-3" src="../../assets/padrao/teddy-bear.png" />
-          <img class="ctg-img img-front mt-3" src="../../assets/padrao/teddy-bear-hover.png">
-          <p>Brinquedos</p>
-        </a>
-        <a routerLink="/categoria/5" target="_self"
-          class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
-          <img class="ctg-img img-back mt-3" src="../../assets/padrao/recycle.png" />
-          <img class="ctg-img img-front mt-3" src="../../assets/padrao/recycle-hover.png">
-          <p>Retornáveis</p>
-        </a>
-        <a routerLink="/categoria/6" target="_self"
-          class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
-          <img class="ctg-img img-back mt-3" src="../../assets/padrao/heart.png" />
-          <img class="ctg-img img-front mt-3" src="../../assets/padrao/heart-hover.png">
-          <p>Doe Aqui</p>
-        </a>
-      </div>
+  <div class="col-md-2 mt-5 mb-5 lead float-left">
+    <div class="categoria-box justify-content-center align-content-center">
+      <a (click)="loadCatPage(1)"
+        class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+        <img class="ctg-img img-back mt-3" src="../../assets/padrao/tshirt.png" />
+        <img class="ctg-img img-front mt-3" src="../../assets/padrao/tshirt-hover.png">
+        <p>Vestuário</p>
+      </a>
+      <a (click)="loadCatPage(2)"
+        class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+        <img class="ctg-img img-back mt-3" src="../../assets/padrao/acessorio.png" />
+        <img class="ctg-img img-front mt-3" src="../../assets/padrao/acessorio-hover.png">
+        <p>Acessórios</p>
+      </a>
+      <a (click)="loadCatPage(3)"
+        class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+        <img class="ctg-img img-back mt-3" src="../../assets/padrao/cup.png" />
+        <img class="ctg-img img-front mt-3" src="../../assets/padrao/cup-hover.png">
+        <p>Canecas</p>
+      </a>
+      <a (click)="loadCatPage(4)"
+        class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+        <img class="ctg-img img-back mt-3" src="../../assets/padrao/teddy-bear.png" />
+        <img class="ctg-img img-front mt-3" src="../../assets/padrao/teddy-bear-hover.png">
+        <p>Brinquedos</p>
+      </a>
+      <a (click)="loadCatPage(5)"
+        class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+        <img class="ctg-img img-back mt-3" src="../../assets/padrao/recycle.png" />
+        <img class="ctg-img img-front mt-3" src="../../assets/padrao/recycle-hover.png">
+        <p>Retornáveis</p>
+      </a>
+      <a (click)="loadCatPage(6)"
+        class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+        <img class="ctg-img img-back mt-3" src="../../assets/padrao/heart.png" />
+        <img class="ctg-img img-front mt-3" src="../../assets/padrao/heart-hover.png">
+        <p>Doe Aqui</p>
+      </a>
     </div>
-
-    <div class="col-md-10 d-flex justify-content-center mb-5 card-row flex-wrap ">
-      <!-- Cards 4 Produtos -->
-      <div *ngFor="let produto of produtos" class=" border mobile-card-img m-1">
-        <img class=" p-3 card-img-top img-fluid " src="{{produto.imagem}}">
-        <div class="card-body">
-          <h5 class="card-text">{{produto.descricao}}</h5><p> R${{produto.preco}}</p>
-
-
-
+  </div>
+  <div class="col-md-10 m-5 d-flex justify-content-start mb-5 mobile-card-row flex-wrap ">
+    <!-- Cards 4 Produtos -->
+    <div *ngFor="let produto of produtos">
+      <div (click)="goToProduto(produto.id)" class=" border mobile-card-img m-1">
+        <img class=" p-3 card-img-top img-card " src="{{produto.imagem}}">
+        <div class="card-body text-center">
+          <h5 class="card-text">{{produto.nome}}</h5>
+          <p> R${{produto.preco}}</p>
         </div>
       </div>
     </div>

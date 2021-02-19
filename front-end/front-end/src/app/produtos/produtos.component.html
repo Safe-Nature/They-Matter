@@ -42,13 +42,13 @@
       </a>
     </div>
   </div>
-  <div class="col-md-10 m-5 d-flex justify-content-start mb-5 card-row flex-wrap ">
+  <div class="col-md-10 m-5 d-flex justify-content-start mb-5 mobile-card-row flex-wrap ">
     <!-- Cards 4 Produtos -->
     <div *ngFor="let produto of produtos">
       <div (click)="goToProduto(produto.id)" class=" border mobile-card-img m-1">
         <img class=" p-3 card-img-top img-card " src="{{produto.imagem}}">
         <div class="card-body text-center">
-          <h5 class="card-text">{{produto.descricao}}</h5>
+          <h5 class="card-text">{{produto.nome}}</h5>
           <p> R${{produto.preco}}</p>
         </div>
       </div>
