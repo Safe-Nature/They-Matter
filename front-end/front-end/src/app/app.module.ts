@@ -20,6 +20,7 @@ import { DeleteDadosComponent } from './profile/delete-dados/delete-dados.compon
 import { PesquisaComponent } from './pesquisa/pesquisa.component';
 import { ProdutoPageComponent } from './produto-page/produto-page.component';
 import { ParceirasComponent } from './parceiras/parceiras.component';
+import { DoacaoComponent } from './doacao/doacao.component';
 
 
 
@@ -40,7 +41,8 @@ import { ParceirasComponent } from './parceiras/parceiras.component';
     DeleteDadosComponent,
     ProdutoPageComponent,
     ParceirasComponent,
-    ParceirasComponent
+    ParceirasComponent,
+    DoacaoComponent
 
   ],
   imports: [

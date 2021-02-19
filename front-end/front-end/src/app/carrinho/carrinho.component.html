@@ -53,16 +53,38 @@
         <div class="col-md-4 p-5">
             <div class="card">
                 <div class="card text-center">
-                    <div class="card-header border-0">
-                        INSIRA SEU ENDEREÇO DE ENTREGA
-                    </div>
                     <div class="card-body">
                         <form>
-                            <div class="form-group">
-                                <label for="inputAddress">Nome da rua: </label>
-                                <input [(ngModel)]="location.nome" type="text" name="Rua" class="form-control" id="inputAddress"
-                                    placeholder="Rua dos Bobos, nº 0">
+                            <div class="card-header border-0">
+                                SELECIONE UM ENDEREÇO CADASTRADO:
                             </div>
+                            <br>
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <select class="form-control">
+                                        <option *ngFor="let locations of listaLocais"> {{locations.nome}}, {{locations.cidade}}, {{locations.uf}} </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="card-header border-0">
+                                OU INSIRA UM NOVO ENDEREÇO:
+                            </div>
+                            <br>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputAddress">Nome da rua: </label>
+                                    <input [(ngModel)]="location.nome" type="text" name="Rua" class="form-control" id="inputAddress">
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label for="inputAddress">Nº:</label>
+                                    <input [(ngModel)]="location.numero" type="number" name="numero" class="form-control" id="inputAddress">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputAddress">Referencia:</label>
+                                    <input [(ngModel)]="location.referencia" type="text" name="ref" class="form-control" id="inputAddress">
+                                </div>
+                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="inputCity">Cidade</label>
@@ -78,6 +100,11 @@
                                 <div class="form-group col-md-4">
                                     <label for="inputCEP">CEP</label>
                                     <input [(ngModel)]="location.cep" name="cep" type="text" minlength="9" maxlength="9" class="form-control" id="inputCEP">
+                                </div>
+                            </div>
+                            <div class="form-row justify-content-center">
+                                <div class="form-group cold-md-3">
+                                    <button class="btn btn-verde" (click)="cadastrarLocal()">Enviar</button> 
                                 </div>
                             </div>
                         </form>
@@ -96,7 +123,6 @@
                 <option [value]="metodo2">2x sem juros</option>
                 <option [value]="metodo3">3x sem juros</option>
             </select>
-            
             <hr>
             <div class="d-flex justify-content-between">
                 <img class="cd-banner" src="../../assets/img/pngwing.com (1).png">
@@ -104,7 +130,5 @@
              </div>
         </div>
         <div class="col-md-2"></div>
-    
     </div>
-
 </div>

@@ -18,4 +18,7 @@ export class PedidosService {
   postPedido(pedido: Pedidos): Observable<Pedidos> {
     return this.http.post<Pedidos>('http://localhost:8081/pedido/add', pedido)
   }
+  getPedidoById(id: number):Observable<Pedidos> {
+    return this.http.get<Pedidos>(`http://localhost:8081/pedido/id/${id}`)
+  }
 }

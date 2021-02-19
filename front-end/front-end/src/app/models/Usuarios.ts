@@ -7,5 +7,5 @@ export class Usuarios {
     public email: string
     public senha: string
     public pedidos: Pedidos[]
-    public location: Location
+    public location: Location[]
 }

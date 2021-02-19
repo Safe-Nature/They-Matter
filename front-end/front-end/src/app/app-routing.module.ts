@@ -1,3 +1,4 @@
+import { DoacaoComponent } from './doacao/doacao.component';
 import { ProdutoPageComponent } from './produto-page/produto-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CategoriasPageComponent } from './categorias-page/categorias-page.component';
@@ -27,7 +28,8 @@ const routes: Routes = [
   {path: 'delete-dados/:id', component: DeleteDadosComponent},
   {path: 'pesquisa/:busca', component: PesquisaComponent},
   {path: 'produto/:id', component: ProdutoPageComponent},
-  {path: 'parceiras', component: ParceirasComponent}
+  {path: 'parceiras', component: ParceirasComponent},
+  {path: 'doacao', component: DoacaoComponent}
 
 ];
 const volitileRoutes: Routes = [

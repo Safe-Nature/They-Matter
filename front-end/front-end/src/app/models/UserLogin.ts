@@ -7,5 +7,5 @@ export class UserLogin {
   public senha: string
   public token: string
   public pedido: Pedidos[]
-  public location: Location
+  public location: Location[]
 }

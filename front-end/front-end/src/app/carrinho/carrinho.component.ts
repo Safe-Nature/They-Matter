@@ -1,6 +1,6 @@
+import { UserLogin } from './../models/UserLogin';
 import { ConsumoService } from 'src/app/service/usuario.service';
 import { NavbarService } from './../service/navbar.service';
-import { NavbarComponent } from './../navbar/navbar.component';
 import { Location } from './../models/Location';
 import { Usuarios } from './../models/Usuarios';
 import { environment } from './../../environments/environment.prod';
@@ -24,6 +24,7 @@ export class CarrinhoComponent implements OnInit {
   local: Location = new Location()
   usuario: Usuarios = new Usuarios()
   location: Location = new Location()
+  listaLocais: Location[] = []
 
  
 
@@ -40,8 +41,8 @@ export class CarrinhoComponent implements OnInit {
     private pedidosService: PedidosService,
     private navbarService: NavbarService,
     private usuarioService: ConsumoService
-  ) {
-   }
+    ) 
+    {}
 
   ngOnInit() {
     this.getListaProdutos()
@@ -52,8 +53,13 @@ export class CarrinhoComponent implements OnInit {
         this.trocar();
       }
     })
-    console.log(this.uf)
-
+    this.usuarioService.getByIdUser(environment.id).subscribe((resp: Usuarios) => {
+      for(let locais of resp.location) {
+        this.listaLocais.push(locais)
+      }
+    })
+    console.log(this.listaLocais)
+    
   }
   getListaProdutos() {
     this.listaProdutos = JSON.parse(localStorage.getItem('listaProdutos')  || '{}');
@@ -91,17 +97,11 @@ export class CarrinhoComponent implements OnInit {
       this.usuario.id = environment.id
       this.pedido.usuarios = this.usuario
       this.pedido.metodo = this.pedido.metodo
-      this.location.usuario = this.usuario
+      this.location.usuarios = this.usuario
       console.log(this.pedido)
-      
-      if(this.location.nome == null || this.location.cep == null || this.location.cidade == null || this.location.uf == null || this.listaProdutos == []) {
-        alert('Favor Inserir todos os campos de endereço para entrega!')
-      } else {
+    
         this.pedidosService.postPedido(this.pedido).subscribe((resp: Pedidos) => {
           this.pedido = resp
-        })
-        this.usuarioService.postLocation(this.location).subscribe((resp: Location) => {
-          this.location = resp
         })
         alert("Pedido realizado!! Obrigado por comprar conosco!")
         this.router.navigate(['/inicio'])
@@ -113,9 +113,19 @@ export class CarrinhoComponent implements OnInit {
           })
         }
         localStorage.removeItem('listaProdutos')
-      }
+      
     } else {
       alert("Você precisa entrar para realizar seu pedido.")
+    }
+  }
+  cadastrarLocal() {
+
+    if(this.location.nome == null && this.location.cep == null && this.location.cidade == null && this.location.uf == null) {
+      alert('Favor Inserir todos os campos de endereço para entrega!')
+    } else {
+      this.usuarioService.postLocation(this.location).subscribe((resp: Location) => {
+        this.location = resp
+      })
     }
   }
 }
