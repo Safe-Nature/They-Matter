@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -29,6 +30,7 @@ public class Usuarios {
 
 	@Column(name="usuarios_id")
 	@NotNull
+	@Size (min=6, max= 25)
 	private String nome;
 
 	@Column
@@ -37,6 +39,7 @@ public class Usuarios {
 
 	@Column
 	@NotNull
+	@Size (min=6, max= 12)
 	private String senha;
 
 	@OneToMany(mappedBy = "usuarios",cascade = CascadeType.ALL)
