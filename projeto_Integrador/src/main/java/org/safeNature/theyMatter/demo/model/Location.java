@@ -5,8 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -29,6 +28,10 @@ public class Location {
 	@Column
 	@NotNull
 	private int numero;
+
+	@Column
+	@NotNull
+	private String referencia;
 	
 	@Column
 	@NotNull
@@ -42,9 +45,8 @@ public class Location {
 	@NotNull
 	private String uf;
 
-	@OneToOne
-	@JoinColumn(name = "id_usuarios")
-	@JsonIgnoreProperties("location")
+	@ManyToOne
+	@JsonIgnoreProperties("pedidos")
 	private Usuarios usuarios;
 	
 	
@@ -103,6 +105,14 @@ public class Location {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getReferencia() {
+		return referencia;
+	}
+
+	public void setReferencia(String referencia) {
+		this.referencia = referencia;
 	}
 	
 	

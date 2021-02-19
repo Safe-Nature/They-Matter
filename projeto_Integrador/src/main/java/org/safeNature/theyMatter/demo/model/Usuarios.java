@@ -44,9 +44,8 @@ public class Usuarios {
 	private List<Pedidos> pedido;
 
 	@JsonIgnoreProperties("usuarios")
-	@JoinColumn(name = "location_id")
-	@OneToOne
-	private Location location;
+	@OneToMany(mappedBy = "usuarios", cascade = CascadeType.ALL)
+	private List<Location> location;
 
 	public Long getId() {
 		return id;
@@ -88,13 +87,11 @@ public class Usuarios {
 		this.pedido = pedido;
 	}
 
-	public Location getLocation() {
+	public List<Location> getLocation() {
 		return location;
 	}
 
-	public void setLocation(Location location) {
+	public void setLocation(List<Location> location) {
 		this.location = location;
 	}
-
-	
 }
