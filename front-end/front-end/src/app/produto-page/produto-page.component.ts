@@ -17,7 +17,8 @@ export class ProdutoPageComponent implements OnInit {
   listaProdutos: Produtos[] = []
   constructor( private produtosService: ProdutosService, private route: Router, private direction: ActivatedRoute,) { }
 
-  ngOnInit() {
+  ngOnInit() { 
+    window.scroll(0,0)
     let id = this.direction.snapshot.params['id']
     this.produtosService.getByIdProdutos(id).subscribe((resp: Produtos) => {
       this.produto = resp
