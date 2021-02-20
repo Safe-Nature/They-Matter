@@ -114,18 +114,17 @@ export class CarrinhoComponent implements OnInit {
       }
       localStorage.removeItem('listaProdutos')
 
+      if (this.location.nome == null && this.location.cep == null && this.location.cidade == null && this.location.uf == null) {
+        alert('Favor Inserir todos os campos de endereço para entrega!')
+      } else {
+        this.usuarioService.postLocation(this.location).subscribe((resp: Location) => {
+          this.location = resp
+        })
+      }
+
     } else {
       alert("Você precisa entrar para realizar seu pedido.")
     }
   }
-  cadastrarLocal() {
 
-    if (this.location.nome == null && this.location.cep == null && this.location.cidade == null && this.location.uf == null) {
-      alert('Favor Inserir todos os campos de endereço para entrega!')
-    } else {
-      this.usuarioService.postLocation(this.location).subscribe((resp: Location) => {
-        this.location = resp
-      })
-    }
-  }
 }

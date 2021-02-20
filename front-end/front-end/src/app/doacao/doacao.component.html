@@ -8,25 +8,38 @@
     <br>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
     <div class="row m-5">
         <div class="col-md-12 d-flex justify-content-center">
-            <div class="col-md-4 bg-dark-gray">
-               <img src="../../assets/padrao/logo_img.png"> 
-
+            <div class="col-md-4 bg-dark-gray text-center text-light">
+                <h1>Doe e salve nosso planeta! <i class="fa fa-heart-o" aria-hidden="true"></i>
+                </h1>
+                <br>
+                <h4>Insira o valor a ser doado:</h4>
+                <br>
                <div>
-                   <input class="form-control" placeholder="Insira o valor:">
+                   <input [(ngModel)]="this.valor" type="number" class="form-control" placeholder="Insira o valor:">
+                   <br>
+                   <label>Selecione a Ong que deseja ajudar:</label>
+                   <select class="form-control">
+                       <option>
+                            Divers for Shark
+                       </option>
+                       <option>
+                           SOS Pantanal
+                       </option>
+                       <option>
+                           Instituto Vida Livre
+                       </option>
+                       <option>
+                           ICAS - Instituto de Conservação de Animais Silvestres
+                       </option>
+                   </select>
+                   <br>
+                   <button (click)="realizarDoacao()" class="btn btn-verde">Doe! <i class="fa fa-heart-o" aria-hidden="true"></i></button>
                </div>
             </div>
         </div>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <br>
     <br>
     <br>

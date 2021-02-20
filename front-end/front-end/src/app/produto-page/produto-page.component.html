@@ -1,4 +1,4 @@
-<div class="container-fluid d-flex p-5 justify-content-between">
+<div class="container-fluid d-flex justify-content-between">
   <div class="col-md-2 mt-5 mb-5 lead float-left">
     <div class="categoria-box">
       <a (click)="loadCatPage(1)"
@@ -31,7 +31,7 @@
         <img class="ctg-img img-front mt-3" src="../../assets/padrao/recycle-hover.png">
         <p>Retornáveis</p>
       </a>
-      <a (click)="loadCatPage(6)"
+      <a routerLink="/doacao"
         class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
         <img class="ctg-img img-back mt-3" src="../../assets/padrao/heart.png" />
         <img class="ctg-img img-front mt-3" src="../../assets/padrao/heart-hover.png">
@@ -40,7 +40,7 @@
     </div>
   </div>
 
-  <div class="col-10 align-items-center flex-none">
+  <div class="col-md-10 align-items-center p-5 flex-none">
     <div class="p-4 header-prod w-100 rounded-top text-light">
       <a class="text-light" routerLink="/inicio">Home</a>
       <i class="fa fa-arrow-right text-light ml-3" aria-hidden="true"></i>
@@ -77,17 +77,17 @@
     </div>
     <br>
     <h5 class="text-center">Produtos similares:</h5>
-<div class="d-flex justify-content-around ">
-  <div *ngFor="let produto of listaProdutos" class="row">
-    <div (click)="goToProduto(produto.id)" class=" border mobile-card-img m-2">
-      <img class=" p-3 card-img-top img-card " src="{{produto.imagem}}">
-      <div class="card-body text-center">
-        <h4 class="card-text ">{{produto.nome}}</h4>
-        <p> R${{produto.preco}}</p>
+    <div class="d-flex justify-content-around flex-wrap">
+      <div *ngFor="let produto of listaProdutos" class="row">
+        <div (click)="goToProduto(produto.id)" class=" border mobile-card-img m-2">
+          <img class=" p-3 card-img-top img-card " src="{{produto.imagem}}">
+          <div class="card-body text-center">
+            <h4 class="card-text ">{{produto.nome}}</h4>
+            <p> R${{produto.preco}}</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
   </div>
 </div>

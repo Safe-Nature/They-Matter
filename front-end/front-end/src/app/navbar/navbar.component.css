@@ -40,7 +40,9 @@
     border:solid black 2px;
 }
 .botao{
-    font-size: 16pt;
+    font-size: 24pt;
+    width: 3em;
+    height: 3em;
 }
 .m-l {
     margin: 0 2em 0 2em;
@@ -51,7 +53,7 @@
         margin: 0 0 0 0;
     }
     .navbar1 {
-        justify-content: space-between!important;
+        justify-content:space-between!important;
     }
     .navbar2 {
         flex-direction: column;

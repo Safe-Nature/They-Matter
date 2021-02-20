@@ -1,0 +1,15 @@
+.container-fluid {
+  background-image: url("../../assets/main-page-img/donate.png");
+  background-repeat: repeat;
+  align-items: center;
+}
+.btn-verde{
+    color:white;
+    background-color:#00463F;
+}
+.btn-verde:hover {
+    box-shadow: 0 0 10px gray;
+}
+.btn-verde:active {
+    background-color: white;
+}

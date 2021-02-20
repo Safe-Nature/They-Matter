@@ -54,6 +54,7 @@ export class NavbarComponent implements OnInit {
   }
   logout(){
     this.sumir = 0
+    environment.token = ''
   }
   ngAfterViewInit() {
     // server-side search
