@@ -1,13 +1,15 @@
 <div class="container-fluid bk">
-  <div class="row navbar-expand-md justify-content-center">
-    <a class="navbar-brand mt-2" routerLink="/inicio">
-      <img src="../../assets/padrao/logo_img.png" alt="Icone" width="65px" height="65px"
-        class="img-fluid rounded-circle">
-    </a>
-    <a class="navbar-brand ml-3 mt-3 text-white font-weight-bolder"
-      style="font-family: 'Roboto Slab', serif; font-size: 24pt;" routerLink="/inicio">
-      They Matter
-    </a>
+  <div class="row navbar-expand-md navbar1 justify-content-center">
+    <div class="d-flex justify-content-between">
+      <a class="navbar-brand mt-2" routerLink="/inicio">
+        <img src="../../assets/padrao/logo_img.png" alt="Icone" width="65px" height="65px"
+          class="img-fluid rounded-circle">
+      </a>
+      <a class="navbar-brand mt-3 text-white font-weight-bolder"
+        style="font-family: 'Roboto Slab', serif; font-size: 24pt;" routerLink="/inicio">
+        They Matter
+      </a>
+    </div>
     <button class="navbar-toggler botao text-light" type="button" data-toggle="collapse"
       data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false"
       aria-label="Alterna navegação">
@@ -15,56 +17,52 @@
     </button>
 
   </div>
-  <div class="row navbar-expand-md align-items-center bk">
+  <div class="row navbar-expand-md p-2 align-items-center bk">
     <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-      <div class="col-md-3 d-flex align-content-center">
+      <div class="col-md-12 d-flex justify-content-center navbar2 align-items-center align-content-center">
 
-        <div class="d-flex flex-wrap ">
-          <div class="nav-item dropdown text-center m-2">
-            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Produtos
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item fad" routerLink='/produtos'>Todos</a>
-              <div *ngFor="let categorias of listaCategoria">
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item sr" (click)="loadCatPage(categorias.id)">{{categorias.nome}}</a>
-              </div>
+        <div class="nav-item dropdown text-center m-2">
+          <a class="nav-link ml-3 dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Produtos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item fad" routerLink='/produtos'>Todos</a>
+            <div *ngFor="let categorias of listaCategoria">
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item sr" (click)="loadCatPage(categorias.id)">{{categorias.nome}}</a>
             </div>
           </div>
         </div>
 
-        <a class="nav-link text-light p-3" routerLink="/sobre">Sobre nós</a>
-        <a class="nav-link text-light p-3" routerLink="/parceiras">Notícias</a>
-
-      </div>
-      <div class="col-md-6 collapse navbar-collapse" id="conteudoNavbarSuportado">
-        <input #input type="search " id="form1" class="form-control w-100 pesquisar p-3" placeholder="Pesquisar"
-          [(ngModel)]="produtoPesquisa" #filterName name="filterName">
-        <a type="button" class="form-control btnpesquisar" [routerLink]="['/pesquisa', produtoPesquisa]"
-          (click)="filterName.value = ''">
-          <i class="fa fa-search" aria-hidden="true"></i>
-        </a>
-      </div>
-      <div class="col-md-3 d-flex justify-content-around p-4 align-content-center ">
-        <a></a>
-        <a *ngIf="sumir == 1" class="nav-link text-light" routerLink="/carrinho"><i class="fa fa-shopping-cart"
-            aria-hidden="true"></i></a>
+        <a class="nav-link text-light p-3 m-3" routerLink="/sobre">Sobre nós</a>
+        <div class="col-md-4 d-flex m-3">
+          <input #input type="search " id="form1" class="form-control pesquisar p-3" placeholder="Pesquisar"
+            [(ngModel)]="produtoPesquisa" #filterName name="filterName">
+          <a type="button" class="form-control btnpesquisar" [routerLink]="['/pesquisa', produtoPesquisa]"
+            (click)="filterName.value = ''">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </a>
+        </div>
+        <a class="nav-link text-light p-3 m-3" routerLink="/parceiras">Notícias</a>
         <div *ngIf='sumir==0'>
           <a routerLink="/login-cadastro" class="nav-link text-light align-mi " #EntreCadast>Entre, ou cadastre-se</a>
         </div>
-        <div *ngIf='sumir==1' class="dropdown nav-link">
+        <div *ngIf='sumir==1' class="dropdown nav-link m-3">
           <a class="dropdown-toggle text-white " type="button" id="dropdownMenuButton" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             Olá, {{userLogin.nome}}
           </a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" routerLink="/profile">Perfil</a>
-            <a class="dropdown-item" (click)="logout()">Logout</a>
+            <a class="dropdown-item" routerLink="/profile">Perfil <i class="fa fa-user float-right" aria-hidden="true"></i>
+             
+            </a>
+            <a class="dropdown-item" routerLink="/carrinho">Carrinho  <i class="fa fa-shopping-cart float-right" aria-hidden="true"></i></a>
+            <a class="dropdown-item" (click)="logout()" routerLink="/inicio">Logout <i class="fa fa-sign-out float-right" aria-hidden="true"></i></a>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </div>

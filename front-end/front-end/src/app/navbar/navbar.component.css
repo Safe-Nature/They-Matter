@@ -1,9 +1,6 @@
 .fad:hover{
     color:darkgreen;
 }
-.fa-shopping-cart {
-    font-size: 24pt;
-}
 .sr:hover{
     color: lightgreen;
 }
@@ -25,15 +22,15 @@
 }
 
 .pesquisar{
-    border-radius: 10px 0 0 10px;
+    border-radius: 15px 0 0 15px;
     width: 100%;
-}
 
+}
 .btnpesquisar{
     margin-left: -1px;
     height: 38px;
-    border-radius: 0 10px 10px 0;
-    width: 10%;
+    border-radius: 0 15px 15px 0;
+    width: 50px;
 }
 .bk{
     background-color: #00463f;
@@ -52,5 +49,11 @@
 @media only screen and (max-width: 800px) {
     .m-l{
         margin: 0 0 0 0;
+    }
+    .navbar1 {
+        justify-content: space-between!important;
+    }
+    .navbar2 {
+        flex-direction: column;
     }
 }

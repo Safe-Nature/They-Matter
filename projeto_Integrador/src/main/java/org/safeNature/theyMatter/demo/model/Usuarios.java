@@ -30,7 +30,6 @@ public class Usuarios {
 
 	@Column(name="usuarios_id")
 	@NotNull
-	@Size (min=6, max= 25)
 	private String nome;
 
 	@Column
@@ -39,7 +38,6 @@ public class Usuarios {
 
 	@Column
 	@NotNull
-	@Size (min=6, max= 12)
 	private String senha;
 
 	@OneToMany(mappedBy = "usuarios",cascade = CascadeType.ALL)

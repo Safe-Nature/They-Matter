@@ -25,18 +25,4 @@ export class MainPageComponent implements OnInit {
   ngOnInit() {
 
   }
-  comprar(id: number) {
-
-    if(environment.token == null) {
-      alert('Precisa Estar Logado para comprar')
-    }
-    this.produtosService.getByIdProdutos(id).subscribe((resp: Produtos) => {
-      this.produto = resp
-      console.log(this.produto)
-      this.listaProdutos.push(resp)
-    })
-    console.log(this.listaProdutos)
-    localStorage.setItem('listaProdutos', JSON.stringify(this.listaProdutos))
-    return this.listaProdutos
-  }
 }

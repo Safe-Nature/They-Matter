@@ -54,7 +54,6 @@ export class NavbarComponent implements OnInit {
   }
   logout(){
     this.sumir = 0
-    this.router.navigate(['/inicio'])
   }
   ngAfterViewInit() {
     // server-side search
