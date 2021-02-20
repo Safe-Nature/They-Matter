@@ -38,3 +38,7 @@
 .categoria:hover {
     background-color: #00463F;
 }
+.img-card{
+    width: 300px;
+    height: 270px;
+    }
