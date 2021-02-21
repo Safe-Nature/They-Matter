@@ -25,7 +25,7 @@ export class MainPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    window.scroll(0,0)
   }
   goToProduto(id: number) {
     this.router.navigate([`/produto/${id}`])

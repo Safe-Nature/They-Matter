@@ -28,6 +28,7 @@ export class CategoriasPageComponent implements OnInit {
   ) {  }
 
   ngOnInit() {
+    window.scroll(0,0)
     let id = this.direction.snapshot.params['id']
     this.produtoService.getCategoriaById(id).subscribe(resp => this.categoria = resp)
   }

@@ -26,8 +26,6 @@ export class CarrinhoComponent implements OnInit {
   location: Location = new Location()
   listaLocais: Location[] = []
 
-
-
   option: number = 0
   total: number
   metodo1: string = "Á vista"
@@ -44,6 +42,7 @@ export class CarrinhoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    window.scroll(0,0)
     this.getListaProdutos()
     this.total = this.precoTotal()
     this.navbarService.notifyObservable$.subscribe(res => {

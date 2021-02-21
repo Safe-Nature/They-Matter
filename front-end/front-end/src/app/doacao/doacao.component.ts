@@ -31,7 +31,7 @@ export class DoacaoComponent implements OnInit {
     } else {
       this.total = parseInt(this.valor, 10)
       console.log(this.total)
-      this.pedido.status = 'doação'
+      this.pedido.status = 'Doação'
       this.usuario.id = environment.id
       this.pedido.usuarios = this.usuario
       this.pedido.total = this.total

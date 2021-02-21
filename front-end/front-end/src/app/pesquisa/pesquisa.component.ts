@@ -26,6 +26,7 @@ export class PesquisaComponent implements OnInit {
   }
 
   ngOnInit(){
+    window.scroll(0,0)
     this.route.params.subscribe(
         params => {
           this.nomeProd = params['busca']

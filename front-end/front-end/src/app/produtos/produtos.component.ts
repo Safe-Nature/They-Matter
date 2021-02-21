@@ -23,6 +23,7 @@ export class ProdutosComponent implements OnInit {
   ) { }
 
   ngOnInit(){
+    window.scroll(0,0)
     this.produtosService.getAllProdutos().subscribe(resp => this.produtos = resp)
   }
   loadCatPage(id: number) {
