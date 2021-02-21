@@ -1,3 +1,13 @@
 .carousel-indicators {
     position: inherit;
 }
+
+.textFormat{
+
+    font: 10rem;
+  
+  }
+
+  .bg-colorstyle {
+    background: #f5f5f5;  
+  }
