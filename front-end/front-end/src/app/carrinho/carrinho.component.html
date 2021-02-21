@@ -34,7 +34,7 @@
                         <tr *ngFor="let produto of listaProdutos">
                             <th scope="row" ><img class=" tm1" src="{{produto.imagem}}"></th>
                             <td class="align-middle">{{produto.nome}}</td>
-                            <td class="align-middle">R$ {{produto.preco}}</td>
+                            <td class="align-middle">R$ {{produto.preco}}.00</td>
                             <td class="align-middle"><button (click)="removeProduto(listaProdutos.indexOf(produto))" class="btn btn-danger mr-3" style="float:right"  >Remover</button></td>
                         </tr>  
                         </tbody>
@@ -110,7 +110,7 @@
         </div>
         <hr>
         <div class="col-md-4 p-5">
-            <h4 class="text-capitalize text-justify">Valor total da compra: R$ {{total}}</h4>
+            <h4 class="text-capitalize text-justify">Valor total da compra: R$ {{total}}.00</h4>
             <label type="select">Selecione a forma de pagamento:</label>
             <br>
             <select [(ngModel)]="pedido.metodo" placeholder="forma de pagamento" class="form-control">
@@ -121,7 +121,7 @@
             <hr>
             <div class="d-flex justify-content-between">
                 <img class="cd-banner" src="../../assets/img/pngwing.com (1).png">
-                <button class="botao" (click)="realizarPedido()">Continuar</button>
+                <button class="botao" (click)="realizarPedido()">Finalizar</button>
              </div>
         </div>
         <div class="col-md-2"></div>

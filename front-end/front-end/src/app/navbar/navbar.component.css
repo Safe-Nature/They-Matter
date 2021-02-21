@@ -31,6 +31,7 @@
     height: 38px;
     border-radius: 0 15px 15px 0;
     width: 50px;
+    border-left: 0;
 }
 .bk{
     background-color: #00463f;

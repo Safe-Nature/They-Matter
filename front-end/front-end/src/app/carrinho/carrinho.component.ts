@@ -42,7 +42,7 @@ export class CarrinhoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    window.scroll(0,0)
+    window.scroll(0, 0)
     this.getListaProdutos()
     this.total = this.precoTotal()
     this.navbarService.notifyObservable$.subscribe(res => {
@@ -89,7 +89,7 @@ export class CarrinhoComponent implements OnInit {
   realizarPedido() {
 
     if (environment.token != '') {
-      
+
       this.pedido.produto = this.listaProdutos
       this.pedido.total = this.total
       this.pedido.status = "Aprovada"
@@ -99,20 +99,26 @@ export class CarrinhoComponent implements OnInit {
       this.location.usuarios = this.usuario
       console.log(this.pedido)
 
-      this.pedidosService.postPedido(this.pedido).subscribe((resp: Pedidos) => {
-        this.pedido = resp
-      })
-      alert("Pedido realizado!! Obrigado por comprar conosco!")
-      this.router.navigate(['/inicio'])
-      for (let produtos of this.listaProdutos) {
-        produtos.estoque = (produtos.estoque - 1)
-        console.log(produtos.estoque)
-        this.produtosService.updateProdutoById(produtos.id, produtos).subscribe((resp: Produtos) => {
-          produtos = resp
-        })
-      }
-      localStorage.removeItem('listaProdutos')
 
+      if (this.pedido.metodo == null) {
+        alert("Selecione seu metodo de pagamento antes de finalizar a compra.")
+      } else {
+
+        this.pedidosService.postPedido(this.pedido).subscribe((resp: Pedidos) => {
+          this.pedido = resp
+        })
+
+        alert("Pedido realizado!! Obrigado por comprar conosco!")
+        this.router.navigate(['/inicio'])
+        for (let produtos of this.listaProdutos) {
+          produtos.estoque = (produtos.estoque - 1)
+          console.log(produtos.estoque)
+          this.produtosService.updateProdutoById(produtos.id, produtos).subscribe((resp: Produtos) => {
+            produtos = resp
+          })
+        }
+        localStorage.removeItem('listaProdutos')
+      }
       if (this.location.nome == null && this.location.cep == null && this.location.cidade == null && this.location.uf == null) {
         alert('Favor Inserir todos os campos de endereço para entrega!')
       } else {
