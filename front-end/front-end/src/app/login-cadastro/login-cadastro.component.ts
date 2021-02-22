@@ -80,7 +80,6 @@ export class LoginCadastroComponent implements OnInit {
       })
 
     }
-
   }
 
   confirmSenha(event: any) {
@@ -94,10 +93,6 @@ export class LoginCadastroComponent implements OnInit {
   confirmEmail(event: any) {
     this.confirmEmail = event.target.value
   }
-
-
-
-
 
 }
 

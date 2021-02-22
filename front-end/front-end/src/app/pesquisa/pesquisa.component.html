@@ -1,28 +1,57 @@
-<div class="container-fluid mt-5">
-   <h2 class="ml-5" style="font-family: 'Roboto Slab', serif; font-size: 24pt;"> Resultados</h2>
-    <hr>
-    <div class="row mt-5 d-flex flex-wrap text-center justify-content-center ">
-      <br>
-      
-      <div class="col-md-12 d-flex justify-content-center mb-5 flex-wrap loading" *ngIf="loading">
-        <div class="spinner-border text-success" role="status">
-          <span class="sr-only">Loading...</span>
-        </div>
-      </div>
-      <div class="col-md-12 d-flex justify-content-center mb-5 flex-wrap" *ngIf="!loading">
-        <p class="text-center" style="font-family: 'Roboto Slab', serif; font-size: 24pt;" *ngIf="listaPesquisa?.length == 0 ">Nenhum Produto Foi Encontrado!</p>
-
-        <!-- Cards 4 Produtos -->
-        <div class="col-md-10 d-flex justify-content-center mb-5 card-row flex-wrap ">
-          <!-- Cards 4 Produtos -->
-          <div *ngFor="let produto of listaPesquisa" class=" border mobile-card-img m-1">
-            <img class=" p-3 card-img-top img-fluid " src="{{produto.imagem}}">
-            <div class="card-body">
-              <h5 class="card-text">{{produto.descricao}}</h5><p> R${{produto.preco}}.00</p>
-            </div>
-          </div>
+<div class="container-fluid">
+  <div class="row header-style p-5">
+    <h2 class="ml-5 " style="font-family: 'Roboto Slab', serif; font-size: 24pt;">Pesquisa</h2>
+  </div>
+  <div class="col-md-2 mt-5 mb-5 lead float-left">
+    <div class="categoria-box justify-content-center align-content-center">
+      <a (click)="loadCatPage(1)"
+        class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+        <img class="ctg-img img-back mt-3" src="../../assets/padrao/tshirt.png" />
+        <img class="ctg-img img-front mt-3" src="../../assets/padrao/tshirt-hover.png">
+        <p>Vestuário</p>
+      </a>
+      <a (click)="loadCatPage(2)"
+        class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+        <img class="ctg-img img-back mt-3" src="../../assets/padrao/acessorio.png" />
+        <img class="ctg-img img-front mt-3" src="../../assets/padrao/acessorio-hover.png">
+        <p>Acessórios</p>
+      </a>
+      <a (click)="loadCatPage(3)"
+        class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+        <img class="ctg-img img-back mt-3" src="../../assets/padrao/cup.png" />
+        <img class="ctg-img img-front mt-3" src="../../assets/padrao/cup-hover.png">
+        <p>Canecas</p>
+      </a>
+      <a (click)="loadCatPage(4)"
+        class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+        <img class="ctg-img img-back mt-3" src="../../assets/padrao/teddy-bear.png" />
+        <img class="ctg-img img-front mt-3" src="../../assets/padrao/teddy-bear-hover.png">
+        <p>Brinquedos</p>
+      </a>
+      <a (click)="loadCatPage(5)"
+        class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+        <img class="ctg-img img-back mt-3" src="../../assets/padrao/recycle.png" />
+        <img class="ctg-img img-front mt-3" src="../../assets/padrao/recycle-hover.png">
+        <p>Retornáveis</p>
+      </a>
+      <a routerLink="/doacao"
+        class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+        <img class="ctg-img img-back mt-3" src="../../assets/padrao/heart.png" />
+        <img class="ctg-img img-front mt-3" src="../../assets/padrao/heart-hover.png">
+        <p>Doe Aqui</p>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-10 m-5 d-flex justify-content-start mb-5 mobile-card-row flex-wrap ">
+    <!-- Cards 4 Produtos -->
+    <div *ngFor="let produto of listaPesquisa">
+      <div (click)="goToProduto(produto.id)" class=" border mobile-card-img m-1">
+        <img class=" p-3 card-img-top img-card " src="{{produto.imagem}}">
+        <div class="card-body text-center">
+          <h5 class="card-text">{{produto.nome}}</h5>
+          <p> R${{produto.preco}}.00</p>
         </div>
       </div>
     </div>
   </div>
- 
+</div>

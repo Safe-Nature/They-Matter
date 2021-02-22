@@ -1,3 +1,4 @@
+import { Categoria } from './../models/Categoria';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
@@ -14,6 +15,7 @@ export class PesquisaComponent implements OnInit {
 
   produto: Produtos = new Produtos()
   listaPesquisa: Produtos[]
+  categoria: Categoria
   
   nomeProd: string
   loading = false
@@ -45,20 +47,12 @@ export class PesquisaComponent implements OnInit {
     })
   }
     
-  comprar(id: number) {
-
-    if(environment.token == '') {
-      alert('Entre com sua conta para comprar')
-    } else {
-      this.produtoService.getByIdProdutos(id).subscribe((resp: Produtos) => {
-        this.produto = resp
-        console.log(this.produto)
-        this.produtoService.listaProdutos.push(resp)
-        localStorage.setItem('listaProdutos', JSON.stringify(this.produtoService.listaProdutos))
-      }) 
-      alert('Produto Adicionado ao carrinho')
-    }
-   
-  } 
+  loadCatPage(id: number) {
+    this.router.navigate([`/categoria/${id}`])
+    this.produtoService.getCategoriaById(id).subscribe(resp => this.categoria = resp)
+  }
+  goToProduto(id: number) {
+    this.router.navigate([`/produto/${id}`])
+  }
 
 }
