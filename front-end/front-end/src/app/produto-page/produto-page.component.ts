@@ -15,6 +15,7 @@ export class ProdutoPageComponent implements OnInit {
   produto: Produtos = new Produtos()
   categoria: Categoria = new Categoria()
   listaProdutos: Produtos[] = []
+  produtosSilimares: Produtos[] = []
   constructor( private produtosService: ProdutosService, private route: Router, private direction: ActivatedRoute,) { }
 
   ngOnInit() { 
@@ -28,7 +29,7 @@ export class ProdutoPageComponent implements OnInit {
           if(produto.id != this.produto.id) {
             this.categoria.id = resp.id
             this.categoria.nome = resp.nome
-            this.listaProdutos.push(produto) 
+            this.produtosSilimares.push(produto) 
           } 
         }
         console.log(this.categoria)
@@ -45,7 +46,7 @@ export class ProdutoPageComponent implements OnInit {
         console.log(this.produto)
         this.produtosService.listaProdutos.push(resp)
         localStorage.setItem('listaProdutos', JSON.stringify(this.produtosService.listaProdutos))
-
+        this.produtosService.listaProdutos = []
       })
       
       alert('Produto Adicionado ao carrinho')
@@ -66,7 +67,7 @@ export class ProdutoPageComponent implements OnInit {
           if(produto.id != this.produto.id) {
             this.categoria.id = resp.id
             this.categoria.nome = resp.nome
-            this.listaProdutos.push(produto) 
+            this.produtosSilimares.push(produto) 
           } 
         }
         console.log(this.categoria)
