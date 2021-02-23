@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Produtos } from '../models/Produtos';
 import { environment } from 'src/environments/environment.prod';
 import { Categoria } from '../models/Categoria';
+import { AlertService } from '../service/alert.service';
 
 @Component({
   selector: 'app-produto-page',
@@ -16,7 +17,7 @@ export class ProdutoPageComponent implements OnInit {
   categoria: Categoria = new Categoria()
   listaProdutos: Produtos[] = []
   produtosSilimares: Produtos[] = []
-  constructor( private produtosService: ProdutosService, private route: Router, private direction: ActivatedRoute,) { }
+  constructor( private produtosService: ProdutosService, private route: Router, private direction: ActivatedRoute, private alerta: AlertService) { }
 
   ngOnInit() { 
     window.scroll(0,0)
@@ -39,7 +40,7 @@ export class ProdutoPageComponent implements OnInit {
   comprar(id: number) {
 
     if(environment.token == '') {
-      alert('Entre com sua conta para comprar')
+      this.alerta.showAlertVerde('Entre com sua conta para comprar')
     } else {
       this.produtosService.getByIdProdutos(id).subscribe((resp: Produtos) => {
         this.produto = resp
@@ -48,7 +49,7 @@ export class ProdutoPageComponent implements OnInit {
         localStorage.setItem('listaProdutos', JSON.stringify(this.produtosService.listaProdutos))
       })
       
-      alert('Produto Adicionado ao carrinho')
+      this.alerta.showAlertVerde('Produto Adicionado ao carrinho')
     }
   }
   loadCatPage(id: number) {

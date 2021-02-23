@@ -1,5 +1,6 @@
 import { NavbarService } from './../service/navbar.service';
 import { NavbarComponent } from './../navbar/navbar.component';
+import { AlertService } from '../service/alert.service';
 
 import { Usuarios } from '../models/Usuarios';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
@@ -28,7 +29,8 @@ export class LoginCadastroComponent implements OnInit {
   constructor(
     private consumoService: ConsumoService,
     private router: Router,
-    private navbarService: NavbarService
+    private navbarService: NavbarService,
+    private alerta: AlertService
   ) { }
 
   ngOnInit() {
@@ -52,7 +54,7 @@ export class LoginCadastroComponent implements OnInit {
 
       if (environment.token == null) {
 
-        alert('Usuario inválido')
+        this.alerta.showAlertVerde('Usuario inválido')
 
       } else {
         this.navbarService.notifyOther({refresh: true});
@@ -61,7 +63,7 @@ export class LoginCadastroComponent implements OnInit {
 
     }, erro => {
       if (erro.status == 500) {
-        alert('E-mail ou senha estão incorretos')
+        this.alerta.showAlertVerde('E-mail ou senha estão incorretos')
       }
     }
     )
@@ -70,13 +72,13 @@ export class LoginCadastroComponent implements OnInit {
   cadastrar() {
     this.usuarios = this.usuarios
     if (this.usuarios.senha != this.confirmarSenha) {
-      alert('A senhas estão divergentes.')
+      this.alerta.showAlertVerde('A senhas estão divergentes.')
     }
     else {
       this.consumoService.cadastrar(this.usuarios).subscribe((resp: Usuarios) => {
         this.usuarios = resp
         this.router.navigate(['/inicio'])
-        alert('Seu cadastro foi efetudado com sucesso!')
+        this.alerta.showAlertVerde('Seu cadastro foi efetudado com sucesso!')
       })
 
     }

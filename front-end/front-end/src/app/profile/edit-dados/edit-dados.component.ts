@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuarios } from 'src/app/models/Usuarios';
+import { AlertService } from 'src/app/service/alert.service';
 import { ConsumoService } from 'src/app/service/usuario.service';
 import { environment } from 'src/environments/environment.prod';
 
@@ -18,7 +19,8 @@ export class EditDadosComponent implements OnInit {
   constructor(
     private consumoService: ConsumoService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private alerta: AlertService
   ) { }
 
   ngOnInit(){
@@ -33,12 +35,12 @@ export class EditDadosComponent implements OnInit {
 
   atualizar(){
     if (this.usuarios.senha != this.confirmarSenha) {
-      alert('A senhas estão divergentes.')
+      this.alerta.showAlertVerde('A senhas estão divergentes.')
     }
     else {
       this.consumoService.cadastrar(this.usuarios).subscribe((resp: Usuarios) => {
         this.usuarios = resp
-        alert('cadastro atualizado com sucesso, faça o login novamente')
+        this.alerta.showAlertVerde('cadastro atualizado com sucesso, faça o login novamente')
         environment.token = ''
         environment.nome = ''
         environment.email = ''
