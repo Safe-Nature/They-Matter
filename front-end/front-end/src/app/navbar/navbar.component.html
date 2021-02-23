@@ -57,10 +57,10 @@
             <a class="dropdown-item" routerLink="/profile">Perfil <i class="fa fa-user float-right" aria-hidden="true"></i>
              
             </a>
-            <a class="dropdown-item" routerLink="/carrinho">Carrinho  <i class="fa fa-shopping-cart float-right" aria-hidden="true"></i></a>
             <a class="dropdown-item" (click)="logout()" routerLink="/inicio">Logout <i class="fa fa-sign-out float-right" aria-hidden="true"></i></a>
           </div>
         </div>
+        <a *ngIf='sumir==1' class="nav-link text-light p-3 m-3" routerLink="/carrinho"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
       </div>
 
     </div>
