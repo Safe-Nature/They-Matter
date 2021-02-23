@@ -10,6 +10,7 @@ import { Produtos } from './../models/Produtos';
 import { ProdutosService } from './../service/produtos.service';
 import { Component, OnInit } from '@angular/core';
 import { Pedidos } from '../models/Pedidos';
+import { AlertService } from '../service/alert.service';
 
 
 @Component({
@@ -38,7 +39,8 @@ export class CarrinhoComponent implements OnInit {
     private router: Router,
     private pedidosService: PedidosService,
     private navbarService: NavbarService,
-    private usuarioService: ConsumoService
+    private usuarioService: ConsumoService,
+    private alerta: AlertService
   ) { }
 
   ngOnInit() {
@@ -101,14 +103,14 @@ export class CarrinhoComponent implements OnInit {
 
 
       if (this.pedido.metodo == null) {
-        alert("Selecione seu metodo de pagamento antes de finalizar a compra.")
+        this.alerta.showAlertVerde("Selecione seu metodo de pagamento antes de finalizar a compra.")
       } else {
 
         this.pedidosService.postPedido(this.pedido).subscribe((resp: Pedidos) => {
           this.pedido = resp
         })
 
-        alert("Pedido realizado!! Obrigado por comprar conosco!")
+        this.alerta.showAlertVerde("Pedido realizado!! Obrigado por comprar conosco!")
         this.router.navigate(['/inicio'])
         for (let produtos of this.listaProdutos) {
           produtos.estoque = (produtos.estoque - 1)
@@ -120,7 +122,7 @@ export class CarrinhoComponent implements OnInit {
         localStorage.removeItem('listaProdutos')
       }
       if (this.location.nome == null && this.location.cep == null && this.location.cidade == null && this.location.uf == null) {
-        alert('Favor Inserir todos os campos de endereço para entrega!')
+        this.alerta.showAlertVerde('Favor Inserir todos os campos de endereço para entrega!')
       } else {
         this.usuarioService.postLocation(this.location).subscribe((resp: Location) => {
           this.location = resp
@@ -128,7 +130,7 @@ export class CarrinhoComponent implements OnInit {
       }
 
     } else {
-      alert("Você precisa entrar para realizar seu pedido.")
+      this.alerta.showAlertVerde("Você precisa entrar para realizar seu pedido.")
     }
   }
 

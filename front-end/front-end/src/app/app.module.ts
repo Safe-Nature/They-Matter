@@ -21,6 +21,8 @@ import { PesquisaComponent } from './pesquisa/pesquisa.component';
 import { ProdutoPageComponent } from './produto-page/produto-page.component';
 import { ParceirasComponent } from './parceiras/parceiras.component';
 import { DoacaoComponent } from './doacao/doacao.component';
+import { AlertComponent } from './alert/alert.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 
@@ -42,14 +44,16 @@ import { DoacaoComponent } from './doacao/doacao.component';
     ProdutoPageComponent,
     ParceirasComponent,
     ParceirasComponent,
-    DoacaoComponent
+    DoacaoComponent,
+    AlertComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuarios } from 'src/app/models/Usuarios';
+import { AlertService } from 'src/app/service/alert.service';
 import { ConsumoService } from 'src/app/service/usuario.service';
 import { environment } from 'src/environments/environment.prod';
+
 
 @Component({
   selector: 'app-delete-dados',
@@ -17,7 +19,8 @@ export class DeleteDadosComponent implements OnInit {
   constructor(
     private consumoService: ConsumoService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private alerta: AlertService
   ) { }
 
   ngOnInit() {
@@ -34,7 +37,7 @@ export class DeleteDadosComponent implements OnInit {
       
 
     } );
-      alert('Perfil apagado com sucesso!')
+      this.alerta.showAlertVerde('Perfil apagado com sucesso!')
       this.router.navigate(['/inicio'])
 
   
