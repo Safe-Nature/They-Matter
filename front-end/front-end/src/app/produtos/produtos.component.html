@@ -3,7 +3,13 @@
     <h2 class="ml-5 " style="font-family: 'Roboto Slab', serif; font-size: 24pt;">Produtos</h2>
   </div>
   <div class="col-md-2 mt-5 mb-5 lead float-left">
+    
     <div class="categoria-box justify-content-center align-content-center">
+      <a routerLink="/produtos" class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+        <img class="ctg-img img-back mt-3" src="../../assets/logo2.png">
+        <img class="ctg-img img-front mt-3" src="../../assets/logo2-hover.png">
+        <p>Todos</p>
+      </a>
       <a (click)="loadCatPage(1)"
         class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
         <img class="ctg-img img-back mt-3" src="../../assets/padrao/tshirt.png" />
@@ -42,7 +48,7 @@
       </a>
     </div>
   </div>
-  <div class="col-md-10 m-5 d-flex justify-content-start mb-5 mobile-card-row flex-wrap ">
+  <div class="col-md-10 d-flex justify-content-start product-container mt-5 mb-5 mobile-card-row flex-wrap ">
     <!-- Cards 4 Produtos -->
     <div *ngFor="let produto of produtos">
       <div (click)="goToProduto(produto.id)" class=" border mobile-card-img m-1">

@@ -67,6 +67,7 @@ export class CarrinhoComponent implements OnInit {
     this.getListaProdutos()
     let index = this.listaProdutos.map(function (e) { return e.id }).indexOf(x)
     console.log(this.listaProdutos.map(function (e) { return e.id }).indexOf(x))
+    this.produtosService.listaProdutos.splice(index, 1)
     this.listaProdutos.splice(index, 1)
     console.log(this.listaProdutos)
     localStorage.setItem('listaProdutos', JSON.stringify(this.listaProdutos))

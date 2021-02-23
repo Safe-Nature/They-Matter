@@ -1,6 +1,11 @@
 <div class="container-fluid d-flex justify-content-between">
   <div class="col-md-2 mt-5 mb-5 lead float-left">
     <div class="categoria-box">
+      <a routerLink="/produtos" class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
+        <img class="ctg-img img-back mt-3" src="../../assets/logo2.png">
+        <img class="ctg-img img-front mt-3" src="../../assets/logo2-hover.png">
+        <p>Todos</p>
+      </a>
       <a (click)="loadCatPage(1)"
         class="categoria d-flex flex-wrap justify-content-center align-content-center p-4 text-decoration-none">
         <img class="ctg-img img-back mt-3" src="../../assets/padrao/tshirt.png" />
