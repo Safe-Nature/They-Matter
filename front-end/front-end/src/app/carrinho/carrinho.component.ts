@@ -120,7 +120,7 @@ export class CarrinhoComponent implements OnInit {
         }
         localStorage.removeItem('listaProdutos')
       }
-      if (this.location.nome == null && this.location.cep == null && this.location.cidade == null && this.location.uf == null) {
+      if (this.location.nome == null && this.location.cep == null && this.location.cidade == null && this.location.uf == null || this.listaLocais == []) {
         alert('Favor Inserir todos os campos de endereço para entrega!')
       } else {
         this.usuarioService.postLocation(this.location).subscribe((resp: Location) => {
